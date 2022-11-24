@@ -9,19 +9,22 @@ class DatabaseConnector {
     private $database;
 
     function __construct() {
-        $this->mongoConnectionInfos = new MongoDBConfig();
-        /** This is for local manage */
-        // $uri = getenv('ATL_URI');
-        // $database = getenv('DATABASE');
+        $this->mongoConnectionInfos = new MongoDBConfig();      
+        if(getenv('CI_ENVIRONMENT') == 'production') {
+            /** This is for local manage */
+            $uri = getenv('ATL_URI');
+            $database = getenv('DATABASE');
+        } else {
 
-        /** Set it when connected online */
-        $uri = new Klient("mongodb://{$this->mongoConnectionInfos->hostname}:{$this->mongoConnectionInfos->port}/{$this->mongoConnectionInfos->db}",
-                            ["authMechanism" => "SCRAM-SHA-256",
-                                'username' => $this->mongoConnectionInfos->username,
-                                'password' => $this->mongoConnectionInfos->password
-                            ]
-                        );
-        $database = $this->mongoConnectionInfos->db;
+            /** Set it when connected online */
+            $uri = new Klient("mongodb://{$this->mongoConnectionInfos->hostname}:{$this->mongoConnectionInfos->port}/{$this->mongoConnectionInfos->db}",
+                                ["authMechanism" => "SCRAM-SHA-256",
+                                    'username' => $this->mongoConnectionInfos->username,
+                                    'password' => $this->mongoConnectionInfos->password
+                                ]
+                            );
+            $database = $this->mongoConnectionInfos->db;
+        }     
 
         if (empty($uri) || empty($database)) {
             show_error('You need to declare ATLAS_URI and DATABASE in your .env file!');

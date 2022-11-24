@@ -34,7 +34,7 @@
                                  class="img-fluid mb-4"
                                  style="height: 60px; width: 120px;"
                             >
-							<h4 class="mb-3 f-w-400">Sign up</h4>
+							<h4 class="mb-3 f-w-400">Sign Up</h4>
 
                             <div class="form-group mb-3">
                                 <label class="floating-label" for="u_first_name">Name</label>
@@ -76,7 +76,7 @@
                             </div>
                         </div>
 							<button class="btn btn-primary btn-block mb-4">Sign up</button>
-							<p class="mb-2">Already have an account? <a href="<?= base_url('login');?>" class="f-w-400">Signin</a></p>
+							<p class="mb-2">Already have an account? <a href="<?= base_url('login');?>" class="f-w-400">Sign in</a></p>
 						</div>
 					</div>
 				</div>

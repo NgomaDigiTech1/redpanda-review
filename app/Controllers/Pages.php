@@ -24,7 +24,7 @@
             $data = [
                 'title' => ucfirst($page),
 				'sectors'=> $this->sectModel->getEnabledSectors(),
-            ];
+            ];			
             echo view('pages/'.$page, $data);
 		}
 

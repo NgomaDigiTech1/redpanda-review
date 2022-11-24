@@ -34,7 +34,7 @@
                                  class="img-fluid mb-4"
                                  style="height: 60px; width: 120px;"
                             >
-                            <h4 class="mb-3 f-w-400">Signin</h4>
+                            <h4 class="mb-3 f-w-400">Sign In</h4>
                             <div class="form-group mb-3">
                                 <label class="floating-label" for="Email">Email address</label>
                                 <input type="text" class="form-control" id="Email" name="user_email" placeholder=""
@@ -54,7 +54,7 @@
                             </div>
                             <button class="btn btn-block btn-primary mb-4" role="submit">Signin</button>
                             <p class="mb-2 text-muted">Forgot password? <a href="<?= base_url('reset');?>" class="f-w-400">Reset</a></p>
-                            <p class="mb-0 text-muted">Don’t have an account? <a href="<?= base_url('signup');?>" class="f-w-400">Signup</a></p>
+                            <p class="mb-0 text-muted">Don’t have an account? <a href="<?= base_url('signup');?>" class="f-w-400">Sign up</a></p>
                         </div>
                     </div>
                 </div>
