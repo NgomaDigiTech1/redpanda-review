@@ -1,0 +1,743 @@
+[{
+  "_id": {
+    "$oid": "6166ef608b5f00009f006f58"
+  },
+  "product_name": "Samsung Prod 4",
+  "product_id": "8a0ed941b89329690d31e76b1696bbc9c8",
+  "product_description": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,&nbsp;</p><p>when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+  "product_categories": [
+    "Phone",
+    "Smartphone",
+    "Téléphone",
+    "Mobile"
+  ],
+  "product_image": "1634036882_1d3170f3651159dce1d5.png",
+  "caracteristics": {
+    "requires": {
+      "product_id": "8a0ed941b89329690d31e76b1696bbc9c8",
+      "color": "Black, Red, marron",
+      "price": "500$",
+      "size": "28",
+      "duck": "Eric",
+      "powder": "Gh",
+      "other": "Noothing",
+      "conditions_content": "<p>Lorem Ipsum</p>"
+    },
+    "optionals": {
+      "product_id": "8a0ed941b89329690d31e76b1696bbc9c8",
+      "color": "Black, Red, marron",
+      "price": "500$",
+      "size": "28",
+      "duck": "Eric",
+      "powder": "Gh",
+      "other": "Noothing",
+      "conditions_content": "<p>Lorem Ipsum</p>"
+    }
+  },
+  "org_name": "La Souveraine",
+  "org_lead": "Our Lead",
+  "org_adress": "5555 Pax",
+  "org_website": "www.medard.org",
+  "org_secteur": "Telecoms",
+  "org_email": "amberly@fine.com",
+  "org_picture": "org.jpg"
+},{
+  "_id": {
+    "$oid": "6168426442030000f500611a"
+  },
+  "product_name": "Visa Card",
+  "product_id": "984ba66f0583a43d38e11a518c499fbf",
+  "product_description": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,&nbsp;</p><p>when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. ",
+  "product_categories": [
+    "Visa gold",
+    "Visa platinium"
+  ],
+  "product_image": "no-image.jpg",
+  "caracteristics": {
+    "requires": {
+      "product_id": "984ba66f0583a43d38e11a518c499fbf",
+      "Price": "200",
+      "Expirate_date": "2020",
+      "CVV": "55252",
+      "Pin": "5050",
+      "conditions_content": "<p>Elis</p>"
+    },
+    "optionals": {
+      "product_id": "984ba66f0583a43d38e11a518c499fbf",
+      "Price": "200",
+      "Expirate_date": "2020",
+      "CVV": "55252",
+      "Pin": "5050",
+      "conditions_content": "<p>Elis</p>"
+    }
+  },
+  "org_name": "Ngoma Digitech",
+  "org_lead": "Our Lead",
+  "org_adress": "5555 Pax",
+  "org_website": "www.medard.org",
+  "org_email": "amberly@fine.com",
+  "org_secteur": "Bank",
+  "org_picture": "org.jpg"
+},{
+  "_id": {
+    "$oid": "61891e8f08210000980055be"
+  },
+  "product_name": "Maxi Cash",
+  "product_id": "1ff2741769f8597adf442fbca20af6c5",
+  "product_description": "Lorem ipsum doloris cateum",
+  "product_categories": [
+    "Credit Card"
+  ],
+  "product_image": "no-image.jpg",
+  "caracteristics": {
+    "requires": {
+      "product_id": "1ff2741769f8597adf442fbca20af6c5",
+      "Duration": "2 years",
+      "CVV": "4589 3939",
+      "conditions_content": "<p>No condition</p>"
+    },
+    "optionals": {
+      "product_id": "1ff2741769f8597adf442fbca20af6c5",
+      "Duration": "2 years",
+      "CVV": "4589 3939",
+      "conditions_content": "<p>No condition</p>"
+    }
+  },
+  "org_name": "Max Lab Tech",
+  "org_lead": "Mrd",
+  "org_adress": "Here 999",
+  "org_website": "www.medard.org",
+  "org_secteur": "Sciences & Technology",
+  "org_email": "axelle@email.com\"",
+  "org_picture": "org.jpg"
+},{
+  "_id": {
+    "$oid": "619377250f4e0000a6005ff7"
+  },
+  "product_name": "Falcaun 11",
+  "product_id": "8d314e2742a676d1a17715964c2edcd1",
+  "product_description": "This is the real very rapider gear for the Space in the world you will never seen. Manufactured by Space X,  the best of the best companies in the world in space technology.",
+  "product_categories": [
+    "Satelite",
+    "Rocket"
+  ],
+  "product_image": "1637054068_4e4e623ce424a3ea533f.jpeg",
+  "caracteristics": {
+    "requires": {
+      "product_id": "8d314e2742a676d1a17715964c2edcd1",
+      "Speed": "7000 km/h",
+      "Weight": "3000 T",
+      "Duration": "6 months",
+      "Color": "Green",
+      "conditions_content": "<p>The best and speeder rocket you'll ever seen</p>"
+    },
+    "optionals": {
+      "product_id": "8d314e2742a676d1a17715964c2edcd1",
+      "Speed": "7000 km/h",
+      "Weight": "3000 T",
+      "Duration": "6 months",
+      "Color": "Green",
+      "conditions_content": "<p>The best and speeder rocket you'll ever seen</p>"
+    }
+  },
+  "org_name": "Max Lab Tech",
+  "org_lead": "Mrd",
+  "org_adress": "Here 999",
+  "org_website": "www.medard.org",
+  "org_email": "axelle@email.com\"",
+  "org_secteur": "Sciences & Technology",
+  "org_picture": "org.jpg"
+},{
+  "_id": {
+    "$oid": "6194aecffa360000de004617"
+  },
+  "product_name": "Falcaun 11",
+  "product_id": "8d314e2742a676d1a17715964c2edcd1",
+  "product_description": "This is the real very rapider gear for the Space in the world you will never seen. Manufactured by Space X,  the best of the best companies in the world in space technology.",
+  "product_categories": [
+    "Satelite",
+    "Rocket"
+  ],
+  "product_image": "1637054068_4e4e623ce424a3ea533f.jpeg",
+  "caracteristics": {
+    "requires": {
+      "product_id": "8d314e2742a676d1a17715964c2edcd1",
+      "Speed": "2000 Km/h",
+      "Weight": "5000 T",
+      "Duration": "12 months",
+      "Color": "Brown",
+      "conditions_content": "<p>Yes the better one among others</p>"
+    },
+    "optionals": {
+      "product_id": "8d314e2742a676d1a17715964c2edcd1",
+      "Speed": "2000 Km/h",
+      "Weight": "5000 T",
+      "Duration": "12 months",
+      "Color": "Brown",
+      "conditions_content": "<p>Yes the better one among others</p>"
+    }
+  },
+  "org_name": "Space X",
+  "org_lead": "Erick le Rouge",
+  "org_picture": "org.jpg",
+  "org_adress": "Palo Alto",
+  "org_email": "axelle@email.com\"",
+  "org_website": "www.website.com",
+  "org_secteur": "Sciences & Technology"
+},{
+  "_id": {
+    "$oid": "6194b2d3fa360000de004619"
+  },
+  "product_name": "Huawei",
+  "product_id": "205d59540097ab9cf2320250a51c4bf1",
+  "product_description": "Huawei is the best of the best in Technology in Asia and all over the world. It's one of the smaterst companies of the lead.",
+  "product_categories": [
+    "Smartphone",
+    "Phone ",
+    "Tablette ",
+    "PC"
+  ],
+  "product_image": "1637134659_5b49c40ad0768d5abc50.jpg",
+  "caracteristics": {
+    "requires": {
+      "product_id": "205d59540097ab9cf2320250a51c4bf1",
+      "System": "HarmonyOS",
+      "RAM": "8 GB",
+      "Processor": "8 GHz",
+      "Size": "20x32, 16x26",
+      "Color": "Gold, Red",
+      "conditions_content": "<p>No conditions</p>"
+    },
+    "optionals": {
+      "product_id": "205d59540097ab9cf2320250a51c4bf1",
+      "System": "HarmonyOS",
+      "RAM": "8 GB",
+      "Processor": "8 GHz",
+      "Size": "20x32, 16x26",
+      "Color": "Gold, Red",
+      "conditions_content": "<p>No conditions</p>"
+    }
+  },
+  "org_name": "Space X",
+  "org_picture": "org.jpg",
+  "org_lead": "Erick le Rouge",
+  "org_adress": "Palo Alto",
+  "org_email": "axelle@email.com\"",
+  "org_website": "www.website.com",
+  "org_secteur": "Sciences & Technology"
+},{
+  "_id": {
+    "$oid": "619662b6de370000400079fa"
+  },
+  "product_name": "Sky Eyes",
+  "product_id": "d4b93aed9875925d9b5c4c2f3701f462",
+  "product_description": "This is the best desktop, mobile and web app you've never seen for the observation of the world climate.",
+  "product_categories": [
+    "Software",
+    "System",
+    "Application"
+  ],
+  "product_image": "1636451558_385a20f1a11c5a547a53.jpeg",
+  "caracteristics": {
+    "requires": {
+      "product_id": "d4b93aed9875925d9b5c4c2f3701f462",
+      "Price": "U$ 2000",
+      "Duration": "12 months",
+      "OS": "Windows, OS, Apple",
+      "User_number": "4",
+      "conditions_content": "<p>Fine</p>"
+    },
+    "optionals": {
+      "product_id": "d4b93aed9875925d9b5c4c2f3701f462",
+      "Price": "U$ 2000",
+      "Duration": "12 months",
+      "OS": "Windows, OS, Apple",
+      "User_number": "4",
+      "conditions_content": "<p>Fine</p>"
+    }
+  },
+  "org_name": "Space X",
+  "org_picture": "org.jpg",
+  "org_lead": "Erick le Rouge",
+  "org_adress": "Palo Alto",
+  "org_email": "axelle@email.com\"",
+  "org_website": "www.website.com",
+  "org_secteur": "Sciences & Technology"
+},{
+  "_id": {
+    "$oid": "61b1bcbdcb790000b2003492"
+  },
+  "product_name": "Engin",
+  "product_id": "532a9ddc46c46ff2928d76d088cffed4",
+  "product_description": "Ceci est une description du produit",
+  "product_categories": [
+    "Compacteur",
+    "Dameur",
+    "Asphalteur"
+  ],
+  "product_image": "1636451558_385a20f1a11c5a547a53.jpeg",
+  "caracteristics": {
+    "requires": {
+      "product_id": "532a9ddc46c46ff2928d76d088cffed4",
+      "Taille": "7 m",
+      "Poids": "15 T",
+      "Couleur": "Jaune",
+      "Vitesse": "120 Km/h",
+      "conditions_content": "<p>No more conditions</p>"
+    },
+    "optionals": {
+      "product_id": "532a9ddc46c46ff2928d76d088cffed4",
+      "Taille": "7 m",
+      "Poids": "15 T",
+      "Couleur": "Jaune",
+      "Vitesse": "120 Km/h",
+      "conditions_content": "<p>No more conditions</p>"
+    }
+  },
+  "org_name": "Tech For All",
+  "org_picture": "org.jpg",
+  "org_lead": "Mrs Amberly Fine",
+  "org_email": "axelle@email.com\"",
+  "org_adress": "364 Flower avenue, Ottawa",
+  "org_website": "www.firstone.com",
+  "org_secteur": "Construction"
+},{
+  "_id": {
+    "$oid": "61b9c1c95f62000008004658"
+  },
+  "product_name": "Max TV",
+  "product_id": "c4e974f3ea08e046845a2d6c6be764e4",
+  "product_description": "Juste pour les chaines de télévison",
+  "product_categories": [
+    "Television",
+    "Audio Visuel",
+    "Radio"
+  ],
+  "product_image": "1636451558_385a20f1a11c5a547a53.jpeg",
+  "caracteristics": {
+    "requires": {
+      "product_id": "c4e974f3ea08e046845a2d6c6be764e4",
+      "Audimetrie": "5000000",
+      "Audience": "3000000",
+      "Abonnement": "60000",
+      "Portée": "1000 Km2",
+      "conditions_content": "<p>Pas trod de condition chez-nous</p>"
+    },
+    "optionals": {
+      "product_id": "c4e974f3ea08e046845a2d6c6be764e4",
+      "Audimetrie": "5000000",
+      "Audience": "3000000",
+      "Abonnement": "60000",
+      "Portée": "1000 Km2",
+      "conditions_content": "<p>Pas trod de condition chez-nous</p>"
+    }
+  },
+  "org_name": "Tech For All",
+  "org_lead": "Mrs Amberly Fine",
+  "org_picture": "1638884338_b53d3417e4870ab397e9.jpeg",
+  "org_adress": "364 Flower avenue, Ottawa",
+  "org_email": "amberly@fine.com",
+  "org_website": "www.firstone.com",
+  "org_secteur": "Media"
+},{
+  "_id": {
+    "$oid": "61c1886da70e0000310044d8"
+  },
+  "product_name": "Falcaun 11",
+  "product_id": "8d314e2742a676d1a17715964c2edcd1",
+  "product_description": "\r\nThis is the real very rapider gear for the Space in the world you will never seen. Manufactured by Space X,  the best of the best companies in the world in space technology.",
+  "product_categories": [
+    "Satelite",
+    "Rocket"
+  ],
+  "product_image": "1637054068_4e4e623ce424a3ea533f.jpeg",
+  "caracteristics": {
+    "requires": {
+      "product_id": "8d314e2742a676d1a17715964c2edcd1",
+      "Speed": "6000 km/h",
+      "Weight": "5000 T",
+      "Duration": "5 years",
+      "Color": "Blue sky",
+      "conditions_content": "<p>That's all</p>"
+    },
+    "optionals": {
+      "product_id": "8d314e2742a676d1a17715964c2edcd1",
+      "Speed": "6000 km/h",
+      "Weight": "5000 T",
+      "Duration": "5 years",
+      "Color": "Blue sky",
+      "conditions_content": "<p>That's all</p>"
+    }
+  },
+  "org_name": "Tech For All",
+  "org_lead": "Mrs Amberly Fine",
+  "org_picture": "1638884338_b53d3417e4870ab397e9.jpeg",
+  "org_adress": "364 Flower avenue, Ottawa",
+  "org_email": "amberly@fine.com",
+  "org_website": "www.firstone.com",
+  "org_secteur": "Sciences & Technology"
+},{
+  "_id": {
+    "$oid": "61c188e2a70e0000310044d9"
+  },
+  "product_name": "Falcaun 11",
+  "product_id": "8d314e2742a676d1a17715964c2edcd1",
+  "product_description": "This is the real very rapider gear for the Space in the world you will never seen. Manufactured by Space X,  the best of the best companies in the world in space technology.",
+  "product_categories": [
+    "Satelite",
+    "Rocket"
+  ],
+  "product_image": "1637054068_4e4e623ce424a3ea533f.jpeg",
+  "caracteristics": {
+    "requires": {
+      "product_id": "8d314e2742a676d1a17715964c2edcd1",
+      "Speed": "7500 Km",
+      "Weight": "6000 T",
+      "Duration": "4 years",
+      "Color": "Golden",
+      "conditions_content": "<p>Far away in the sky</p>"
+    },
+    "optionals": {
+      "product_id": "8d314e2742a676d1a17715964c2edcd1",
+      "Speed": "7500 Km",
+      "Weight": "6000 T",
+      "Duration": "4 years",
+      "Color": "Golden",
+      "conditions_content": "<p>Far away in the sky</p>"
+    }
+  },
+  "org_name": "Space X",
+  "org_lead": "Erick le Rouge",
+  "org_picture": "1637136294_5a8e0f1ff5108798be72.jpeg",
+  "org_adress": "Palo Alto",
+  "org_email": "mcarthur@gmail.com",
+  "org_website": "www.website.com",
+  "org_secteur": "Sciences & Technology"
+},{
+  "_id": {
+    "$oid": "61c1cc63a70e0000310044da"
+  },
+  "product_name": "Engin",
+  "product_id": "532a9ddc46c46ff2928d76d088cffed4",
+  "product_description": "Ceci est une description du produit",
+  "product_categories": [
+    "Compacteur",
+    "Dameur",
+    "Asphalteur"
+  ],
+  "product_image": "1636451558_385a20f1a11c5a547a53.jpeg",
+  "caracteristics": {
+    "requires": {
+      "product_id": "532a9ddc46c46ff2928d76d088cffed4",
+      "Taille": "8 m",
+      "Poids": "5 T",
+      "Couleur": "Bleu",
+      "Vitesse": "60 Km/h",
+      "conditions_content": ""
+    },
+    "optionals": {
+      "product_id": "532a9ddc46c46ff2928d76d088cffed4",
+      "Taille": "8 m",
+      "Poids": "5 T",
+      "Couleur": "Bleu",
+      "Vitesse": "60 Km/h",
+      "conditions_content": ""
+    }
+  },
+  "org_name": "Tech For All",
+  "org_lead": "Mrs Amberly Fine",
+  "org_picture": "1638884338_b53d3417e4870ab397e9.jpeg",
+  "org_adress": "364 Flower avenue, Ottawa",
+  "org_email": "amberly@fine.com",
+  "org_website": "www.firstone.com",
+  "org_secteur": "Construction"
+},{
+  "_id": {
+    "$oid": "61c1ccdfa70e0000310044db"
+  },
+  "product_name": "Engin",
+  "product_id": "532a9ddc46c46ff2928d76d088cffed4",
+  "product_description": "Ceci est une description du produit",
+  "product_categories": [
+    "Compacteur",
+    "Dameur",
+    "Asphalteur"
+  ],
+  "product_image": "1636451558_385a20f1a11c5a547a53.jpeg",
+  "caracteristics": {
+    "requires": {
+      "product_id": "532a9ddc46c46ff2928d76d088cffed4",
+      "Taille": "10 M",
+      "Poids": "8 T",
+      "Couleur": "Jaune",
+      "Vitesse": "80 Km/h",
+      "conditions_content": ""
+    },
+    "optionals": {
+      "product_id": "532a9ddc46c46ff2928d76d088cffed4",
+      "Taille": "10 M",
+      "Poids": "8 T",
+      "Couleur": "Jaune",
+      "Vitesse": "80 Km/h",
+      "conditions_content": ""
+    }
+  },
+  "org_name": "Space X",
+  "org_lead": "Erick le Rouge",
+  "org_picture": "1637136294_5a8e0f1ff5108798be72.jpeg",
+  "org_adress": "Palo Alto",
+  "org_email": "mcarthur@gmail.com",
+  "org_website": "www.website.com",
+  "org_secteur": "Construction"
+},{
+  "_id": {
+    "$oid": "61c1d0a2a70e0000310044dc"
+  },
+  "product_name": "Huawei",
+  "product_id": "205d59540097ab9cf2320250a51c4bf1",
+  "product_description": "Huawei is the best of the best in Technology in Asia and all over the world. It's one of the smaterst companies of the lead.",
+  "product_categories": [
+    "Smartphone",
+    "Phone ",
+    "Tablette ",
+    "PC"
+  ],
+  "product_image": "1637134659_5b49c40ad0768d5abc50.jpg",
+  "caracteristics": {
+    "requires": {
+      "product_id": "205d59540097ab9cf2320250a51c4bf1",
+      "System": "Android 12",
+      "RAM": "8 GB",
+      "Processor": "4 GHz",
+      "Size": "18 x 30",
+      "Color": "White",
+      "conditions_content": "<p>Guaranteed : 1 month</p>"
+    },
+    "optionals": {
+      "product_id": "205d59540097ab9cf2320250a51c4bf1",
+      "System": "Android 12",
+      "RAM": "8 GB",
+      "Processor": "4 GHz",
+      "Size": "18 x 30",
+      "Color": "White",
+      "conditions_content": "<p>Guaranteed : 1 month</p>"
+    }
+  },
+  "org_name": "Space X",
+  "org_lead": "Erick le Rouge",
+  "org_picture": "1637136294_5a8e0f1ff5108798be72.jpeg",
+  "org_adress": "Palo Alto",
+  "org_email": "mcarthur@gmail.com",
+  "org_website": "www.website.com",
+  "org_secteur": "Sciences & Technology"
+},{
+  "_id": {
+    "$oid": "61e12411ff000000e20061bb"
+  },
+  "product_name": "Eolienne",
+  "product_id": "4222efcf60d823f3a08699e613dba798",
+  "product_description": "This is the unique product you'll never see",
+  "product_categories": [
+    "Battery",
+    "Panneau",
+    "Solar",
+    "Accumulateur"
+  ],
+  "product_image": "1638973928_b470dd2e219874edb64c.jpg",
+  "caracteristics": {
+    "requires": {
+      "product_id": "4222efcf60d823f3a08699e613dba798",
+      "Duration": "5 Years",
+      "Height_": "50 m",
+      "Color": "Blue Sky",
+      "Size": "50 m",
+      "Price": "3000 $",
+      "Other": "Fitness",
+      "Auther": "Nothing else",
+      "Manifactured": "Lab Tech",
+      "Taille": "",
+      "Poids": "",
+      "Season": "",
+      "Fine": "",
+      "conditions_content": "<p>Here are our conditions</p>"
+    },
+    "optionals": {
+      "product_id": "4222efcf60d823f3a08699e613dba798",
+      "Duration": "5 Years",
+      "Height_": "50 m",
+      "Color": "Blue Sky",
+      "Size": "50 m",
+      "Price": "3000 $",
+      "Other": "Fitness",
+      "Auther": "Nothing else",
+      "Manifactured": "Lab Tech",
+      "Taille": "",
+      "Poids": "",
+      "Season": "",
+      "Fine": "",
+      "conditions_content": "<p>Here are our conditions</p>"
+    }
+  },
+  "org_name": "Net Lab",
+  "org_lead": "",
+  "org_picture": "",
+  "org_adress": "Côte-St-Luc 234 Montréal",
+  "org_email": "agentlibremrd@gmail.com",
+  "org_website": "",
+  "org_secteur": "Energy"
+},{
+  "_id": {
+    "$oid": "61e14ba8ff000000e20061c1"
+  },
+  "product_name": "Samsung",
+  "product_id": "b248ec7f0d2d82b62b8f840a98dce41d",
+  "product_description": "PC Portable ",
+  "product_categories": [
+    "PC",
+    "computer",
+    "Other"
+  ],
+  "product_image": "1636450695_c19035e50c6addd56935.jpg",
+  "caracteristics": {
+    "requires": {
+      "product_id": "b248ec7f0d2d82b62b8f840a98dce41d",
+      "name": "Samsung Pro",
+      "color": "Gold",
+      "size": "16X32",
+      "conditions_content": "<p>These are main condition for this product</p>"
+    },
+    "optionals": {
+      "product_id": "b248ec7f0d2d82b62b8f840a98dce41d",
+      "name": "Samsung Pro",
+      "color": "Gold",
+      "size": "16X32",
+      "conditions_content": "<p>These are main condition for this product</p>"
+    }
+  },
+  "org_name": "Net Lab",
+  "org_lead": "",
+  "org_picture": "",
+  "org_adress": "Côte-St-Luc 234 Montréal",
+  "org_email": "agentlibremrd@gmail.com",
+  "org_website": "",
+  "org_secteur": "Sciences & Technology"
+},{
+  "_id": {
+    "$oid": "61efe3eea95700004a000118"
+  },
+  "product_name": "Huawei",
+  "product_id": "205d59540097ab9cf2320250a51c4bf1",
+  "product_description": "Huawei is the best of the best in Technology in Asia and all over the world. It's one of the smaterst companies of the lead.",
+  "product_categories": [
+    "Smartphone",
+    "Phone ",
+    "Tablette ",
+    "PC"
+  ],
+  "product_image": "1637134659_5b49c40ad0768d5abc50.jpg",
+  "caracteristics": {
+    "requires": {
+      "product_id": "205d59540097ab9cf2320250a51c4bf1",
+      "System": "Mate X",
+      "RAM": "16 GB",
+      "Processor": "4 GHz",
+      "Size": "20 X 32",
+      "Color": "Green",
+      "conditions_content": ""
+    },
+    "optionals": {
+      "product_id": "205d59540097ab9cf2320250a51c4bf1",
+      "System": "Mate X",
+      "RAM": "16 GB",
+      "Processor": "4 GHz",
+      "Size": "20 X 32",
+      "Color": "Green",
+      "conditions_content": ""
+    }
+  },
+  "org_name": "Tech For All",
+  "org_lead": "Mrs Amberly Fine",
+  "org_picture": "1643108264_462a6c229503bbff631f.jpeg",
+  "org_adress": "364 Flower avenue, Ottawa",
+  "org_email": "amberly@fine.com",
+  "org_website": "www.firstone.com",
+  "org_secteur": "Sciences & Technology"
+},{
+  "_id": {
+    "$oid": "61efe60aa95700004a00011a"
+  },
+  "product_name": "Takwa",
+  "product_id": "6435dcf2d939268b29aed75ba055fd1a",
+  "product_description": "Here we offer the most beautiful vehicles of every kind",
+  "product_categories": [
+    "Bus",
+    "Voiture",
+    "Taxi"
+  ],
+  "product_image": "1636451558_385a20f1a11c5a547a53.jpeg",
+  "caracteristics": {
+    "requires": {
+      "product_id": "6435dcf2d939268b29aed75ba055fd1a",
+      "Max_place": "60",
+      "Max_speed": "140 Kmph",
+      "Size": "4m",
+      "Mixed_color": "Blue sky, Aqua, Lime",
+      "Taille": "5 m",
+      "Other_characteristics": "Nothing ",
+      "conditions_content": "<p>Here are our special conditons for every product</p>"
+    },
+    "optionals": {
+      "product_id": "6435dcf2d939268b29aed75ba055fd1a",
+      "Max_place": "60",
+      "Max_speed": "140 Kmph",
+      "Size": "4m",
+      "Mixed_color": "Blue sky, Aqua, Lime",
+      "Taille": "5 m",
+      "Other_characteristics": "Nothing ",
+      "conditions_content": "<p>Here are our special conditons for every product</p>"
+    }
+  },
+  "org_name": "Tech For All",
+  "org_lead": "Mrs Amberly Fine",
+  "org_picture": "1643108264_462a6c229503bbff631f.jpeg",
+  "org_adress": "364 Flower avenue, Ottawa",
+  "org_email": "amberly@fine.com",
+  "org_website": "www.firstone.com",
+  "org_secteur": "Transportation"
+},{
+  "_id": {
+    "$oid": "61f0fb8c921b00005f0031a8"
+  },
+  "product_name": "Iphone",
+  "product_id": "4f104c4b68c0e9b17b3a0c626711b988",
+  "product_description": "Lorem impus dolor Lorem impus dolorLorem impus dolorLorem impus dolorLorem impus dolorLorem impus dolorLorem impus dolor",
+  "product_categories": [
+    "Phone",
+    "Iphone",
+    "Smart Phone"
+  ],
+  "product_image": "1636362679_48b6ed6433cf67e37b12.jpeg",
+  "caracteristics": {
+    "requires": {
+      "product_id": "4f104c4b68c0e9b17b3a0c626711b988",
+      "size": "16 x 32",
+      "price": "300$",
+      "name": "IPhone 15 Pro",
+      "conditions_content": "<p>No condition for our product</p>"
+    },
+    "optionals": {
+      "product_id": "4f104c4b68c0e9b17b3a0c626711b988",
+      "size": "16 x 32",
+      "price": "300$",
+      "name": "IPhone 15 Pro",
+      "conditions_content": "<p>No condition for our product</p>"
+    }
+  },
+  "org_name": "Tech For All",
+  "org_lead": "Mrs Amberly Fine",
+  "org_picture": "1643108264_462a6c229503bbff631f.jpeg",
+  "org_adress": "364 Flower avenue, Ottawa",
+  "org_email": "amberly@fine.com",
+  "org_website": "www.firstone.com",
+  "org_secteur": "Telecoms"
+}]

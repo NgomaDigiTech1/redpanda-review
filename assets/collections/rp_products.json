@@ -1,0 +1,580 @@
+[{
+  "_id": {
+    "$oid": "61683fd242030000f5006118"
+  },
+  "product_name": "Car Insurance",
+  "product_categories": [
+    "Insurance"
+  ],
+  "product_description": "Note description for this products or service",
+  "product_id": "6632305e5aba7004244cf429db0401ea",
+  "product_status": "enable",
+  "caracteristics": {
+    "required": [
+      "price"
+    ],
+    "optionals": [
+      "condition"
+    ]
+  },
+  "product_image": "1636450521_b85b7fad68631de85f46.jpeg",
+  "product_sectors": "Insurance"
+},{
+  "_id": {
+    "$oid": "616840de42030000f5006119"
+  },
+  "product_name": "Visa Card",
+  "product_categories": [
+    "Carte visa",
+    "Visa card"
+  ],
+  "product_description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took ",
+  "product_id": "984ba66f0583a43d38e11a518c499fbf",
+  "product_status": "enable",
+  "caracteristics": {
+    "required": [
+      "Price",
+      "Expirate date"
+    ],
+    "optionals": [
+      "CVV",
+      "Pin"
+    ]
+  },
+  "conditions": "yes",
+  "product_image": "1636450538_3ed11f1e8afa409635a8.jpeg",
+  "product_sectors": "Bank"
+},{
+  "_id": {
+    "$oid": "61854302372600001e003605"
+  },
+  "product_name": "Samsung",
+  "product_categories": [
+    "PC",
+    "computer",
+    "Other"
+  ],
+  "product_description": "PC Portable ",
+  "product_id": "b248ec7f0d2d82b62b8f840a98dce41d",
+  "product_status": "enable",
+  "caracteristics": {
+    "required": [
+      "name",
+      "color"
+    ],
+    "optionals": [
+      "size"
+    ]
+  },
+  "product_image": "1636450695_c19035e50c6addd56935.jpg",
+  "conditions": "yes",
+  "product_sectors": "Sciences & Technology"
+},{
+  "_id": {
+    "$oid": "6185448e372600001e003606"
+  },
+  "product_name": "Master Card",
+  "product_categories": [
+    "Credit Card"
+  ],
+  "product_description": "Lorem ipsum dolor machin machin",
+  "product_id": "97a2cae9cd5242b4df19da5fd1b7af58",
+  "product_status": "enable",
+  "caracteristics": {
+    "required": [
+      "price",
+      "duration",
+      "ccv"
+    ],
+    "optionals": [
+      "name"
+    ]
+  },
+  "product_sectors": "Bank",
+  "product_image": "1636445232_8ccdfb8b6c1a72881c3d.png",
+  "conditions": null
+},{
+  "_id": {
+    "$oid": "61854598372600001e003607"
+  },
+  "product_name": "Iphone",
+  "product_categories": [
+    "Phone",
+    "Iphone",
+    "Smart Phone"
+  ],
+  "product_description": "Lorem impus dolor Lorem impus dolorLorem impus dolorLorem impus dolorLorem impus dolorLorem impus dolorLorem impus dolor",
+  "product_id": "4f104c4b68c0e9b17b3a0c626711b988",
+  "product_status": "enable",
+  "caracteristics": {
+    "required": [
+      "size",
+      "price"
+    ],
+    "optionals": [
+      "name"
+    ]
+  },
+  "product_sectors": "Telecoms",
+  "product_image": "1636362679_48b6ed6433cf67e37b12.jpeg",
+  "conditions": "yes"
+},{
+  "_id": {
+    "$oid": "6188eb5108210000980055b8"
+  },
+  "product_name": "VPN Burn",
+  "product_categories": [
+    "Network",
+    "FAI",
+    "Internet"
+  ],
+  "product_description": "This an internet service provider, in French Fournisseur d'accès à interet",
+  "product_id": "45c9ec3e842e9836b78109ecb31289fe",
+  "product_status": "disable",
+  "caracteristics": {
+    "required": [
+      "Debit"
+    ],
+    "optionals": [
+      "Capacity"
+    ]
+  },
+  "product_sectors": "Telecoms",
+  "product_image": "1636450491_6ad95ffa66e747f94576.jpg",
+  "conditions": "yes"
+},{
+  "_id": {
+    "$oid": "61891e2208210000980055bd"
+  },
+  "product_name": "Maxi Cash",
+  "product_categories": [
+    "Credit Card"
+  ],
+  "product_description": "Lorem ipsum doloris cateum",
+  "product_id": "1ff2741769f8597adf442fbca20af6c5",
+  "product_status": "disable",
+  "caracteristics": {
+    "required": [
+      "Duration"
+    ],
+    "optionals": [
+      "CVV"
+    ]
+  },
+  "product_sectors": "Bank",
+  "product_image": "1636451558_385a20f1a11c5a547a53.jpeg",
+  "conditions": "yes"
+},{
+  "_id": {
+    "$oid": "618e25f8040b0000470018a8"
+  },
+  "product_name": "Candy Sweet",
+  "product_categories": [
+    "Food",
+    "Goods"
+  ],
+  "product_description": "Here are the best candies , foods and sweetest goods for every one forever and for always",
+  "product_id": "200dfd2bf9e22baf4bd95559527d8c06",
+  "product_status": "enable",
+  "caracteristics": {
+    "required": [
+      "Taste",
+      "Price"
+    ],
+    "optionals": [
+      "Color",
+      "Size"
+    ]
+  },
+  "product_sectors": "Agriculture",
+  "product_image": "1636707160_9c0441e47cc40a3fbb2d.jpg",
+  "conditions": "yes"
+},{
+  "_id": {
+    "$oid": "619375420f4e0000a6005ff6"
+  },
+  "product_name": "Falcaun 11",
+  "product_categories": [
+    "Satelite",
+    "Rocket"
+  ],
+  "product_description": "This is the real very rapider gear for the Space in the world you will never seen. Manufactured by Space X,  the best of the best companies in the world in space technology.",
+  "product_id": "8d314e2742a676d1a17715964c2edcd1",
+  "product_status": "enable",
+  "caracteristics": {
+    "required": [
+      "Speed",
+      "Weight",
+      "Duration"
+    ],
+    "optionals": [
+      "Color"
+    ]
+  },
+  "product_sectors": "Sciences & Technology",
+  "product_image": "1637054068_4e4e623ce424a3ea533f.jpeg",
+  "conditions": "yes"
+},{
+  "_id": {
+    "$oid": "6194b105fa360000de004618"
+  },
+  "product_name": "Huawei",
+  "product_categories": [
+    "Smartphone",
+    "Phone ",
+    "Tablette ",
+    "PC"
+  ],
+  "product_description": "Huawei is the best of the best in Technology in Asia and all over the world. It's one of the smaterst companies of the lead.",
+  "product_id": "205d59540097ab9cf2320250a51c4bf1",
+  "product_status": "enable",
+  "caracteristics": {
+    "required": [
+      "System",
+      "RAM",
+      "Processor"
+    ],
+    "optionals": [
+      "Size",
+      "Color"
+    ]
+  },
+  "product_sectors": "Sciences & Technology",
+  "product_image": "1637134659_5b49c40ad0768d5abc50.jpg",
+  "conditions": "yes"
+},{
+  "_id": {
+    "$oid": "6194c32cfa360000de00461b"
+  },
+  "product_name": "Wechat",
+  "product_categories": [
+    "Social Network",
+    "Internet"
+  ],
+  "product_description": "This is just a media of communication used by Chinese people for you can't use neither WhatsApp nor Facebook",
+  "product_id": "077b644f99cb81c3848ce27238afda92",
+  "product_status": "enable",
+  "caracteristics": {
+    "required": [
+      "Name",
+      "Audience"
+    ],
+    "optionals": [
+      "Visibility"
+    ]
+  },
+  "product_sectors": "Media",
+  "product_image": "1637139309_dffad8499070a5d404a7.jpg",
+  "conditions": "yes"
+},{
+  "_id": {
+    "$oid": "61966108de370000400079f8"
+  },
+  "product_name": "Obama Care",
+  "product_categories": [
+    "Assurance maladie",
+    " Vieillesse"
+  ],
+  "product_description": "This is the first and the best coverture the USA has never had",
+  "product_id": "b5fc720c4a69a72cf5fadc1c14b72274",
+  "product_status": "enable",
+  "caracteristics": {
+    "required": [
+      "Duration",
+      "Sickness"
+    ],
+    "optionals": [
+      "Old"
+    ]
+  },
+  "product_sectors": "Health Care",
+  "product_image": "1636451558_385a20f1a11c5a547a53.jpeg",
+  "conditions": "yes"
+},{
+  "_id": {
+    "$oid": "6196625fde370000400079f9"
+  },
+  "product_name": "Sky Eyes",
+  "product_categories": [
+    "Software",
+    "System",
+    "Application"
+  ],
+  "product_description": "This is the best desktop, mobile and web app you've never seen for the observation of the world climate.",
+  "product_id": "d4b93aed9875925d9b5c4c2f3701f462",
+  "product_status": "enable",
+  "caracteristics": {
+    "required": [
+      "Price",
+      "Duration",
+      "OS"
+    ],
+    "optionals": [
+      "User number"
+    ]
+  },
+  "product_sectors": "Sciences & Technology",
+  "product_image": "1636451558_385a20f1a11c5a547a53.jpeg",
+  "conditions": "yes"
+},{
+  "_id": {
+    "$oid": "61b0c0879a6a000050002e87"
+  },
+  "product_name": "Eolienne",
+  "product_categories": [
+    "Battery",
+    "Panneau",
+    "Solar",
+    "Accumulateur"
+  ],
+  "product_description": "This is the unique product you'll never see",
+  "product_id": "4222efcf60d823f3a08699e613dba798",
+  "product_status": "enable",
+  "caracteristics": {
+    "required": [
+      "Duration",
+      "Height ",
+      "Color",
+      "Size",
+      "Price",
+      "Other",
+      "Auther",
+      "Manifactured"
+    ],
+    "optionals": [
+      "Taille",
+      "Poids",
+      "Season",
+      "Fine"
+    ]
+  },
+  "product_sectors": "Energy",
+  "product_image": "1638973928_b470dd2e219874edb64c.jpg",
+  "conditions": "yes"
+},{
+  "_id": {
+    "$oid": "61b1b60ccb790000b200348b"
+  },
+  "product_name": "Engin",
+  "product_categories": [
+    "Compacteur",
+    "Dameur",
+    "Asphalteur"
+  ],
+  "product_description": "Ceci est une description du produit",
+  "product_id": "532a9ddc46c46ff2928d76d088cffed4",
+  "product_status": "enable",
+  "caracteristics": {
+    "required": [
+      "Taille",
+      "Poids",
+      "Couleur"
+    ],
+    "optionals": [
+      "Vitesse"
+    ]
+  },
+  "product_sectors": "Construction",
+  "product_image": "1636451558_385a20f1a11c5a547a53.jpeg",
+  "conditions": "yes"
+},{
+  "_id": {
+    "$oid": "61b1c4a9cb790000b2003493"
+  },
+  "product_name": "Home Insurance",
+  "product_categories": [
+    "Home Insurance",
+    "Car Insurance",
+    "Disease Insurance "
+  ],
+  "product_description": "This is our description",
+  "product_id": "66a688ef47507fd84c91437a3279471b",
+  "product_status": "enable",
+  "caracteristics": {
+    "required": [
+      "Title",
+      "First Name",
+      "Middle Name",
+      "Surname",
+      "email",
+      "Phone (Office)",
+      "Mobile",
+      "DoB",
+      "Age",
+      "Type of Accomodation",
+      "Number of rooms",
+      "Usage",
+      "Are you",
+      "Occupants(number of adults)",
+      "Occupants (Number of Children under 18)",
+      "Physical Address",
+      "Subrub",
+      "Town",
+      "Country",
+      "City"
+    ],
+    "optionals": [
+      "Physical Address 2",
+      "Period of Occupation"
+    ]
+  },
+  "product_sectors": "Insurance",
+  "product_image": "1636451558_385a20f1a11c5a547a53.jpeg",
+  "conditions": "yes"
+},{
+  "_id": {
+    "$oid": "61b9c1575f62000008004657"
+  },
+  "product_name": "Max TV",
+  "product_categories": [
+    "Television",
+    "Audio Visuel",
+    "Radio"
+  ],
+  "product_description": "Juste pour les chaines de télévison",
+  "product_id": "c4e974f3ea08e046845a2d6c6be764e4",
+  "product_status": "enable",
+  "caracteristics": {
+    "required": [
+      "Audimetrie",
+      "Audience",
+      "Abonnement"
+    ],
+    "optionals": [
+      "Portée"
+    ]
+  },
+  "product_sectors": "Media",
+  "product_image": "1636451558_385a20f1a11c5a547a53.jpeg",
+  "conditions": "yes"
+},{
+  "_id": {
+    "$oid": "61e168feff000000e20061c5"
+  },
+  "product_name": "Business Insurance",
+  "product_categories": [
+    "Business Insurance",
+    "Car Insurance",
+    "House Insurance",
+    "Life Insurance "
+  ],
+  "product_description": "This is a business form multirisk",
+  "product_id": "a5dcff59f567d5ccbf24682577f6b035",
+  "product_status": "enable",
+  "caracteristics": {
+    "required": [
+      "Company Industry",
+      "Main use of the Premises",
+      "Dimension Surface in m²",
+      "Nbr of Employees",
+      "Annual Turnover",
+      "Value of the Property",
+      "Value of office Content",
+      "Value of Equipment",
+      " Machine",
+      "Value of stock",
+      "Registered Name",
+      "Registration Number",
+      "Licence/Authorisation Number",
+      "Official email",
+      "Telephone Nbr",
+      "Physical Address",
+      "Town",
+      "Country",
+      "City",
+      "Title",
+      "FirstName ",
+      "Middle Name ",
+      "Surname",
+      "Profession",
+      "E-mail",
+      "Telephone Nbr (office)",
+      "Mobile Nbre"
+    ],
+    "optionals": [
+      "Other name"
+    ]
+  },
+  "product_sectors": "Insurance",
+  "product_image": "1642162583_ea71409d3e3a1d3942b5.jpg",
+  "conditions": "yes"
+},{
+  "_id": {
+    "$oid": "61efe551a95700004a000119"
+  },
+  "product_name": "Takwa",
+  "product_categories": [
+    "Bus",
+    "Voiture",
+    "Taxi"
+  ],
+  "product_description": "Here we offer the most beautiful vehicles of every kind",
+  "product_id": "6435dcf2d939268b29aed75ba055fd1a",
+  "product_status": "enable",
+  "caracteristics": {
+    "required": [
+      "Max place",
+      "Max speed",
+      "Size",
+      "Mixed color"
+    ],
+    "optionals": [
+      "Taille",
+      "Other characteristics"
+    ]
+  },
+  "product_sectors": "Transportation",
+  "product_image": "1636451558_385a20f1a11c5a547a53.jpeg",
+  "conditions": "yes"
+},{
+  "_id": {
+    "$oid": "61efe92fa95700004a00011b"
+  },
+  "product_name": "TNT",
+  "product_categories": [
+    "TV",
+    "Radio",
+    "Journal",
+    "Presse"
+  ],
+  "product_description": "Description de la chose publique",
+  "product_id": "a95ebc7ea530b530af50b274bdd3c971",
+  "product_status": "enable",
+  "caracteristics": {
+    "required": [
+      "Audio visuelle",
+      "Libre et musique"
+    ],
+    "optionals": [
+      "Autre chose"
+    ]
+  },
+  "product_sectors": "Media",
+  "product_image": "1636451558_385a20f1a11c5a547a53.jpeg",
+  "conditions": null
+},{
+  "_id": {
+    "$oid": "61fbac2f1723000098003b37"
+  },
+  "product_name": "Internet Provider",
+  "product_categories": [
+    "FAI",
+    "IAP"
+  ],
+  "product_description": "This is Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim ea, et, nobis accusantium officiis qui blanditiis ipsum sed perspiciatis magnam nulla unde ullam ratione odit harum aperiam? Fugit, ut adipisci.",
+  "product_id": "819619b85f020c10d42d4168761abab7",
+  "product_status": "enable",
+  "caracteristics": {
+    "required": [
+      "Débit",
+      "Portée",
+      "Durée"
+    ],
+    "optionals": [
+      "No other"
+    ]
+  },
+  "product_sectors": "Information & Technology",
+  "product_image": "1636451558_385a20f1a11c5a547a53.jpeg",
+  "conditions": null
+}]

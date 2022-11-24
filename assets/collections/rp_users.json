@@ -1,0 +1,162 @@
+[{
+  "_id": {
+    "$oid": "614c418b660b00000d007b79"
+  },
+  "u_first_name": "Medard",
+  "u_last_name": "Kongolo",
+  "u_email": "medard@gmail.com",
+  "u_phone": "+243 992161831",
+  "u_role": "admin",
+  "u_photo": "musk.jpg",
+  "u_loggedin": true,
+  "u_created_at": "2021-09-23",
+  "u_password": "$2y$10$ZIuqg1l2KA7PDGWdkKJSOu7pH9shT9s/PX18AibNXChLwN.g2P/My",
+  "adress": "Medardsss",
+  "u_adress": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, cum doloremque error est expedita libero maiores mollitia odio pariatur placeat possimus quisquam rem repellendus, reprehenderit sequi tempora tenetur unde vel.\r\n",
+  "u_birth_date": "2021-09-24",
+  "u_gender": "Female",
+  "u_location": "This is my personal address",
+  "org_website": "www.medard.org",
+  "org_adress": "999, Our Company address",
+  "org_created_at": "2017-12-12",
+  "org_lead": "Mrd",
+  "org_name": "Max Lab Tech",
+  "org_num_rcc": "555 DRC",
+  "org_secteur": ""
+},{
+  "_id": {
+    "$oid": "61769a64f23200008300668c"
+  },
+  "u_username": "Arthur",
+  "u_first_name": "Arthur",
+  "u_last_name": "",
+  "u_email": "princearthur@gmail.com",
+  "u_created_at": "2021-10-25",
+  "u_password": "$2y$10$Kxg4MOYDwHGrnVpCcYR0je0RFj55S6nad1MOcRfAkHh/V0L1jr8Py",
+  "u_token": "5a6ee89fb908b00171c22f107223d2e2",
+  "u_role": "customer",
+  "u_phone": "1234678900"
+},{
+  "_id": {
+    "$oid": "6177c91ef4690000ea004719"
+  },
+  "u_username": "Mc",
+  "u_first_name": "Mc",
+  "u_last_name": "Arthur",
+  "u_email": "mcarthur@gmail.com",
+  "u_created_at": "2021-10-26",
+  "u_password": "$2y$10$HVgOttlbU3.pnpqzlL6Lh.GNpK82nBvyGcU7fPwKGhpJPS9LnsbZq",
+  "u_token": "d4b3191c85572aacfba01e26e2c307b6",
+  "u_role": "org manager",
+  "u_photo": "1637136294_5a8e0f1ff5108798be72.jpeg",
+  "u_birth_date": "1999-06-09",
+  "u_location": "DRC, Katanga, Lubumbashi",
+  "u_gender": "Male",
+  "org_website": "www.website.com",
+  "u_phone": "+1 234 567 89 0",
+  "org_adress": "Palo Alto",
+  "org_created_at": "1998-09-16",
+  "org_lead": "Erick le Rouge",
+  "org_name": "Space X",
+  "org_num_rcc": "DRC, NRC-89-999",
+  "org_secteur": "Sciences & Technology"
+},{
+  "_id": {
+    "$oid": "61af2c5def3e000068000a40"
+  },
+  "u_username": "Anatole",
+  "u_first_name": "Anatole",
+  "u_last_name": "",
+  "u_email": "anatoly@ange.com",
+  "u_created_at": "2021-12-07",
+  "u_password": "$2y$10$GacfFeZpB8.UlbwGj8/BquQa1/a7vx22K1rH1WtYI/weV.xuRQlfm",
+  "u_role": "moderator",
+  "u_token": "252aa60b8fc498c4054be15fa635e3d0"
+},{
+  "_id": {
+    "$oid": "61af2cd5ef3e000068000a41"
+  },
+  "u_username": "Amberly",
+  "u_first_name": "Amberly",
+  "u_last_name": "Matheson",
+  "u_email": "amberly@fine.com",
+  "u_created_at": "2021-12-07",
+  "u_password": "$2y$10$1vSbE2v34TRQXI3FLPzXfehpcQIcN0nBqQITOyrTlPtWFXQo1hd6u",
+  "u_role": "org manager",
+  "u_token": "1bd207591682311c1396e907fca040b5",
+  "org_name": "Tech For All",
+  "org_adress": "364 Flower avenue, Ottawa",
+  "u_photo": "1643108264_462a6c229503bbff631f.jpeg",
+  "u_birth_date": "1992-12-12",
+  "u_gender": "Female",
+  "u_location": "Edmonton / Vancouver / Canada",
+  "org_website": "www.firstone.com",
+  "u_phone": "+14987656778",
+  "org_created_at": "2021-12-07",
+  "org_lead": "Mrs Amberly Fine",
+  "org_num_rcc": "RCCN - DRC - 4587",
+  "org_secteur": ""
+},{
+  "_id": {
+    "$oid": "61e122d6ff000000e20061b7"
+  },
+  "u_first_name": "Agent",
+  "u_last_name": "FBI",
+  "u_email": "agentlibremrd@gmail.com",
+  "u_created_at": "2022-01-14",
+  "u_password": "$2y$10$jdLIyeYROAoHfmeeXTOEH.qOEOtS6.2d8gdI8KsOi75LJRFhl4I66",
+  "u_role": "moderator",
+  "u_token": "2bb69923c855f5d56a3223457ce58f14",
+  "org_name": "Net Lab",
+  "org_adress": "Côte-St-Luc 234 Montréal"
+},{
+  "_id": {
+    "$oid": "61e9446531470000b0006a49"
+  },
+  "u_first_name": "Axy",
+  "u_last_name": "",
+  "u_email": "axe@infinity.com",
+  "u_created_at": "2022-01-20",
+  "u_password": "$2y$10$JrVl7HXrkIBA6UcJD90ne.otUSPnlx7PH/AwzXFnyIebZlciO/zfu",
+  "u_role": "customer",
+  "u_token": "db9d0ebebfeec2d6c247f5beb50fabe2"
+},{
+  "_id": {
+    "$oid": "61e94c3031470000b0006a52"
+  },
+  "u_first_name": "Mars",
+  "u_last_name": "",
+  "u_email": "mars@mars.com",
+  "u_created_at": "2022-01-20",
+  "u_password": "$2y$10$pskyXu.em6JbyE2sPpuoE.wAGHHOwruKSF7vvCzSe6hg/pReaXhsC",
+  "u_role": "customer",
+  "u_token": "c617645804a791000a6f6405259220bd"
+},{
+  "_id": {
+    "$oid": "61e94d2e31470000b0006a53"
+  },
+  "u_first_name": "Travis",
+  "u_last_name": "",
+  "u_email": "jizovic@mailinator.com",
+  "u_created_at": "2022-01-20",
+  "u_password": "$2y$10$p/Z5YORPYIRuogMxUPm1pewSJWfzgTrC4zSPvkQCSgV/O.SiHYvLO",
+  "u_role": "customer",
+  "u_token": "e27504b76b566438b85ce947649d5459"
+},{
+  "_id": {
+    "$oid": "61fa2e195448000058001398"
+  },
+  "u_first_name": "Arielle",
+  "u_last_name": "Sharon",
+  "u_email": "ariel@mail.com",
+  "u_phone": "0987654567",
+  "u_role": "moderator",
+  "u_photo": "user-default-avatar.png",
+  "u_loggedin": true,
+  "u_created_at": "2022-02-02",
+  "u_password": "$2y$10$xcLsodKpbUAJeatTCG8rYORDX36L.2UOG5AghQI6vbHLCvAq.xrJq",
+  "u_birth_date": "1998-12-12",
+  "u_gender": "Female",
+  "u_location": "Toronto",
+  "u_token": "e27504b76b566438b85ce947649d5cdf"
+}]

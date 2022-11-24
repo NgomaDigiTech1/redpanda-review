@@ -1,0 +1,29 @@
+[{
+  "_id": {
+    "$oid": "614328d919166608b2999ba8"
+  },
+  "organisation_name": "Ngoma Digitech",
+  "organisation_adresse": "Lushi Kasongo Nyembo",
+  "organisation_created_at": "22-30-2002",
+  "org_lead": "Mr Maisha",
+  "org_secteur": [
+    "Vente",
+    "Pris en charge",
+    "P"
+  ],
+  "org_type": "premium"
+},{
+  "_id": {
+    "$oid": "61432a1d19166608b2999ba9"
+  },
+  "organisation_name": "La Souveraine",
+  "organisation_adresse": "Lushi Kasongo Nyembo",
+  "organisation_created_at": "22-30-2002",
+  "org_lead": "Joboy",
+  "org_secteur": [
+    "Consulting",
+    "Autres",
+    "Risque"
+  ],
+  "org_type": "freemium"
+}]

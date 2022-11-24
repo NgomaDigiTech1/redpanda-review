@@ -1,0 +1,144 @@
+[{
+  "_id": {
+    "$oid": "616fd7dd2b760000a8004c79"
+  },
+  "sector_name": "Telecoms",
+  "sector_id": "c0c65ec80bc1af049e963b996be0f669",
+  "sector_created_at": "2021-10-20",
+  "sector_status": "enabled",
+  "sector_image": "1643702794_7fdfce465b5d796df792.jpg",
+  "sector_description": "Fusce sed erat libasellus id orci quis ligula pret do lectus velit, a malesuada urna sodales.",
+  "moderator": "Anatole"
+},{
+  "_id": {
+    "$oid": "617a852d4b5b0000bf006288"
+  },
+  "sector_id": "26ede22725de56328f4dda1651b8e991",
+  "sector_name": "Health Care",
+  "sector_created_at": "2021-10-28",
+  "sector_status": "enabled",
+  "sector_image": "sect.jpg",
+  "sector_description": "Fusce sed erat libasellus id orci quis ligula pret do lectus velit, a malesuada urna sodales.",
+  "moderator": "mod"
+},{
+  "_id": {
+    "$oid": "6180f0c4f17a000018000618"
+  },
+  "sector_id": "1724a3323f6436118afe63fb3cb8b09e",
+  "sector_name": "Sciences & Technology",
+  "sector_created_at": "2021-11-02",
+  "sector_status": "enabled",
+  "sector_image": "sect.jpg",
+  "sector_description": "Fusce sed erat libasellus id orci quis ligula pret do lectus velit, a malesuada urna sodales.",
+  "moderator": "mod"
+},{
+  "_id": {
+    "$oid": "6181152bf17a00001800061b"
+  },
+  "sector_id": "7afd29c4693fb78a6252f63e8bc54b13",
+  "sector_name": "Mining",
+  "sector_created_at": "2021-11-02",
+  "sector_status": "disabled",
+  "sector_image": "sect.jpg",
+  "sector_description": "Fusce sed erat libasellus id orci quis ligula pret do lectus velit, a malesuada urna sodales.",
+  "moderator": "mod"
+},{
+  "_id": {
+    "$oid": "619364ea0f4e0000a6005fe9"
+  },
+  "sector_id": "da366669ab330b6c2aed713d7f938c55",
+  "sector_name": "Construction",
+  "sector_created_at": "2021-11-16",
+  "sector_status": "enabled",
+  "sector_image": "1643702624_60539d7d0c4254753fd7.jpeg",
+  "sector_description": "Fusce sed erat libasellus id orci quis ligula pret do lectus velit, a malesuada urna sodales.",
+  "moderator": "mod"
+},{
+  "_id": {
+    "$oid": "619365320f4e0000a6005fea"
+  },
+  "sector_id": "95139e98d5a3c8f4996530e0e86d2868",
+  "sector_name": "Education",
+  "sector_created_at": "2021-11-16",
+  "sector_status": "disabled",
+  "sector_image": "sect.jpg",
+  "sector_description": "Fusce sed erat libasellus id orci quis ligula pret do lectus velit, a malesuada urna sodales.",
+  "moderator": "mod"
+},{
+  "_id": {
+    "$oid": "6193653a0f4e0000a6005feb"
+  },
+  "sector_id": "a7232703d9bc54fd1feb13e52243a3cc",
+  "sector_name": "Energy",
+  "sector_created_at": "2021-11-16",
+  "sector_status": "enabled",
+  "sector_image": "1642343893_603a7f1b89abda238fe3.jpg",
+  "sector_description": "Fusce sed erat libasellus id orci quis ligula pret do lectus velit, a malesuada urna sodales.",
+  "moderator": "Arielle"
+},{
+  "_id": {
+    "$oid": "6193659e0f4e0000a6005fed"
+  },
+  "sector_id": "a32fff74c317e5f9f831d6f408e6c299",
+  "sector_name": "Information & Technology",
+  "sector_created_at": "2021-11-16",
+  "sector_status": "enabled",
+  "sector_image": "1642343845_91bb77616f7e2d424f1b.jpg",
+  "sector_description": "Fusce sed erat libasellus id orci quis ligula pret do lectus velit, a malesuada urna sodales.",
+  "moderator": "Anatole"
+},{
+  "_id": {
+    "$oid": "619365f20f4e0000a6005ff0"
+  },
+  "sector_id": "cf066101d4c774df7a1cbef143689375",
+  "sector_name": "Media",
+  "sector_created_at": "2021-11-16",
+  "sector_status": "enabled",
+  "sector_image": "1642343763_a56c06d118288899f395.jpg",
+  "sector_description": "Fusce sed erat libasellus id orci quis ligula pret do lectus velit, a malesuada urna sodales.",
+  "moderator": "Anatole"
+},{
+  "_id": {
+    "$oid": "6193667b0f4e0000a6005ff4"
+  },
+  "sector_id": "5433ebb04570593c890d038a10f4a34e",
+  "sector_name": "Transportation",
+  "sector_created_at": "2021-11-16",
+  "sector_status": "enabled",
+  "sector_image": "sect.jpg",
+  "sector_description": "Fusce sed erat libasellus id orci quis ligula pret do lectus velit, a malesuada urna sodales.",
+  "moderator": "mod"
+},{
+  "_id": {
+    "$oid": "6194b9fffa360000de00461a"
+  },
+  "sector_id": "7fa02bbeb607f54b834ef119eb62061a",
+  "sector_name": "Bank",
+  "sector_created_at": "2021-11-17",
+  "sector_status": "enabled",
+  "sector_image": "1642343942_06d7801c24f00f1791d0.png",
+  "sector_description": "Fusce sed erat libasellus id orci quis ligula pret do lectus velit, a malesuada urna sodales.",
+  "moderator": "mod"
+},{
+  "_id": {
+    "$oid": "61b05dcc5e4f00001b0014f6"
+  },
+  "sector_id": "b45fb2f7ac9acb9f5892578af690196e",
+  "sector_name": "Insurance",
+  "sector_created_at": "2021-12-08",
+  "sector_status": "enabled",
+  "sector_image": "1642343797_095b2d6f4e1d4e8ec30b.jpg",
+  "sector_description": "Fusce sed erat libasellus id orci quis ligula pret do lectus velit, a malesuada urna sodales.",
+  "moderator": "mod"
+},{
+  "_id": {
+    "$oid": "61fa51dc544800005800139e"
+  },
+  "sector_id": "027c6c6ffebb45fc6d9fa4059972293b",
+  "sector_name": "Engineering",
+  "moderator": "Arielle",
+  "sector_created_at": "2022-02-02",
+  "sector_status": "enabled",
+  "sector_description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Illo, magni optio quisquam nihil labore facilis, tempore fugiat harum ipsum magnam culpa iusto fuga aliquid temporibus voluptatibus eligendi? Minima, necessitatibus totam!",
+  "sector_image": "sect.jpg"
+}]
