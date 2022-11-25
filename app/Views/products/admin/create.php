@@ -54,11 +54,18 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="Text">Product Types</label>
+                                        <label for="Text">Product Categories</label>
                                         <input type="text" class="form-control" name="product_categories" data-role="tagsinput" value="<?= set_value('product_categories')?>" >
                                         <small id="input-help" class="form-text text-danger"><?= $validation['product_categories'] ?? null ;  ?></small>
                                     </div>
                                 </div>
+                                <!-- <div class="col-md-6">
+                                    <label class="floating-label" for="Text">Product Price</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="Text" aria-describedby="emailHelp" name="price" value="Price" readonly style="background-color:#fff">
+                                        <small id="input-help" class="form-text text-danger"></?= $validation['price'] ?? null ;  ?></small>
+                                    </div>
+                                </div> -->
 
 
                                 <div class="col-md-12">

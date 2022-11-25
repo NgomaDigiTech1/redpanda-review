@@ -60,11 +60,14 @@
                                     <h6><a href="">Product Characteristics</a></h6>
                                     <div class="w-100">
                                         <?php foreach ($product->caracteristics['required'] as $characteristic => $charact): ?>
-                                            <?php if(($characteristic !== 'product_id') && ($characteristic !== 'conditions_content') && ($charact != null)) :?>
-                                                <div class="row mb-2">
-                                                    <div class="col-8"><?= ucfirst($charact) ;?></div>
-                                                </div>
-                                            <?php endif; ?>
+                                            <div class="row mb-2">
+                                                <div class="col-8"><?= ucfirst($charact) ;?></div>
+                                            </div>
+                                        <?php endforeach; ?>                                        
+                                        <?php foreach ($product->caracteristics['optionals'] as $characteristic => $charact): ?>
+                                            <div class="row mb-2">
+                                                <div class="col-8"><?= ucfirst($charact) ;?></div>
+                                            </div>
                                         <?php endforeach; ?>                                        
                                     </div>
                                 </div>

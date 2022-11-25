@@ -98,7 +98,7 @@
                                                     <input type="hidden" name="quotation_id" id="quotation_id" value="</?= $client_data['quotation_id'] ;?>">
                                                     <input type="hidden" name="org_name" id="org_name" value="</?= $product->org_name; ?>">
                                                     <input type="hidden" name="prod_sect" id="prod_sect" value="</?= $product->org_secteur; ?>">
-                                                    <input type="hidden" name="product_image" id="product_image" value="</?= $product->product_image ?? ""; ?>">
+                                                    <input type="hidden" name="product_image" id="product_image" value="</?= $product->product_image;?> ">
                                                     <input type="hidden" name="org_email" id="org_email" value="</?= $product->org_email ;?>">
                                                     <button type="submit" class="btn btn-secondary btn-block">Select</button>
                                                 </div>

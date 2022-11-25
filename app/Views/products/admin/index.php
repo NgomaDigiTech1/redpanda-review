@@ -91,7 +91,7 @@
                                                     <?php else: ?>
                                                             <span class="badge badge-light-success">Active</span>
                                                     <?php endif ?>
-                                                        <div class="overlay-edit">
+                                                        <div class="overlay-edit" style="width:70px">
                                                             <a type="button" class="btn btn-icon btn-secondary" href="<?= base_url()?>/produits/details/<?= $row->_id?>/<?= url_title(ucfirst($row->product_name))?>"><i
                                                                     class="feather icon-eye"></i></a>
                                                             <a type="button" class="btn btn-icon btn-success" href="<?= base_url()?>/products/delete/<?= $row->_id?>/enable"><i

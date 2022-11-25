@@ -113,6 +113,7 @@ class Products extends BaseController
             if ($this->validation->withRequest($this->request)->run()) {
                 $data = array(
                     'product_name' => $this->request->getVar('productname'),
+                    'price' => 'Price',
                     'product_categories' => explode(",", $this->request->getVar('product_categories')),
                     'product_description' => $this->request->getVar('product_description'),
                     'product_status' => 'enable',
@@ -148,18 +149,10 @@ class Products extends BaseController
 
     function allProducts()
     {
-        $data['title'] ='All Products';
-
-        if ($this->request->getMethod()=='post'){
-
-            $where = $this->request->getVar('search');
-            $field = 'product_name'; $flags='im';
-            $data['products'] = $this->mdb->myLikeFunction($this->collection, $field, $where, $flags);
-
-        }else{
-            $data['products'] = $this->mdb->getList($this->collection);
-        }
-
+        $data = [
+            'title' => 'All Products',
+            'products' => $this->mdb->getList($this->collection)
+        ];
         echo view('products/index', $data);
     }
 
