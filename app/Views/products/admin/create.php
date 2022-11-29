@@ -59,15 +59,41 @@
                                         <small id="input-help" class="form-text text-danger"><?= $validation['product_categories'] ?? null ;  ?></small>
                                     </div>
                                 </div>
-                                <!-- <div class="col-md-6">
-                                    <label class="floating-label" for="Text">Product Price</label>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" id="Text" aria-describedby="emailHelp" name="price" value="Price" readonly style="background-color:#fff">
-                                        <small id="input-help" class="form-text text-danger"></?= $validation['price'] ?? null ;  ?></small>
+                                <div class="container-fluid" style="display:contents">
+                                    <div class="col-md-12">
+                                        <h5 class="mt-5 mb-3 text-danger">Invariant Characteristics</h5>
+                                        <span class="form-text text-danger">Don't repeat the invariant variables in the Product Characteristics</span>
+                                        <hr>
                                     </div>
-                                </div> -->
-
-
+                                    <div class="col-md-6">
+                                        <label class="floating-label" for="Text">Product Price</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="Text" aria-describedby="emailHelp" name="price" value="Price" readonly style="background-color:#fff">
+                                            <small id="input-help" class="form-text text-danger">Automatically taken</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="floating-label" for="Text">Manufactured Year</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="Text" aria-describedby="emailHelp" name="mfg_year" value="Mfg Year" readonly style="background-color:#fff">
+                                            <small id="input-help" class="form-text text-danger">Automatically taken</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="floating-label" for="Text">Brand Name</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="Text" aria-describedby="emailHelp" name="brand" value="Brand" readonly style="background-color:#fff">
+                                            <small id="input-help" class="form-text text-danger">Automatically taken</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="floating-label" for="Text">Colors</label>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" id="Text" aria-describedby="emailHelp" name="colors" value="Colors" readonly style="background-color:#fff">
+                                            <small id="input-help" class="form-text text-danger">Automatically taken</small>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-md-12">
                                     <h5 class="mt-5 mb-3">Product Characteristics</h5>
                                     <hr>

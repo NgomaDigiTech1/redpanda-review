@@ -30,6 +30,8 @@ class BaseController extends Controller
 	protected $request;
 	public $sectModel;
 	public $prodModel;
+	public $prodCharModel;
+	public $userModel;
 
 	/**
 	 * An array of helpers to be loaded automatically upon
@@ -58,5 +60,7 @@ class BaseController extends Controller
 		// E.g.: $this->session = \Config\Services::session();
 		$this->sectModel = model(SectorModel::class);
 		$this->prodModel = model(ProductModel::class);
+		$this->prodCharModel = model(ProductCharactModel::class);
+		$this->userModel = model(UserModel::class);
 	}
 }

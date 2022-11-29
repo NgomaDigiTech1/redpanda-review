@@ -113,7 +113,10 @@ class Products extends BaseController
             if ($this->validation->withRequest($this->request)->run()) {
                 $data = array(
                     'product_name' => $this->request->getVar('productname'),
-                    'price' => 'Price',
+                    'price'=>'Price',
+                    'mfg_year'=>'Mfg Year',
+                    'brand'=>'Brand',
+                    'colors'=>'Colors',
                     'product_categories' => explode(",", $this->request->getVar('product_categories')),
                     'product_description' => $this->request->getVar('product_description'),
                     'product_status' => 'enable',
@@ -302,14 +305,25 @@ class Products extends BaseController
 
     public function details($segment = null)
     {
-        $model = model(ProductModel::class);
-
-        $data['product'] = $model->getProduct($segment);
+        $data['product'] = $this->prodModel->getProduct($segment);
 
         if (empty($data['product'])) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Cannot find product with ID: ' . $segment);
         }
         return view('products/admin/details', $data);
+    }
+    public function productDetails($prod = null, $org = null){
+        if($prod && $org){            
+            $data = [
+                'product_det' => $this->prodCharModel->getOwnProducts($prod, $org),
+                'title' => 'Details Product',
+                'produit' => $this->prodModel->getProduct($prod),
+                'org'=> $this->userModel->getUserById($org)
+            ];
+            echo view('products/details',$data);
+        }else{
+            return redirect()->to('/');
+        }
     }
 
 }

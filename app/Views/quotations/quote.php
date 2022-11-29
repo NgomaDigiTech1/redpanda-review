@@ -42,7 +42,7 @@
                             <?php foreach ($products as $product):?>
                                 <?php
                                     $produit = (new App\Models\ProductModel)->getProduct($product->product_id);                                               
-                                    $org = (new App\Models\UserModel)->getUserById($product->org_id);                                               
+                                    $org = (new App\Models\UserModel)->getUserById($product->org_id);                                              
                                 ?>
                                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                                     <div class="lender-listing">
@@ -91,20 +91,18 @@
                                         <!-- End Testing -->
                                         <div class="lender-actions">
                                             <!--  <button class="btn btn-secondary btn-block" data-toggle="modal" data-target="#modal_devis">Apply now</button>-->
-                                            <?=form_open('quotations/applyNow')?>
+                                            <!-- </?=form_open('quotations/applyNow')?> -->
+                                            <?=form_open('','id="myForm"')?>
                                                 <div class="btn-action">
-                                                    <input type="hidden" name="prod_name" id="prod_name" value="</?= $title ;?>">
-                                                    <input type="hidden" name="oc_email" id="oc_email" value="</?= $client_data['oc_email'] ;?>">
-                                                    <input type="hidden" name="quotation_id" id="quotation_id" value="</?= $client_data['quotation_id'] ;?>">
-                                                    <input type="hidden" name="org_name" id="org_name" value="</?= $product->org_name; ?>">
-                                                    <input type="hidden" name="prod_sect" id="prod_sect" value="</?= $product->org_secteur; ?>">
-                                                    <input type="hidden" name="product_image" id="product_image" value="</?= $product->product_image;?> ">
-                                                    <input type="hidden" name="org_email" id="org_email" value="</?= $product->org_email ;?>">
-                                                    <button type="submit" class="btn btn-secondary btn-block">Select</button>
+                                                    <input type="hidden" name="prod_name" id="prod_name" value="<?= $produit->product_name;?>">
+                                                    <input type="hidden" name="org_name" id="org_name" value="<?= $org->org_name; ?>">
+                                                    <input type="hidden" name="product_image" id="product_image" value="<?= $produit->product_image;?> ">
+                                                    <input type="hidden" name="org_email" id="org_email" value="<?= $org->u_email ;?>">
+                                                    <button type="submit" class="btn btn-secondary btn-block" id="btn_submit">Select</button>
                                                 </div>
                                             <?= form_close()?>
                                             <!--<a href="#" class="btn btn-secondary btn-block">Apply now</a> -->
-                                            <a href="<?= base_url()?>/product-details/<?=$produit->_id;?>/<?=$produit->product_name;?>" class="btn-link">More Informations</a>
+                                            <a href="<?= base_url()?>/details-product/<?=$produit->_id;?>/<?=$product->org_id;?>/<?= ucfirst($title)  ?> " class="btn-link">More Informations</a>
                                             <!-- <a href="<?= base_url()?>/quotations/openDevis/<?=$product->product_id;?>" class="btn-link">Open Devis</a> -->
                                         </div>
                                     </div>
@@ -119,5 +117,4 @@
 
     </div>
     <!-- /.content end -->
-
 <?= $this->endSection()?>

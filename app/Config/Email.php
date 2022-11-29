@@ -5,9 +5,7 @@ namespace Config;
 use CodeIgniter\Config\BaseConfig;
 
 class Email extends BaseConfig
-{
-    //mail.phoebessarl.com
-    //SMTP Port: 26
+{    
     /**
      * @var string
      */
@@ -49,22 +47,21 @@ class Email extends BaseConfig
      *
      * @var string
      */
-   // public $SMTPHost='business73.web-hosting.com';
-   public $SMTPHost='mail.tegraongd.org';
+   public $SMTPHost='mail.redpanda-prices.com';
 
     /**
      * SMTP Username
 
      * @var string
      */
-    public $SMTPUser='commercial@ftb-ug.tegraongd.org';
+    public $SMTPUser='infos@redpanda-prices.com';
 
     /**
      * SMTP Password
      *
      * @var string
      */
-    public $SMTPPass='FIATO@2btc';
+    public $SMTPPass='Red@Panda#12';
 
     /**
      * SMTP Port

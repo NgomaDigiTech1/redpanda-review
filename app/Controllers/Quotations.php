@@ -64,7 +64,7 @@ class Quotations extends BaseController
          <span>From Red Panda Prices !</span>     
         ";
 
-        $this->email->setFrom('commercial@ftb-ug.tegraongd.org', 'A request on Red Panda System');
+        $this->email->setFrom('infos@redpanda-prices.com', 'A request on Red Panda System');
 
         $this->email->setTo($to);
 
@@ -107,7 +107,7 @@ class Quotations extends BaseController
          <span>From Red Panda Prices !</span>     
         ";
 
-        $this->email->setFrom('commercial@ftb-ug.tegraongd.org', 'Request on Red Panda Prices');
+        $this->email->setFrom('infos@redpanda-prices.com', 'Request on Red Panda Prices');
 
         $this->email->setTo($to);
 
@@ -139,7 +139,7 @@ class Quotations extends BaseController
          <span>Thank you for choosing Red Panda Prices !</span>     
         ";
 
-        $this->email->setFrom('commercial@ftb-ug.tegraongd.org', 'Your request of quote on Red Panda');
+        $this->email->setFrom('infos@redpanda-prices.com', 'Your request of quote on Red Panda');
 
         $this->email->setTo($to);
 
@@ -159,13 +159,40 @@ class Quotations extends BaseController
             return true;
         }
     }
+    function testing(){
+        $data = $_POST;
+        foreach($data as $key => $val){
+            echo "<pre>";
+            print_r($val);
+        }
+    }
+    function mailing(){
 
-    function applyNow($product_name = null)
+        $this->email->setFrom('infos@repanda-prices.com', 'Request on Red Panda Prices');
+
+        $this->email->setTo("archangechef@gmail.com");
+
+        $this->email->setSubject("A request of quote has been sent to you");
+
+        //$this->email->setMessage($this->mailOrganisationContent($to, $data));
+
+        $this->email->setMessage("Ceci est un test juste pour savoir que tout va bien");
+
+        if ($this->email->send()) {
+
+            //session()->setTempdata('success', 'Your request has been submitted successfully');
+            echo  "success";
+
+        } else {
+            print_r($this->email->printDebugger($this->email->send()));
+            // return true;
+        }
+    }
+    function applyNow()
     {
         $data = [];
-
         $client_data = session()->get('client_data');
-
+        die();
         if($this->request->getMethod() == 'post'){
 
             $data  = [
@@ -201,6 +228,7 @@ class Quotations extends BaseController
         }
 
     }
+    
 
     function applyHome($product_name = null)
     {
@@ -266,8 +294,7 @@ class Quotations extends BaseController
     {
         $client_data = session()->get('client_data');
         $charact = model(ProductCharactModel::class);
-        $produit = (model(ProductModel::class))->getProduct($segment);
-        $name = $produit->product_name;        
+        $produit = (model(ProductModel::class))->getProduct($segment);       
         $data = [
             'title' => $produit->product_name,
             'products' => $charact->getSectorProducts($segment),
