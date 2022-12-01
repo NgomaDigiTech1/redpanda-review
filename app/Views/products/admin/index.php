@@ -279,7 +279,7 @@
                                     <div class="">
                                         <h4 class="text-white"><?= $prod->product_name?></h4>
                                         <p class="mb-1"><?= word_limiter($prod->product_description, 10) ?></p>
-                                        <a type="button" href="<?= base_url()?>/products/addCharacter/<?= $prod->_id?>" class="btn waves-effect waves-light btn-warning"><i class="feather feather icon-plus"></i>&nbsp;Characteristics</a>
+                                        <a type="button" href="<?= base_url()?>/products/addcharacter/<?= $prod->_id?>/<?=strtolower(url_title($prod->product_name));?>" class="btn waves-effect waves-light btn-warning"><i class="feather feather icon-plus"></i>&nbsp;Characteristics</a>
                                         <p>To create your product just add characteristics by clicking on the button over</p>
                                     </div>
                                 </div>

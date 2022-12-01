@@ -50,7 +50,7 @@
                                         <div class="lender-head">
                                             <div class="lender-logo">
                                                 <img
-                                                        src="<?= base_url(). "./assets/rp_admin/images/product/" . $produit['product_image'] ;?>"
+                                                        src="<?= base_url(). "./assets/rp_admin/images/user/" . $org['u_photo'] ;?>"
                                                         alt="<?= $org->org_name ?? 'Org';?>"
                                                 />
                                             </div>
@@ -72,7 +72,7 @@
                                             <div class="fee-charges-table">
                                                 <ul class="list-group">
                                                         <?php foreach ($product->caracteristics as $key => $caract): ?>
-                                                            <!-- </?php if(($caracteristic !== 'product_id') && ($caracteristic !== 'conditions_content') && ($caract !== '')) :?> -->
+                                                            <?php if(($key !== 'model') && ($key !== 'mfg_year') && ($key !== '') && ($key !== 'colors')) :?>
                                                                 <li class="list-group-item">
                                                                     <div class="row">
                                                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
@@ -83,7 +83,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </li>
-                                                            <!-- </?php endif; ?> -->
+                                                            <?php endif; ?>
                                                         <?php endforeach; ?>
                                                 </ul>
                                             </div>

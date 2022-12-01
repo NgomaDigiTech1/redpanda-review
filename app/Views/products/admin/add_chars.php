@@ -40,6 +40,31 @@
                             <?= form_open('products/saveCharacteristics') ?>
                                 <input type="hidden" name="product_id" value="<?= $product["_id"]?>" readonly>
                                 <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <p class="floating-label text-danger" for="Text">Basic Price USD (*)</p>
+                                            <input type="number" class="form-control" id="Text" name="price" min="0" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <p class="floating-label text-danger" for="Text">Model (*)</p>
+                                            <input type="text" class="form-control" id="Text" name="model" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="text-danger" for="Text">Colors (*)</label>
+                                            <input type="text" class="form-control" id="Text" name="colors" data-role="tagsinput" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="Text" class="text-danger">Mfg Year (*)</label>
+                                            <input type="text" class="form-control" data-role="tagsinput" id="Text" name="mfg_year" required>
+                                        </div>
+                                    </div>
                                     <?php foreach ($product["caracteristics"] as $key=>$val):?>
                                         <?php if ($key === "required"):?>
                                             <?php foreach ($val as $keys=> $item):?>

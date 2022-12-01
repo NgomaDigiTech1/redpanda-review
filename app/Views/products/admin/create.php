@@ -66,28 +66,24 @@
                                         <hr>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="floating-label" for="Text">Product Price</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" id="Text" aria-describedby="emailHelp" name="price" value="Price" readonly style="background-color:#fff">
                                             <small id="input-help" class="form-text text-danger">Automatically taken</small>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="floating-label" for="Text">Manufactured Year</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" id="Text" aria-describedby="emailHelp" name="mfg_year" value="Mfg Year" readonly style="background-color:#fff">
                                             <small id="input-help" class="form-text text-danger">Automatically taken</small>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="floating-label" for="Text">Brand Name</label>
                                         <div class="form-group">
-                                            <input type="text" class="form-control" id="Text" aria-describedby="emailHelp" name="brand" value="Brand" readonly style="background-color:#fff">
+                                            <input type="text" class="form-control" id="Text" aria-describedby="emailHelp" name="model" value="Model" readonly style="background-color:#fff">
                                             <small id="input-help" class="form-text text-danger">Automatically taken</small>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <label class="floating-label" for="Text">Colors</label>
                                         <div class="form-group">
                                             <input type="text" class="form-control" id="Text" aria-describedby="emailHelp" name="colors" value="Colors" readonly style="background-color:#fff">
                                             <small id="input-help" class="form-text text-danger">Automatically taken</small>

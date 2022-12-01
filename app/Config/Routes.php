@@ -60,7 +60,7 @@ $myroutes['test'] = 'Dashboard::test';
 $myroutes['sectors'] = 'Sectors::index';$myroutes['sector'] = 'Sectors::index';
 
 $routes->set404Override(function(){
-    echo view('errors/my_errors_view');
+    echo view('errors/404');
 });
 $routes->map($myroutes);
 if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))

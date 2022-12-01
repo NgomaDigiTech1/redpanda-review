@@ -115,7 +115,7 @@ class Products extends BaseController
                     'product_name' => $this->request->getVar('productname'),
                     'price'=>'Price',
                     'mfg_year'=>'Mfg Year',
-                    'brand'=>'Brand',
+                    'model'=>'Model',
                     'colors'=>'Colors',
                     'product_categories' => explode(",", $this->request->getVar('product_categories')),
                     'product_description' => $this->request->getVar('product_description'),
@@ -210,6 +210,10 @@ class Products extends BaseController
                 }
                 $datum = [
                     "product_id" => $product_id,  // The ObjectId of the product
+                    "price" => $this->request->getVar('price'),
+                    'mfg_year'=> explode(',',$this->request->getVar('mfg_year')),
+                    'model'=> $this->request->getVar('model'),
+                    'colors'=> explode(',',$this->request->getVar('colors')),
                     "caracteristics" => $characteristics,
                     "org_id" => $provider_data->_id, // The ObjectId of the
                     'created_at' => date("Y-m-d"),
