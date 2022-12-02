@@ -69,24 +69,60 @@
 
                                         <!-- Testing Characteristics here -->
 
-                                            <div class="fee-charges-table">
-                                                <ul class="list-group">
-                                                        <?php foreach ($product->caracteristics as $key => $caract): ?>
-                                                            <?php if(($key !== 'model') && ($key !== 'mfg_year') && ($key !== '') && ($key !== 'colors')) :?>
-                                                                <li class="list-group-item">
-                                                                    <div class="row">
-                                                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                                                            <h5><?= ucfirst(str_replace('_', ' ', $key)) ;?></h5>
-                                                                        </div>
-                                                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="text-align: right">
-                                                                            <?= ucfirst($caract) ;?>
-                                                                        </div>
-                                                                    </div>
-                                                                </li>
-                                                            <?php endif; ?>
-                                                        <?php endforeach; ?>
-                                                </ul>
-                                            </div>
+                                        <div class="fee-charges-table">
+                                            <ul class="list-group">
+                                                <?php foreach ($product->caracteristics as $key => $caract): ?>
+                                                    <?php if(($key !== 'model') && ($key !== 'mfg_year') && ($key !== '') && ($key !== 'colors') &&($key !== 'conditions_content')) :?>
+                                                        <li class="list-group-item">
+                                                            <div class="row">                                                                   
+                                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                                                    <h5><?= ucfirst(str_replace('_', ' ', $key)) ;?></h5>
+                                                                </div>
+                                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="text-align: right">
+                                                                    <?= ucfirst($caract) ;?>
+                                                                </div>
+                                                            </div>                                                            
+                                                        </li>
+                                                    <?php endif; ?>
+                                                <?php endforeach; ?>
+                                                <li class="list-group-item">
+                                                    <div class="row">                                                                   
+                                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                                            <h5>Color</h5>
+                                                        </div>
+                                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="text-align: right">
+                                                            <select name="color" id="" class="nice-select wide" required style="height: 50px; line-height:20px !important;">
+                                                                <option value="" >Selet Color</option>
+                                                                <?php foreach ($product->colors as $col):?>
+                                                                    <option value="<?=$col?>" <?=set_select("color", $col);?>><?=$col?></option>
+                                                                <?php endforeach; ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>                                                            
+                                                </li>
+                                                <li class="list-group-item">
+                                                    <div class="row">                                                                   
+                                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                                            <h5>Mfg Year</h5>
+                                                        </div>
+                                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="text-align: right">
+                                                            <select name="year" id="year" class="nice-select wide" required style="height: 50px; line-height:20px !important;">
+                                                                <option value="" >Selet Year</option>
+                                                                <?php $i = 0?>
+                                                                <?php foreach ($product->mfg_year as $yr):?>
+                                                                    <option value="<?=$yr?>" <?=set_select("color", $yr);?> onclick="getPrice(this.dataset.year)"><?=$yr?></option>
+                                                                <?php endforeach; ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>                                                            
+                                                </li>
+                                                <li class="nav-item" style="list-style:none">
+                                                    <a class="nav-link active" id="tab-2" data-toggle="tab" href="#service2" role="tab" aria-controls="service2" aria-selected="true"><i class="fa fa-credit-card fa-lg"></i>
+                                                        <p>Business</p>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
 
                                         <!-- End Testing -->
                                         <div class="lender-actions">
@@ -103,7 +139,7 @@
                                             <?= form_close()?>
                                             <!--<a href="#" class="btn btn-secondary btn-block">Apply now</a> -->
                                             <a href="<?= base_url()?>/details-product/<?=$produit->_id;?>/<?=$product->org_id;?>/<?= ucfirst($title)  ?> " class="btn-link">More Informations</a>
-                                            <!-- <a href="<?= base_url()?>/quotations/openDevis/<?=$product->product_id;?>" class="btn-link">Open Devis</a> -->
+                                            <!-- <a href="</?= base_url()?>/quotations/openDevis/</?=$product->product_id;?>" class="btn-link">Open Devis</a> -->
                                         </div>
                                     </div>
                                     <!-- /.lender listing -->
@@ -114,7 +150,13 @@
                 </div>
             <?php endif;?>
         </div>
-
     </div>
     <!-- /.content end -->
+
+    <script>
+        function getPrice(cont){
+            const el = document.querySelector('data-year');
+            console.log(el.dataset.datayear);
+        }
+    </script>
 <?= $this->endSection()?>
