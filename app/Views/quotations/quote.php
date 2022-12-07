@@ -100,25 +100,25 @@
                                                         </div>
                                                     </div>                                                            
                                                 </li>
+                                                
                                                 <li class="list-group-item">
                                                     <div class="row">                                                                   
                                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                                                             <h5>Mfg Year</h5>
                                                         </div>
                                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="text-align: right">
-                                                            <select name="year" id="year" class="nice-select wide" required style="height: 50px; line-height:20px !important;">
+                                                            <select name="year" id="year" class="nice-select wide" required style="height: 50px; line-height:20px !important;" onchange="setPrice(this.selectedIndex);">
                                                                 <option value="" >Selet Year</option>
-                                                                <?php $i = 0?>
-                                                                <?php foreach ($product->mfg_year as $yr):?>
-                                                                    <option value="<?=$yr?>" <?=set_select("color", $yr);?> onclick="getPrice(this.dataset.year)"><?=$yr?></option>
-                                                                <?php endforeach; ?>
+                                                                <?php foreach($product->mfg_year as $yr) :?>
+                                                                    <option value="<?=$yr;?>" <?=set_select("color", $yr);?>><?=$yr;?></option>
+                                                                <?php endforeach;?>
                                                             </select>
                                                         </div>
                                                     </div>                                                            
                                                 </li>
                                                 <li class="nav-item" style="list-style:none">
                                                     <a class="nav-link active" id="tab-2" data-toggle="tab" href="#service2" role="tab" aria-controls="service2" aria-selected="true"><i class="fa fa-credit-card fa-lg"></i>
-                                                        <p>Business</p>
+                                                        <p id="priced">Business</p>
                                                     </a>
                                                 </li>
                                             </ul>
@@ -154,9 +154,15 @@
     <!-- /.content end -->
 
     <script>
-        function getPrice(cont){
-            const el = document.querySelector('data-year');
-            console.log(el.dataset.datayear);
+        function setPrice(cont){
+            const el = document.getElementById('priced');
+            const price = <?= $product->price;?>;
+            if(cont > 1) {
+                let prix = price + price * (cont-1)/10;
+                el.textContent = prix;
+            }else {
+                el.textContent = price;
+            }            
         }
     </script>
 <?= $this->endSection()?>
