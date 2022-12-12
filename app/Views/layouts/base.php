@@ -22,6 +22,7 @@
     <link href="<?= base_url()?>/assets/rp_website/css/owl.carousel.css" rel="stylesheet">
     <link href="<?= base_url()?>/assets/rp_website/css/owl.theme.css" rel="stylesheet">
     <link href="<?= base_url()?>/assets/rp_website/css/navbar.css" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="shortcut icon" type="image/png" href="<?= base_url()?>/assets/rp_website/images/favicon.jpg" />
 </head>
 

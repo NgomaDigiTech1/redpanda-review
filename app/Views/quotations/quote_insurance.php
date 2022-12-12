@@ -109,16 +109,16 @@
                                         <div class="lender-actions">
                                             <!--  <button class="btn btn-secondary btn-block" data-toggle="modal" data-target="#modal_devis">Apply now</button>-->
                                             <?=form_open('quotations/applyHome')?>
-                                            <div class="btn-action">
-                                                <input type="hidden" name="prod_name" id="prod_name" value="<?= $title ;?>">
-                                                <input type="hidden" name="oc_email" id="oc_email" value="<?= $client_data['oc_email'] ;?>">
-                                                <input type="hidden" name="quotation_id" id="quotation_id" value="<?= $client_data['quotation_id'] ;?>">
-                                                <input type="hidden" name="org_name" id="org_name" value="<?= $product->org_name; ?>">
-                                                <input type="hidden" name="prod_sect" id="prod_sect" value="<?= $product->org_secteur; ?>">
-                                                <input type="hidden" name="org_email" id="org_email" value="<?= $product->org_email ?? ""; ?>">
-                                                <input type="hidden" name="product_image" id="product_image" value="<?= $product->product_image ?? ""; ?>">
-                                                <button type="submit" class="btn btn-secondary btn-block">Select</button>
-                                            </div>
+                                                <div class="btn-action">
+                                                    <input type="hidden" name="prod_name" id="prod_name" value="<?= $title ;?>">
+                                                    <input type="hidden" name="oc_email" id="oc_email" value="<?= $client_data['oc_email'] ;?>">
+                                                    <input type="hidden" name="quotation_id" id="quotation_id" value="<?= $client_data['quotation_id'] ;?>">
+                                                    <input type="hidden" name="org_name" id="org_name" value="<?= $product->org_name; ?>">
+                                                    <input type="hidden" name="prod_sect" id="prod_sect" value="<?= $product->org_secteur; ?>">
+                                                    <input type="hidden" name="org_email" id="org_email" value="<?= $product->org_email ?? ""; ?>">
+                                                    <input type="hidden" name="product_image" id="product_image" value="<?= $product->product_image ?? ""; ?>">
+                                                    <button type="submit" class="btn btn-secondary btn-block">Select</button>
+                                                </div>
                                             <?= form_close()?>
                                             <!--<a href="#" class="btn btn-secondary btn-block">Apply now</a> -->
                                             <a href="<?= base_url()?>/sectors/productDetails/<?=$product->product_id;?>" class="btn-link">More Informations</a>

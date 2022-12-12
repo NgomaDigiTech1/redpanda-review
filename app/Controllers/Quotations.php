@@ -192,9 +192,12 @@ class Quotations extends BaseController
     {
         $data = [];
         $client_data = session()->get('client_data');
-        die();
-        if($this->request->getMethod() == 'post'){
-
+        if($this->request->getMethod() === 'post'){
+            if(!$_POST['colors'] && !$_POST['years']) {
+                return redirect()->back()->with('error', "Choose the color and the year");
+            }else{
+                die('Cool');
+            }
             $data  = [
                 'org' => $this->request->getVar('org_name'),
                 'org_email' => $this->request->getVar('org_email'),
@@ -208,7 +211,7 @@ class Quotations extends BaseController
                 'quotation_id' =>$client_data['quotation_id'],
                 'status' => 'pending',
             ];
-
+            dd($data);
             $this->mdb->create("rp_quotation", array($data));
 
             $this->sendToClient($client_data['oc_email'], $data['oc_product'], $data['oc_first_name']);
@@ -323,7 +326,7 @@ class Quotations extends BaseController
         $key = $this->request->getVar('prod_id');
         $produit = (model(ProductModel::class))->getProduct($key);
 
-        if ($this->request->getMethod() == 'post'){
+        if ($this->request->getMethod() === 'post'){
             $this->validation->setRules([
 
                 'cl_name'  => ['label' => 'Client Name', 'rules' => 'required|min_length[3]'],
@@ -336,7 +339,8 @@ class Quotations extends BaseController
                     'cl_name' => $this->request->getVar('cl_name'),
                     'cl_email' => $this->request->getVar('cl_email'),
                     'cl_phone' => $this->request->getVar('cl_phone'),
-                    'product_id' => $this->request->getVar('product_id'),
+                    'prod_name' => $this->request->getVar('prod_name'),
+                    'prod_id' => $this->request->getVar('prod_id'),
                 );
 
                 session()->set('client_data', $data);

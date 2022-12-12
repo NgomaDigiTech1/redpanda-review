@@ -1,7 +1,5 @@
 <?= $this->extend("layouts/base")?>
-<?= $this->section("title")?>
 <?= $title;?>
-<?= $this->endSection("title")?>
 <?= $this->section("content")?>
 <?php $client_data = session()->get('client_data');?>
 
@@ -21,7 +19,7 @@
                         <div class="row align-items-center">
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                                 <h1 class="page-title"><?= ucfirst($title) ?> Listing</h1>
-                            </div>
+                            </div>                            
                         </div>
                     </div>
                 </div>
@@ -91,7 +89,7 @@
                                                             <h5>Color</h5>
                                                         </div>
                                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="text-align: right">
-                                                            <select name="color" id="" class="nice-select wide" required style="height: 50px; line-height:20px !important;">
+                                                            <select name="color" id="" class="nice-select wide" required style="height: 50px; line-height:20px !important;" onchange="choseColor(this.value)">
                                                                 <option value="" >Selet Color</option>
                                                                 <?php foreach ($product->colors as $col):?>
                                                                     <option value="<?=$col?>" <?=set_select("color", $col);?>><?=$col?></option>
@@ -107,20 +105,24 @@
                                                             <h5>Mfg Year</h5>
                                                         </div>
                                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="text-align: right">
-                                                            <select name="year" id="year" class="nice-select wide" required style="height: 50px; line-height:20px !important;" onchange="setPrice(this.selectedIndex);">
+                                                            <select name="year" id="year" class="nice-select wide" required style="height: 50px; line-height:20px !important;" onchange="setPrice(this.selectedIndex,this.value);">
                                                                 <option value="" >Selet Year</option>
                                                                 <?php foreach($product->mfg_year as $yr) :?>
-                                                                    <option value="<?=$yr;?>" <?=set_select("color", $yr);?>><?=$yr;?></option>
+                                                                    <option value="<?=$yr;?>" <?=set_select("year", $yr);?>><?=$yr;?></option>
                                                                 <?php endforeach;?>
                                                             </select>
                                                         </div>
                                                     </div>                                                            
                                                 </li>
                                                 <li class="nav-item" style="list-style:none">
-                                                    <a class="nav-link active" id="tab-2" data-toggle="tab" href="#service2" role="tab" aria-controls="service2" aria-selected="true"><i class="fa fa-credit-card fa-lg"></i>
-                                                        <p id="priced">Business</p>
+                                                    <a class="nav-link active" id="tab-2" data-toggle="tab" href="#service2" role="tab" aria-controls="service2" aria-selected="true">
+                                                        <i class="fa fa-credit-card fa-lg"></i>
+                                                        <p id="priced"><?=$product->price ?? '' ?></p>
                                                     </a>
                                                 </li>
+                                                <?php if(session()->getFlashdata('error')):?>
+                                                    <div class="alert alert-danger"><?=session()->getFlashdata('error');?></div>
+                                                <?php endif;?>
                                             </ul>
                                         </div>
 
@@ -128,12 +130,16 @@
                                         <div class="lender-actions">
                                             <!--  <button class="btn btn-secondary btn-block" data-toggle="modal" data-target="#modal_devis">Apply now</button>-->
                                             <!-- </?=form_open('quotations/applyNow')?> -->
-                                            <?=form_open('','id="myForm"')?>
+                                            <?=form_open('quotations/applyNow','id="myForm"')?>
                                                 <div class="btn-action">
                                                     <input type="hidden" name="prod_name" id="prod_name" value="<?= $produit->product_name;?>">
                                                     <input type="hidden" name="org_name" id="org_name" value="<?= $org->org_name; ?>">
                                                     <input type="hidden" name="product_image" id="product_image" value="<?= $produit->product_image;?> ">
                                                     <input type="hidden" name="org_email" id="org_email" value="<?= $org->u_email ;?>">
+                                                    <input type="hidden" name="years" id="years">
+                                                    <input type="hidden" name="colors" id="colors">
+                                                    <input type="hidden" name="price" id="price" value="<?= $product->price ;?>">
+                                                    <input type="hidden" name="prod_id" id="prod_id" value="<?= $product->_id ;?>">
                                                     <button type="submit" class="btn btn-secondary btn-block" id="btn_submit">Select</button>
                                                 </div>
                                             <?= form_close()?>
@@ -154,15 +160,33 @@
     <!-- /.content end -->
 
     <script>
-        function setPrice(cont){
+        function choseColor(col){
+            const color = document.getElementById('colors');
+            if(col != ''){
+                color.setAttribute('value', col);
+            }
+        }
+        function choseYear(yr){
+            const year = document.getElementById('years');
+            if(col != ''){
+                year.setAttribute('value', yr);
+            }
+        }
+
+        function setPrice(cont, yr){
             const el = document.getElementById('priced');
+            const year = document.getElementById('years');
             const price = <?= $product->price;?>;
+            let inputprice = document.getElementById('price');
             if(cont > 1) {
                 let prix = price + price * (cont-1)/10;
                 el.textContent = prix;
+                inputprice.setAttribute('value',prix);    
             }else {
                 el.textContent = price;
+                inputprice.setAttribute('value',price);          
             }            
+            year.setAttribute('value', yr);             
         }
     </script>
 <?= $this->endSection()?>

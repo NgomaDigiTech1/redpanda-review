@@ -1,7 +1,5 @@
 <?= $this->extend("layouts/base")?>
-<?= $this->section("title")?>
 <?= $title ?>
-<?= $this->endSection("title")?>
 <?= $this->section("content")?>
 
 
