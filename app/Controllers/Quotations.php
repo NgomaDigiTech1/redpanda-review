@@ -195,33 +195,31 @@ class Quotations extends BaseController
         if($this->request->getMethod() === 'post'){
             if(!$_POST['colors'] && !$_POST['years']) {
                 return redirect()->back()->with('error', "Choose the color and the year");
-            }else{
-                die('Cool');
+            }else{                
+                $data  = [
+                    'org' => $this->request->getVar('org_name'),
+                    'org_email' => $this->request->getVar('org_email'),
+                    'oc_first_name' => $client_data['oc_first_name'],
+                    'cl_email' => $client_data['cl_email'],
+                    'product_image' => $this->request->getVar('product_image'),
+                    'prod_sect' => $this->request->getVar('prod_sect'),
+                    'oc_phone' => $client_data['oc_phone'],
+                    'oc_product' => $client_data['oc_product'],
+                    'quotation_id' =>$client_data['quotation_id'],
+                    'status' => 'pending',
+                    'created_at' => date('Y-m-d H:i:s'),
+                ];
+                $this->mdb->create("rp_quotation", array($data));
+    
+                $this->sendToClient($client_data['oc_email'], $data['oc_product'], $data['oc_first_name']);
+                $this->sendToAdmin('archangechef@gmail.com', $data['oc_product'], $data['org'], $data['oc_first_name'], $data['oc_phone']); // The support email to be changed when online
+                $this->sendToOrganisation($data['org_email'], $data['oc_product'],$data['org'],$data['oc_first_name'],$data['oc_phone'],$data['oc_email']); // The organisation mail
+    
+                session()->setTempdata('success', 'Your request has been submitted successfully', 6);
+                session()->set('client_data', null);
+    
+                echo view('quotations/send_request',$data);
             }
-            $data  = [
-                'org' => $this->request->getVar('org_name'),
-                'org_email' => $this->request->getVar('org_email'),
-                'created_at' => date('Y-m-d H:i:s'),
-                'oc_first_name' => $client_data['oc_first_name'],
-                'oc_email' => $client_data['oc_email'],
-                'product_image' => $this->request->getVar('product_image'),
-                'prod_sect' => $this->request->getVar('prod_sect'),
-                'oc_phone' => $client_data['oc_phone'],
-                'oc_product' => $client_data['oc_product'],
-                'quotation_id' =>$client_data['quotation_id'],
-                'status' => 'pending',
-            ];
-            dd($data);
-            $this->mdb->create("rp_quotation", array($data));
-
-            $this->sendToClient($client_data['oc_email'], $data['oc_product'], $data['oc_first_name']);
-            $this->sendToAdmin('archangechef@gmail.com', $data['oc_product'], $data['org'], $data['oc_first_name'], $data['oc_phone']); // The support email to be changed when online
-            $this->sendToOrganisation($data['org_email'], $data['oc_product'],$data['org'],$data['oc_first_name'],$data['oc_phone'],$data['oc_email']); // The organisation mail
-
-            session()->setTempdata('success', 'Your request has been submitted successfully', 6);
-            session()->set('client_data', null);
-
-            echo view('quotations/send_request',$data);
 
         }
         else{
@@ -339,10 +337,7 @@ class Quotations extends BaseController
                     'cl_name' => $this->request->getVar('cl_name'),
                     'cl_email' => $this->request->getVar('cl_email'),
                     'cl_phone' => $this->request->getVar('cl_phone'),
-                    'prod_name' => $this->request->getVar('prod_name'),
-                    'prod_id' => $this->request->getVar('prod_id'),
                 );
-
                 session()->set('client_data', $data);
                 return redirect()->to(base_url().'/quotations/quote/'.$key. '/'.$produit->product_name);
 

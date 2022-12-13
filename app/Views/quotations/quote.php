@@ -88,14 +88,16 @@
                                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                                                             <h5>Color</h5>
                                                         </div>
-                                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="text-align: right">
-                                                            <select name="color" id="" class="nice-select wide" required style="height: 50px; line-height:20px !important;" onchange="choseColor(this.value)">
-                                                                <option value="" >Selet Color</option>
-                                                                <?php foreach ($product->colors as $col):?>
-                                                                    <option value="<?=$col?>" <?=set_select("color", $col);?>><?=$col?></option>
-                                                                <?php endforeach; ?>
-                                                            </select>
-                                                        </div>
+                                                        <?php if($product->colors):?>
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="text-align: right">
+                                                                <select name="color" id="" class="nice-select wide" required style="height: 50px; line-height:20px !important;" onchange="choseColor(this.value)">
+                                                                    <option value="" >Selet Color</option>
+                                                                    <?php foreach ($product->colors as $col):?>
+                                                                        <option value="<?=$col?>" <?=set_select("color", $col);?>><?=$col?></option>
+                                                                    <?php endforeach; ?>
+                                                                </select>
+                                                            </div>
+                                                        <?php endif;?>
                                                     </div>                                                            
                                                 </li>
                                                 
@@ -128,8 +130,6 @@
 
                                         <!-- End Testing -->
                                         <div class="lender-actions">
-                                            <!--  <button class="btn btn-secondary btn-block" data-toggle="modal" data-target="#modal_devis">Apply now</button>-->
-                                            <!-- </?=form_open('quotations/applyNow')?> -->
                                             <?=form_open('quotations/applyNow','id="myForm"')?>
                                                 <div class="btn-action">
                                                     <input type="hidden" name="prod_name" id="prod_name" value="<?= $produit->product_name;?>">
@@ -143,9 +143,7 @@
                                                     <button type="submit" class="btn btn-secondary btn-block" id="btn_submit">Select</button>
                                                 </div>
                                             <?= form_close()?>
-                                            <!--<a href="#" class="btn btn-secondary btn-block">Apply now</a> -->
                                             <a href="<?= base_url()?>/details-product/<?=$produit->_id;?>/<?=$product->org_id;?>/<?= ucfirst($title)  ?> " class="btn-link">More Informations</a>
-                                            <!-- <a href="</?= base_url()?>/quotations/openDevis/</?=$product->product_id;?>" class="btn-link">Open Devis</a> -->
                                         </div>
                                     </div>
                                     <!-- /.lender listing -->
@@ -164,12 +162,6 @@
             const color = document.getElementById('colors');
             if(col != ''){
                 color.setAttribute('value', col);
-            }
-        }
-        function choseYear(yr){
-            const year = document.getElementById('years');
-            if(col != ''){
-                year.setAttribute('value', yr);
             }
         }
 
