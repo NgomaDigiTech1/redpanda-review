@@ -47,21 +47,21 @@ class Email extends BaseConfig
      *
      * @var string
      */
-   public $SMTPHost='mail.redpanda-prices.com';
+   public $SMTPHost='redpanda-prices.com';
 
     /**
      * SMTP Username
 
      * @var string
      */
-    public $SMTPUser='infos@redpanda-prices.com';
+    public $SMTPUser='support@redpanda-prices.com';
 
     /**
      * SMTP Password
      *
      * @var string
      */
-    public $SMTPPass='Red@Panda#12';
+    public $SMTPPass='lU}MB22EDmi$';
 
     /**
      * SMTP Port
@@ -75,7 +75,7 @@ class Email extends BaseConfig
      *
      * @var int
      */
-    public $SMTPTimeout = 20;
+    public $SMTPTimeout = 5;
 
     /**
      * Enable persistent SMTP connections
@@ -89,7 +89,7 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $SMTPCrypto = 'smtp';
+    public $SMTPCrypto = 'tls';
 
     /**
      * Enable word-wrap

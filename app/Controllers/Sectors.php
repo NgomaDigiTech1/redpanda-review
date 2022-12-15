@@ -169,7 +169,6 @@ class Sectors extends BaseController
         echo view('sectors/product_by_sector',$data);
     }
 
-
     function getProduct($product_id = null)
     {
         $product_id = $this->request->getVar('product_id');
@@ -262,9 +261,6 @@ class Sectors extends BaseController
         if (empty($data['sector'])) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Cannot find sector with ID: ' . $segment);
         }
-        // foreach ($data['sector']['_id'] as $key => $value) {
-        //     print_r($value);
-        // }
         return $data['sector'];
     }
 

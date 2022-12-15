@@ -83,12 +83,12 @@
                                                         </li>
                                                     <?php endif; ?>
                                                 <?php endforeach; ?>
-                                                <li class="list-group-item">
-                                                    <div class="row">                                                                   
-                                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                                            <h5>Color</h5>
-                                                        </div>
-                                                        <?php if($product->colors):?>
+                                                <?php if(isset($product->colors)):?>
+                                                    <li class="list-group-item">
+                                                        <div class="row">                                                                   
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                                                <h5>Color</h5>
+                                                            </div>
                                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="text-align: right">
                                                                 <select name="color" id="" class="nice-select wide" required style="height: 50px; line-height:20px !important;" onchange="choseColor(this.value)">
                                                                     <option value="" >Selet Color</option>
@@ -97,25 +97,26 @@
                                                                     <?php endforeach; ?>
                                                                 </select>
                                                             </div>
-                                                        <?php endif;?>
-                                                    </div>                                                            
-                                                </li>
-                                                
-                                                <li class="list-group-item">
-                                                    <div class="row">                                                                   
-                                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                                            <h5>Mfg Year</h5>
-                                                        </div>
-                                                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="text-align: right">
-                                                            <select name="year" id="year" class="nice-select wide" required style="height: 50px; line-height:20px !important;" onchange="setPrice(this.selectedIndex,this.value);">
-                                                                <option value="" >Selet Year</option>
-                                                                <?php foreach($product->mfg_year as $yr) :?>
-                                                                    <option value="<?=$yr;?>" <?=set_select("year", $yr);?>><?=$yr;?></option>
-                                                                <?php endforeach;?>
-                                                            </select>
-                                                        </div>
-                                                    </div>                                                            
-                                                </li>
+                                                        </div>                                                            
+                                                    </li>
+                                                <?php endif;?>
+                                                <?php if(isset($product->colors)):?>
+                                                    <li class="list-group-item">
+                                                        <div class="row">                                                                   
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                                                <h5>Mfg Year</h5>
+                                                            </div>
+                                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="text-align: right">
+                                                                <select name="year" id="year" class="nice-select wide" required style="height: 50px; line-height:20px !important;" onchange="setPrice(this.selectedIndex,this.value);">
+                                                                    <option value="" >Selet Year</option>
+                                                                    <?php foreach($product->mfg_year as $yr) :?>
+                                                                        <option value="<?=$yr;?>" <?=set_select("year", $yr);?>><?=$yr;?></option>
+                                                                    <?php endforeach;?>
+                                                                </select>
+                                                            </div>
+                                                        </div>                                                            
+                                                    </li>
+                                                <?php endif;?>
                                                 <li class="nav-item" style="list-style:none">
                                                     <a class="nav-link active" id="tab-2" data-toggle="tab" href="#service2" role="tab" aria-controls="service2" aria-selected="true">
                                                         <i class="fa fa-credit-card fa-lg"></i>
@@ -140,6 +141,7 @@
                                                     <input type="hidden" name="colors" id="colors">
                                                     <input type="hidden" name="price" id="price" value="<?= $product->price ;?>">
                                                     <input type="hidden" name="prod_id" id="prod_id" value="<?= $product->_id ;?>">
+                                                    <input type="hidden" name="prod_sect" id="prod_sect" value="<?= $title ;?>"> 
                                                     <button type="submit" class="btn btn-secondary btn-block" id="btn_submit">Select</button>
                                                 </div>
                                             <?= form_close()?>

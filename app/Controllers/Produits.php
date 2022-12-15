@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-helper('inflector');
+helper(['form', 'url', 'text','custom','inflector']);
 
 class Produits extends BaseController
 {
@@ -18,6 +18,19 @@ class Produits extends BaseController
             'products' => $model->getProducts(),
         ];
 		dd($data);
+    }
+    public function deleteProdCharact($segment = null) {
+        if (!is_logged()) return redirect()->to('/login');
+        $user_data = session()->get('user_data');
+        if($user_data['u_role'] === 'admin'){
+            $products = model(ProductModel::class);
+            $produits = model(ProductCharactModel::class);
+            $produits->deleteProdCharact($segment);
+            $products->deleteProduct($segment);
+        }else {
+            echo "You are not allowed to delete";
+        }
+        echo 'Deleted successfully';
     }
 
     public function details($segment = null)
@@ -94,5 +107,5 @@ class Produits extends BaseController
             session()->setFlashData("success", "Product Successfully Deleted");
         }
         return redirect()->to('products/getOrganisationProducts');
-    }
+    }    
 }

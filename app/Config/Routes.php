@@ -55,7 +55,7 @@ $myroutes['reset'] = 'Auth::reset';
 $myroutes['change'] = 'Auth::change';
 $myroutes['signup'] = 'Auth::signup';
 $myroutes['contact'] = 'Auth::contact';
-$myroutes['mail'] = 'Users::openMail';
+
 $myroutes['test'] = 'Dashboard::test';
 $myroutes['sectors'] = 'Sectors::index';$myroutes['sector'] = 'Sectors::index';
 

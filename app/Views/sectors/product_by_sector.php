@@ -184,7 +184,7 @@
                                                                 <h4 class="mb20">General Characteristics</h4>
                                                                 <ul class="bullet bullet-check-circle list-unstyled">
                                                                     <?php foreach ($item['caracteristics']['required'] as $characteristic => $charact):?>
-                                                                            <li><?=$charact;?></li>
+                                                                        <li><?=$charact;?></li>
                                                                     <?php endforeach;?>
                                                                 </ul>
                                                             </div>

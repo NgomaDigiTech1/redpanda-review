@@ -168,15 +168,17 @@ class Quotations extends BaseController
     }
     function mailing(){
 
-        $this->email->setFrom('infos@repanda-prices.com', 'Request on Red Panda Prices');
+        $this->email->setFrom('infos@thusa.education', 'Request on Red Panda Prices');
 
-        $this->email->setTo("archangechef@gmail.com");
+        $this->email->setTo("agentlibremrd@gmail.com");
+
+        $this->email->setCC("infos@redpanda-prices.com");
 
         $this->email->setSubject("A request of quote has been sent to you");
 
         //$this->email->setMessage($this->mailOrganisationContent($to, $data));
 
-        $this->email->setMessage("Ceci est un test juste pour savoir que tout va bien");
+        $this->email->setMessage("Dis-moi juste dix mots doux et ne me condamne pas");
 
         if ($this->email->send()) {
 
@@ -199,21 +201,21 @@ class Quotations extends BaseController
                 $data  = [
                     'org' => $this->request->getVar('org_name'),
                     'org_email' => $this->request->getVar('org_email'),
-                    'oc_first_name' => $client_data['oc_first_name'],
+                    'cl_name' => $client_data['cl_name'],
                     'cl_email' => $client_data['cl_email'],
                     'product_image' => $this->request->getVar('product_image'),
                     'prod_sect' => $this->request->getVar('prod_sect'),
-                    'oc_phone' => $client_data['oc_phone'],
-                    'oc_product' => $client_data['oc_product'],
-                    'quotation_id' =>$client_data['quotation_id'],
+                    'cl_phone' => $client_data['cl_phone'],
+                    'prod_name' => $this->request->getPost('prod_name'),
                     'status' => 'pending',
                     'created_at' => date('Y-m-d H:i:s'),
                 ];
+                
                 $this->mdb->create("rp_quotation", array($data));
     
-                $this->sendToClient($client_data['oc_email'], $data['oc_product'], $data['oc_first_name']);
-                $this->sendToAdmin('archangechef@gmail.com', $data['oc_product'], $data['org'], $data['oc_first_name'], $data['oc_phone']); // The support email to be changed when online
-                $this->sendToOrganisation($data['org_email'], $data['oc_product'],$data['org'],$data['oc_first_name'],$data['oc_phone'],$data['oc_email']); // The organisation mail
+                $this->sendToClient($client_data['cl_email'], $data['prod_name'], $data['cl_name']);
+                $this->sendToAdmin('infos@redpanda-prices.com', $data['prod_name'], $data['org'], $data['cl_name'], $data['cl_phone']); // The support email to be changed when online
+                $this->sendToOrganisation($data['org_email'], $data['prod_name'],$data['org'],$data['cl_name'],$data['cl_phone'],$data['cl_email']); // The organisation mail
     
                 session()->setTempdata('success', 'Your request has been submitted successfully', 6);
                 session()->set('client_data', null);
@@ -353,49 +355,15 @@ class Quotations extends BaseController
 
     function loadRequest($key= null,$name = null)
     {
-        $data = [];
-
         $data = [
             'title' => $name,
             'key' => $key,
-        ];
-
-        // if ($this->request->getMethod() == 'post'){
-
-        //     $this->validation->setRules([
-
-        //         'oc_first_name'  => ['label' => 'Client Name', 'rules' => 'required|min_length[3]'],
-        //         'oc_email' => ['label' => 'Email','rules' => 'required|valid_email'],
-        //         'oc_phone' => ['label' => 'Telephone', 'rules' => 'required'],
-        //     ]);
-
-        //     if($this->validation->withRequest($this->request)->run()){
-        //         $data = array(
-        //             'oc_first_name' => $this->request->getVar('oc_first_name'),
-        //             'oc_email' => $this->request->getVar('oc_email'),
-        //             'oc_phone' => $this->request->getVar('oc_phone'),
-        //             'oc_product' => $this->request->getVar('prod_name'),
-        //             'created_at'=> date('Y-m-d H:i:s'),
-        //         );
-
-        //         session()->set('client_data', $data);
-        //         echo "<pre>";
-        //         var_dump($key);
-        //         die();
-        //         return $this->quote($key);
-        //         // return redirect()->to(site_url().'quotations/quote/'.$this->request->getVar('prod_name'));
-
-        //     }else{
-        //         $data['validation'] = $this->validation->getErrors();
-        //     }
-        // }
-
+        ];        
         echo view('quotations/request', $data);
     }
 
     function loadHome($product_name = null)
     {
-
         $data = [
             'title' => $product_name,
         ];

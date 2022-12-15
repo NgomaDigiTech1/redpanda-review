@@ -70,4 +70,16 @@ class ProductCharactModel {
             show_error('Error while deleting a product with ID: ' . $id . $ex->getMessage(), 500);
         }
     }
+    function deleteProdCharact($id){
+        try {
+            $result = $this->collection->deleteMany(['product_id' => new \MongoDB\BSON\ObjectId($id)]);
+
+            if($result->getDeletedCount() >= 1) {
+                return true;
+            }
+            return false;
+        } catch(\MongoDB\Exception\RuntimeException $ex) {
+            show_error('Error while deleting a product with ID: ' . $id . $ex->getMessage(), 500);
+        }
+    }
 }
