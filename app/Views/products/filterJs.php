@@ -1,4 +1,5 @@
 <script>
+    // Filtering products
     const list = document.querySelector('#lists');
     const searchBar = document.forms['search-products'].querySelector('input');
     
