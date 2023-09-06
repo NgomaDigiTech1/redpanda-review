@@ -35,6 +35,15 @@ class SectorModel {
             show_error('Error while fetching sector with ID: ' . $id . $ex->getMessage(), 500);
         }
     }    
+    function getSectorBySlug($slug) {
+        try {
+            $sector = $this->collection->findOne(['sector_slug' => $slug]);
+            return $sector;
+        } catch(\MongoDB\Exception\RuntimeException $ex) {
+            die("Couldn't find any sector with that slug");
+            // show_error('Error while fetching sector with Slug: ' . $slug . $ex->getMessage(), 500);
+        }
+    }    
 
     function deleteSector($id) {
         try {

@@ -25,9 +25,13 @@
           <?php foreach ($sectors as $value): ?>
             <div class="col-lg-3 col-md-4">
               <a
-                href="<?= base_url()?>/product-by-sector/<?= $value['_id']?>/<?=url_title(strtolower($value['sector_name']))?>"
+                href="<?= base_url()?>/products-by-sector/<?= $value['sector_slug']?>/"
                 class="card bg-white text-center shadow border-0 lift"
               >
+              <!-- <a
+                href="</?= base_url()?>/products-by-sector/</?= $value['_id']?>/</?=url_title(strtolower($value['sector_name']))?>"
+                class="card bg-white text-center shadow border-0 lift"
+              > -->
                 <div class="card-body p-3">
                   <div
                     class="icon-shape bg-warning-light rounded-circle icon-lg mb-3"

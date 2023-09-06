@@ -42,7 +42,7 @@ class Products extends BaseController
             array_push($tab,$sect->sector_name);
         }
         $data = [
-            'title' => "Products | Red Panda",
+            'title' => "Products | The Price Bee",
             'sectors' => $this->sectModel->getEnabledSectors(), //Products sectors Field List
             'sect_mod' => $tab,
             'user_data' => $user_data,
@@ -113,6 +113,7 @@ class Products extends BaseController
             if ($this->validation->withRequest($this->request)->run()) {
                 $data = array(
                     'product_name' => $this->request->getVar('productname'),
+                    'product_slug' => strtolower(convert_accented_characters(url_title($this->request->getVar('productname')))),
                     'price'=>'Price',
                     'mfg_year'=>'Mfg Year',
                     'model'=>'Model',
@@ -140,7 +141,7 @@ class Products extends BaseController
                 $this->mdb->create($this->collection, array($data));
 
                 $session = session();
-                $session->setFlashData("success", "Characteristics add Successfully");
+                $session->setFlashData("success", "Characteristics added Successfully");
                 return redirect()->to('/products');
 
             } else {

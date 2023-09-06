@@ -34,7 +34,7 @@ class Quotations extends BaseController
 
 	public function index()
 	{
-        $data['title'] = "Red Panda Prices | Quotations";
+        $data['title'] = "The Price Bee | Quotations";
 
         $data['products'] =  $this->mdb->getList($this->collection);
 
@@ -44,8 +44,8 @@ class Quotations extends BaseController
 
     function sendToAdmin($to, $prod, $org, $client, $phone){
         $body = "
-         <p>Hi Red Panda ! </p>
-         <p>A request of quote on Red Panda has been submitted for <strong> $prod </strong></p>
+         <p>Hi The Price Bee ! </p>
+         <p>A request of quote on The Price Bee has been submitted for <strong> $prod </strong></p>
       
          <table>
             <tr>
@@ -61,14 +61,14 @@ class Quotations extends BaseController
                 <td>$phone</td>
             </tr>
         </table>
-         <span>From Red Panda Prices !</span>     
+         <span>From The Price Bee !</span>     
         ";
 
-        $this->email->setFrom('infos@redpanda-prices.com', 'A request on Red Panda System');
+        $this->email->setFrom('infos@redpanda-prices.com', 'A request on The Price Bee System');
 
         $this->email->setTo($to);
 
-        $this->email->setSubject("A request has been submitted on Red Panda System");
+        $this->email->setSubject("A request has been submitted on The Price Bee System");
 
         $this->email->setMessage($body);
 
@@ -89,7 +89,7 @@ class Quotations extends BaseController
 
         $body = "
          <p>Hi $org ! </p>
-         <p>You've received a request of quote on Red Panda Prices for <strong> $prod</strong> by</p>
+         <p>You've received a request of quote on The Price Bee for <strong> $prod</strong> by</p>
          <table>
             <tr>
                 <td>Client : </td>
@@ -104,10 +104,10 @@ class Quotations extends BaseController
                 <td>$email</td>
             </tr>
         </table>
-         <span>From Red Panda Prices !</span>     
+         <span>From The Price Bee !</span>     
         ";
 
-        $this->email->setFrom('infos@redpanda-prices.com', 'Request on Red Panda Prices');
+        $this->email->setFrom('infos@redpanda-prices.com', 'Request on The Price Bee');
 
         $this->email->setTo($to);
 
@@ -134,16 +134,16 @@ class Quotations extends BaseController
 
         $body = "
          <p>Hi $client ! </p>
-         <p>You've made a request of quote on Red Panda System for <strong>$product</strong></p>
+         <p>You've made a request of quote on The Price Bee System for <strong>$product</strong></p>
          <p>We'll contact you soon ...</p> 
-         <span>Thank you for choosing Red Panda Prices !</span>     
+         <span>Thank you for choosing The Price Bee !</span>     
         ";
 
-        $this->email->setFrom('infos@redpanda-prices.com', 'Your request of quote on Red Panda');
+        $this->email->setFrom('infos@redpanda-prices.com', 'Your request of quote on The Price Bee');
 
         $this->email->setTo($to);
 
-        $this->email->setSubject("Your request of quote on Red Panda");
+        $this->email->setSubject("Your request of quote on The Price Bee");
 
         $this->email->setMessage($body);
 
@@ -168,7 +168,7 @@ class Quotations extends BaseController
     }
     function mailing(){
 
-        $this->email->setFrom('infos@thusa.education', 'Request on Red Panda Prices');
+        $this->email->setFrom('infos@thusa.education', 'Request on The Price Bee');
 
         $this->email->setTo("agentlibremrd@gmail.com");
 
@@ -440,12 +440,10 @@ class Quotations extends BaseController
 
         echo view('quotations/home_insurance', $data);
     }
-    function loadCar($product_name = null)
+    function loadCar($product_slug = null)
     {
-        $data = [];
-
         $data = [
-            'title' => $product_name,
+            'title' => $product_slug,
         ];
 
         if($this->request->getMethod() == 'post'){

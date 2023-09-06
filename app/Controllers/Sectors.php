@@ -65,6 +65,7 @@ class Sectors extends BaseController
 
         $data = array(
             'sector_name' => $this->request->getVar('sector_name'),
+            'sector_slug' => strtolower(convert_accented_characters(url_title($this->request->getVar('sector_name')))),
             'moderator' => $this->request->getVar('moderator'),
             'sector_id' => md5($this->request->getVar('sector_name') . date('d-Y-M : s:h')),
             'sector_created_at' => date("Y-m-d"),
@@ -103,6 +104,7 @@ class Sectors extends BaseController
 
         $data = array(
             'sector_name' => $this->request->getVar('sector_name'),
+            'sector_slug' => strtolower(convert_accented_characters(url_title($this->request->getVar('sector_name')))),
             'moderator' => $this->request->getVar('moderator'),
             'sector_description' => $this->request->getVar('description'),
         );
@@ -159,11 +161,13 @@ class Sectors extends BaseController
         }
         return $sect;
     }
-
-    function productSector($segment, $name = null){
-        $sector = (model(SectorModel::class))->getSector($segment);
+    /**
+     * Load all products for a selected Sector on the Homepage
+     */
+    function productSector($slug){
+        $sector = (model(SectorModel::class))->getSectorBySlug($slug);
         $data = [
-            'prod_sectors' => $this->sectorProduct($segment),
+            'prod_sectors' => $this->sectorProduct($sector->_id),
             'title' => $sector->sector_name,
         ];
         echo view('sectors/product_by_sector',$data);

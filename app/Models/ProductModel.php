@@ -14,9 +14,9 @@ class ProductModel {
         $this->collection = $database->rp_products;
     }
 
-    function getProducts($limit = 10) {
+    function getProducts() {
         try {
-            $cursor = $this->collection->find([], ['limit' => $limit]);
+            $cursor = $this->collection->find([]);
             $products = $cursor->toArray();
             return $products;
         } catch(\MongoDB\Exception\RuntimeException $ex) {

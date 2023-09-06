@@ -19,8 +19,8 @@
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="bg-white pinside30 text-center">
-                    <h2 class="text-bold">These are products for <?= $title; ?> Sector</h2>
-                    <p class="lead">Here are different organisations offering this product </p>
+                    <h2 class="text-bold">These are products for <?= ucfirst($title); ?> Sector</h2>
+                    <p class="lead">Here are different organisations offering products in this sector </p>
                     <p>Just click on the view request button to see the quotes</p>
                 </div>
             </div>
@@ -68,22 +68,22 @@
                                         <tr>
                                             <td style="padding: 8px">
 
-                                                <?php if(isset($item->product_name) && ($item->product_name=== 'Home Insurance')) : ?>
+                                                <?php if(isset($item->product_slug) && ($item->product_slug=== 'home-insurance')) : ?>
 
-                                                    <a href="<?= base_url() ?>/quotations/loadHome/<?=$item->product_name;?>">
+                                                    <a href="<?= base_url() ?>/quotations/loadHome/<?=$item->product_slug;?>">
 
                                                     <img
-                                                        src="<?= base_url(). "./assets/rp_admin/images/product/" . $item['product_image'];?>"
-                                                        alt="<?=$item->product_name;?>"
+                                                        src="<?= base_url()?>/assets/rp_admin/images/product/<?= $item['product_image'];?>"
+                                                        alt="img"
                                                         style="width: 180px;height: 120px"
                                                         class="img-fluid"
                                                     />
-                                                <?php elseif(isset($item->product_name) && ($item->product_name === 'Car Insurance')) : ?>
+                                                <?php elseif(isset($item->product_slug) && ($item->product_slug === 'car-insurance')) : ?>
 
-                                                    <a href="<?= base_url() ?>/quotations/loadCar/<?=$item->product_name;?>">
+                                                    <a href="<?= base_url() ?>/quotations/loadCar/<?=$item->product_slug;?>">
                                                         <img
-                                                            src="<?= base_url(). "./assets/rp_admin/images/product/" . $item['product_image'];?>"
-                                                            alt="<?=$item->product_name;?>"
+                                                            src="<?= base_url()?>/assets/rp_admin/images/product/<?= $item['product_image'];?>"
+                                                            alt="product-image"
                                                             style="width: 180px;height: 120px"
                                                             class="img-fluid"
                                                         >
@@ -146,8 +146,8 @@
 
                                                 <?php if($item->product_name === 'Home Insurance') : ?>
                                                     <a href="<?= base_url() ?>/quotations/loadHome/<?=$item->product_name;?>" class="btn btn-secondary btn-sm mb5">Select</a>
-                                                <?php elseif($item->product_name === 'Car Insurance') : ?>
-                                                    <a href="<?= base_url() ?>/quotations/loadCar/<?=$item->product_name;?>" class="btn btn-secondary btn-sm mb5">Select</a>
+                                                <?php elseif($item->product_slug === 'car-insurance') : ?>
+                                                    <a href="<?= base_url() ?>/quotations/loadCar/<?=$item->product_slug;?>" class="btn btn-secondary btn-sm mb5">Select</a>
                                                 <?php else: ?>
                                                     <a href="<?= base_url() ?>/quotations/loadRequest/<?=$item->_id;?>/<?=url_title(strtolower($item->product_name));?>" class="btn btn-secondary btn-sm mb5">Select</a>
                                                 <?php endif;?>

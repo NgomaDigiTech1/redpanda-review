@@ -143,7 +143,7 @@
                                                                             <div class="form-group">
                                                                                 <label class="floating-label" for="moderator">Moderator</label>
                                                                                 <select class="form-control" id="moderator" name="moderator" required>
-                                                                                    <option value="<?= $mod->_id;?>"><?= $mod->u_first_name;?></option>
+                                                                                    <option value="<?= $mod->_id ?? '';?>"><?= $mod->u_first_name ?? '';?></option>
                                                                                     <?php foreach ($moderators as $moderat):?>
                                                                                         <option value="<?= $moderat->_id ?>"<?= set_select('moderator', $moderat->_id) ?>><?= ucfirst($moderat->u_first_name) ?></option>
                                                                                     <?php endforeach;?>

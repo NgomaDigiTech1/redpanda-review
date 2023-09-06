@@ -34,7 +34,7 @@ $routes->get('home', 'Pages::views');
 $routes->get('pages', 'Pages::views/$1');
 
 
-$routes->add('product-by-sector/(:any)/?(:any)', 'Sectors::productSector/$1/?$1');
+$routes->add('products-by-sector/(:any)', 'Sectors::productSector/$1');
 $routes->add('product-details/(:any)/?(:any)', 'Products::details/$1/?$1');
 $routes->add('details-product/(:any)/?(:any)', 'Products::productDetails/$1/?$1');
 

@@ -59,7 +59,7 @@ class Auth extends BaseController
                     $data['validation'] = $this->validation->getErrors();
                 }
             }
-            $data['title'] = "Red Panda prices | Signin";
+            $data['title'] = "The Price Bee | Signin";
             echo view('pages/signin', $data);
         }
 
@@ -86,7 +86,7 @@ class Auth extends BaseController
     function reset(){
         if (!is_logged()) return redirect()->to('/login');
 
-        $data['title'] = "Red Panda Prices | Reset";
+        $data['title'] = "The Price Bee | Reset";
         echo view ('pages/reset', $data);
     }
 
@@ -135,7 +135,7 @@ class Auth extends BaseController
             }
 
         }
-        $data['title'] = "Red Panda Prices | Change";
+        $data['title'] = "The Price Bee | Change";
         echo view('pages/change', $data);
 
     }
