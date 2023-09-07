@@ -17,10 +17,7 @@
 		}
 
 		public function views($page = 'home'){
-
-			if(!file_exists(APPPATH.'views/pages/'.$page.'.php')){
-           		return PageNotFoundException::forPageNotFound();
-        	}
+			
             $data = [
                 'title' => ucfirst($page),
 				'sectors'=> $this->sectModel->getEnabledSectors(),
