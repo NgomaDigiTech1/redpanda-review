@@ -5,7 +5,7 @@ use CodeIgniter\Config\BaseConfig;
 
 class MongoDBConfig extends BaseConfig
 {
-    public $db ="redpanda_db"; //your database
+    public $db ="redpandaprices_db"; //your database
     public $hostname = 'localhost'; //if you use remote server you should change host address
     public $username = "MrdKB";
     public $password = "MDMax219";
