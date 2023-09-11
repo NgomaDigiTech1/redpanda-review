@@ -59,7 +59,7 @@
                                         <small id="input-help" class="form-text text-danger"><?= $validation['product_categories'] ?? null ;  ?></small>
                                     </div>
                                 </div>
-                                <div class="container-fluid" style="display:contents">
+                                <!-- <div class="container-fluid" style="display:contents">
                                     <div class="col-md-12">
                                         <h5 class="mt-5 mb-3 text-danger">Invariant Characteristics</h5>
                                         <span class="form-text text-danger">Don't repeat the invariant variables in the Product Characteristics</span>
@@ -89,7 +89,7 @@
                                             <small id="input-help" class="form-text text-danger">Automatically taken</small>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="col-md-12">
                                     <h5 class="mt-5 mb-3">Product Characteristics</h5>
                                     <hr>

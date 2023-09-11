@@ -16,7 +16,6 @@ class DatabaseConnector {
             $database = getenv('DATABASE');
         } else {
 
-            /** Set it when connected online */
             $uri = new Klient("mongodb://{$this->mongoConnectionInfos->hostname}:{$this->mongoConnectionInfos->port}/{$this->mongoConnectionInfos->db}",
                                 ["authMechanism" => "SCRAM-SHA-256",
                                     'username' => $this->mongoConnectionInfos->username,
