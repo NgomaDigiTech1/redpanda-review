@@ -10,6 +10,7 @@ use App\Controllers\BaseController;
 use App\Models\CommonModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 use App\Controllers\Sectors as Sectors;
+use App\Models\ProductModel;
 
 class Products extends BaseController
 {
@@ -111,13 +112,14 @@ class Products extends BaseController
             ]);
 
             if ($this->validation->withRequest($this->request)->run()) {
+
                 $data = array(
                     'product_name' => $this->request->getVar('productname'),
                     'product_slug' => strtolower(convert_accented_characters(url_title($this->request->getVar('productname')))),
-                    'price'=>'Price',
-                    'mfg_year'=>'Mfg Year',
-                    'model'=>'Model',
-                    'colors'=>'Colors',
+                    // 'price'=>'Price',
+                    // 'mfg_year'=>'Mfg Year',
+                    // 'model'=>'Model',
+                    // 'colors'=>'Colors',
                     'product_categories' => explode(",", $this->request->getVar('product_categories')),
                     'product_description' => $this->request->getVar('product_description'),
                     'product_status' => 'enable',
@@ -138,17 +140,28 @@ class Products extends BaseController
                     }
                     $data['product_sectors'] = $sectors;
                 }
-                $this->mdb->create($this->collection, array($data));
-
-                $session = session();
-                $session->setFlashData("success", "Characteristics added Successfully");
-                return redirect()->to('/products');
+                if ($this->checkProduct($data['product_slug']) == false) {
+                    $this->mdb->create($this->collection, array($data));                    
+                    return redirect()->to('/products')->with("success", "Product successfully created.");
+                } else {
+                    return redirect()->back()->with('error', 'This product already exists ...');
+                }
 
             } else {
                 $data['validation'] = $this->validation->getErrors();
             }
         }
         echo view('products/admin/create', $data);
+    }
+    function checkProduct($slug = null){
+        $products = (model(ProductModel::class))->getProducts();
+        foreach ($products as $product) {
+            if ($product->product_slug === $slug) {
+                return true;                
+            } else {
+                return false;
+            }
+        }
     }
 
     function allProducts()
@@ -243,16 +256,16 @@ class Products extends BaseController
         );
     }
 
-    function delete($key, $typekey)
+    function active($key)
     {
         if (!is_logged()) return redirect()->to('/login');
         $product = $this->prodModel->getProduct($key);
         $status = $product['product_status'];
         if (!empty($product)) {
-            if ($typekey == 'enable') {
-                $status = 'enable';
-            } elseif ($typekey == 'disable') {
+            if ($status == 'enable') {
                 $status = 'disable';
+            } elseif ($status == 'disable') {
+                $status = 'enable';
             } else {
                 return PageNotFoundException::forPageNotFound();
             }
@@ -327,7 +340,7 @@ class Products extends BaseController
             ];
             echo view('products/details',$data);
         }else{
-            return redirect()->to('/');
+            return redirect()->back();
         }
     }
 

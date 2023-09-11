@@ -31,6 +31,14 @@
                     <div class="card-body">
                         <?= form_open('products/create')?>
                         <!-- Start  -->
+                            <div class="col-md-12">
+                                <?php if(session()->getFlashdata('error')):?>
+                                    <div class="alert alert-danger"><?=session()->getFlashdata('error');?></div>
+                                <?php endif;?>
+                                <?php if(session()->getFlashdata('success')):?>
+                                    <div class="alert alert-danger"><?=session()->getFlashdata('success');?></div>
+                                <?php endif;?>
+                            </div>
                             <div class="row m-2">
                                 <div class="col-md-6">
                                     <div class="form-group">

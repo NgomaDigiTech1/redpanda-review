@@ -68,7 +68,7 @@
                                         <tr>
                                             <td style="padding: 8px">
 
-                                                <?php if(isset($item->product_slug) && ($item->product_slug=== 'home-insurance')) : ?>
+                                                <?php if(isset($item->product_slug) && ($item->product_slug === 'home-insurance')) : ?>
 
                                                     <a href="<?= base_url() ?>/quotations/loadHome/<?=$item->product_slug;?>">
 
@@ -91,7 +91,7 @@
 
                                                 <?php else: ?>
 
-                                                    <a href="<?= base_url() ?>/quotations/loadRequest/<?=$item->product_name;?>">
+                                                    <a href="<?= base_url() ?>/quotations/loadRequest/<?=$item->product_slug;?>">
                                                         <img
                                                             src="<?= base_url(). "./assets/rp_admin/images/product/" . $item['product_image'];?>"
                                                             alt="<?=$item->product_name;?>"
@@ -104,10 +104,10 @@
                                             </td>
                                             <td style="padding: 8px">
 
-                                                <?php if($item->product_name === 'Home Insurance') : ?>
-                                                    <a href="<?= base_url() ?>/quotations/loadHome/<?=$item->product_name;?>"><h4 class="mb-3"><?= ucfirst($item['product_name']);?></h4></a>
-                                                <?php elseif($item->product_name === 'Car Insurance') : ?>
-                                                    <a href="<?= base_url() ?>/quotations/loadCar/<?=$item->product_name;?>"><h4 class="mb-3"><?= ucfirst($item['product_name']);?></h4></a>
+                                                <?php if($item->product_slug === 'home-insurance') : ?>
+                                                    <a href="<?= base_url() ?>/quotations/loadHome/<?=$item->product_slug;?>"><h4 class="mb-3"><?= ucfirst($item['product_name']);?></h4></a>
+                                                <?php elseif($item->product_name === 'car-insurance') : ?>
+                                                    <a href="<?= base_url() ?>/quotations/loadCar/<?=$item->product_slug;?>"><h4 class="mb-3"><?= ucfirst($item['product_name']);?></h4></a>
                                                 <?php else: ?>
                                                     <a href="<?= base_url() ?>/quotations/loadRequest/<?=$item->product_name;?>" ><h4 class="mb-3"><?= ucfirst($item['product_name']);?></h4></a>
                                                 <?php endif;?>
@@ -144,8 +144,8 @@
                                                 <span><blink>Select to see all the offers</blink></span><br><br>
                                                 <!-- <button class="btn btn-secondary btn-sm mb5" data-toggle="modal" data-target="#modal_devis">View quotes</button>  -->
 
-                                                <?php if($item->product_name === 'Home Insurance') : ?>
-                                                    <a href="<?= base_url() ?>/quotations/loadHome/<?=$item->product_name;?>" class="btn btn-secondary btn-sm mb5">Select</a>
+                                                <?php if($item->product_slug === 'home-insurance') : ?>
+                                                    <a href="<?= base_url() ?>/quotations/loadHome/<?=$item->product_slug;?>" class="btn btn-secondary btn-sm mb5">Select</a>
                                                 <?php elseif($item->product_slug === 'car-insurance') : ?>
                                                     <a href="<?= base_url() ?>/quotations/loadCar/<?=$item->product_slug;?>" class="btn btn-secondary btn-sm mb5">Select</a>
                                                 <?php else: ?>
@@ -283,6 +283,5 @@
     </div>
 </div>
 <!-- /.content end -->
-
 
 <?= $this->endSection()?>

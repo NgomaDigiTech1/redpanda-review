@@ -32,7 +32,15 @@ class ProductModel {
             show_error('Error while fetching product with ID: ' . $id . $ex->getMessage(), 500);
         }
     }
-    
+    function getProductBySlug($slug) {
+        try {
+            $product = $this->collection->findOne(['product_slug' => $slug]);
+            return $product;
+        } catch(\MongoDB\Exception\RuntimeException $ex) {
+            die("Couldn't find any product with that slug");
+            // show_error('Error while fetching sector with Slug: ' . $slug . $ex->getMessage(), 500);
+        }
+    }    
     // function insertBook($title, $author, $pages) {
     //     try {
     //         $insertOneResult = $this->collection->insertOne([

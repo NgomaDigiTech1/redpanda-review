@@ -7,9 +7,7 @@ helper(['form', 'url', 'text','custom','inflector']);
 
 class Produits extends BaseController
 {
-    /*
-        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
-    */
+    
 	public function index()
     {
         $model = model(ProductModel::class);

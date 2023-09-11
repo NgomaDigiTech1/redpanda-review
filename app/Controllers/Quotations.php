@@ -362,7 +362,87 @@ class Quotations extends BaseController
         echo view('quotations/request', $data);
     }
 
-    function loadHome($product_name = null)
+    function loadHome($slug = null)
+    {
+        $product = (model(ProductModel::class))->getProductBySlug($slug);
+
+        $data = [
+            'title' => $product->product_name,
+        ];
+
+        if($this->request->getMethod() == 'post'){
+
+            $this->validation->setRules([
+ 
+                'oc_title' => ['label' => 'Title', 'rules' => 'required'],
+                'oc_first_name' => ['label' => 'First Name', 'rules' => 'required'],
+                'oc_middle_name' => ['label' => 'Middle Name', 'rules' => 'required'],
+                'oc_surname' => ['label' => 'Surname', 'rules' => 'required'],
+                'oc_email' => ['label' => 'Email', 'rules' => 'required|valid_email'],
+                'oc_phone' => ['label' => 'Telephone Office', 'rules'=>'required'],
+                'oc_mobile' => ['label' => 'Mobile Number', 'rules'=>'required'],
+                'oc_dob' => ['label' => 'DoB', 'rules' => 'required'],
+                'oc_age' => ['label' => 'Age', 'rules' => 'required|is_numeric'],
+                'oc_type_accom' => ['label' => 'Type of accommodation', 'rules' => 'required'],
+                'oc_rooms' => ['label' => 'Number of rooms', 'rules' => 'required|is_numeric'],
+                'oc_usage'=> ['label' => 'Usage', 'rules' => 'required'],
+                'oc_category' => ['label' => 'Category of Occupant', 'rules' => 'required'],
+                'oc_period' => ['label' => 'Period of Occupation', 'rules' => 'required'],
+                'oc_adults' => ['label' => 'Number of adults', 'rules' => 'required|is_numeric'],
+                'oc_children' => ['label' => 'Number of Children', 'rules' => 'required|is_numeric'],
+                'oc_phys_add_one' => ['label' => 'Physical Address 1', 'rules' => 'required'],
+                'oc_suburb' => ['label' => 'Suburb', 'rules' => 'required'],
+                'oc_town' => ['label' => 'Town', 'rules' => 'required'],
+                'oc_country' => ['label' => 'Country', 'rules' => 'required'],
+                'oc_city' => ['label' => 'City', 'rules' => 'required'],
+            ]);
+ 
+            if ($this->validation->withRequest($this->request)->run()){
+ 
+                $data = array(
+                    'oc_title' => $this->request->getVar('oc_title'),
+                    'oc_first_name' => $this->request->getVar('oc_first_name'),
+                    'quotation_id' => md5($this->request->getVar('oc_first_name').date('d-Y-M : h:i')),
+                    'oc_middle_name' => $this->request->getVar('oc_middle_name'),
+                    'oc_surname' => $this->request->getVar('oc_surname'),
+                    'oc_email' => $this->request->getVar('oc_email'),
+                    'oc_phone' => $this->request->getVar('oc_phone'),
+                    'oc_mobile' => $this->request->getVar('oc_mobile'),
+                    'oc_dob' => $this->request->getVar('oc_dob'),
+                    'oc_age' => $this->request->getVar('oc_age'),
+                    'oc_type_accom' => $this->request->getVar('oc_type_accom'),
+                    'oc_rooms' => $this->request->getVar('oc_rooms'),
+                    'oc_usage'=> $this->request->getVar('oc_usage'),
+                    'oc_category' => $this->request->getVar('oc_category'),
+                    'oc_period' => $this->request->getVar('oc_period'),
+                    'oc_adults' => $this->request->getVar('oc_adults'),
+                    'oc_children' => $this->request->getVar('oc_children'),
+                    'oc_phys_add_one' => $this->request->getVar('oc_phys_add_one'),
+                    'oc_phys_add_two' => $this->request->getVar('oc_phys_add_two'),
+                    'oc_suburb' => $this->request->getVar('oc_suburb'),
+                    'oc_town' => $this->request->getVar('oc_town'),
+                    'oc_country' => $this->request->getVar('oc_country'),
+                    'oc_city' => $this->request->getVar('oc_city'),
+                    'oc_product' => $this->request->getVar('prod_name'),
+                    'created_at'=> date('Y-m-d H:i:s'),
+ 
+                );
+
+                $session = session();
+
+                $session->set('client_data', $data);
+
+                return redirect()->to(site_url().'quotations/quoteInsurance/'.$this->request->getVar('prod_name'));
+
+            }else{
+                $data['validation'] = $this->validation->getErrors();
+                return view('quotations/home_insurance', $data);
+            }
+        }
+
+        echo view('quotations/home_insurance', $data);
+    }
+    function loadHomeOld($product_name = null)
     {
         $data = [
             'title' => $product_name,

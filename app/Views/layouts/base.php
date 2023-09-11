@@ -10,7 +10,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Red Panda prices is a Cprice Comparaisony SystemF.">
     <meta name="keywords" content="Comparaison Prices System, Redpanda prices, RedPanda">
-    <title>Red Panda | <?= $title ?? " Home" ?></title>
+    <title>The Price Bee | <?= $title ?? " Home" ?></title>
     <!-- Bootstrap -->
     <link href="<?= base_url()?>/assets/rp_website/css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url()?>/assets/rp_website/css/style.css" rel="stylesheet">
@@ -22,6 +22,7 @@
     <link href="<?= base_url()?>/assets/rp_website/css/owl.carousel.css" rel="stylesheet">
     <link href="<?= base_url()?>/assets/rp_website/css/owl.theme.css" rel="stylesheet">
     <link href="<?= base_url()?>/assets/rp_website/css/navbar.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url()?>/assets/rp_website/css/formulaire.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="shortcut icon" type="image/png" href="<?= base_url()?>/assets/rp_website/images/favicon.jpg" />
 </head>
@@ -264,6 +265,8 @@
 <!--  <script src="js/main.js"></script> -->
 <!-- Back to top script -->
 <script src="<?= base_url()?>/assets/rp_website/js/back-to-top.js"></script>
+<script src="<?= base_url()?>/assets/rp_website/js/formulaire.js"></script>
+
 
 
 </body>

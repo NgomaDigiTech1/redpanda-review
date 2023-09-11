@@ -42,6 +42,15 @@
                 <div class="card user-profile-list">
                     <div class="card-body">
                         <div class="dt-responsive table-responsive">
+                            <div class="col-md-12">
+                                <div class="alert-warning">
+                                <?php if(session()->getFlashdata('error')):?>
+                                    <div class="alert alert-danger"><?=session()->getFlashdata('error');?></div>
+                                <?php endif;?>
+                                <?php if(session()->getFlashdata('success')):?>
+                                    <div class="alert alert-danger"><?=session()->getFlashdata('success');?></div>
+                                <?php endif;?>
+                            </div>
                             <table id="user-list-table" class="table nowrap">
                                 <thead>
                                 <tr>
@@ -91,13 +100,11 @@
                                                     <?php else: ?>
                                                             <span class="badge badge-light-success">Active</span>
                                                     <?php endif ?>
-                                                        <div class="overlay-edit" style="width:70px">
+                                                        <div class="overlay-edit" style="width:100%">
                                                             <a type="button" class="btn btn-icon btn-secondary" href="<?= base_url()?>/produits/details/<?= $row->_id?>/<?= url_title(ucfirst($row->product_name))?>"><i
                                                                     class="feather icon-eye"></i></a>
-                                                            <a type="button" class="btn btn-icon btn-success" href="<?= base_url()?>/products/delete/<?= $row->_id?>/enable"><i
+                                                            <a type="button" class="btn btn-icon btn-success" href="<?= base_url()?>/products/active/<?= $row->_id?>"><i
                                                                     class="feather icon-check-circle"></i></a>
-                                                            <a type="button" href="<?= base_url()?>/products/delete/<?= $row->_id?>/disable" class="btn btn-icon btn-danger"><i
-                                                                    class="feather icon-trash-2"></i></a>
                                                             <a type="button" href="<?= base_url()?>/products/addCharacter/<?= $row->_id?>/<?= url_title(ucfirst($row->product_name))?>" class="btn btn-icon btn-info"><i
                                                                     class="feather icon-plus-circle"></i></a>
                                                             <a type="button" href="<?= base_url()?>/products/addImage/<?= $row->_id?>/<?= url_title(ucfirst($row->product_name))?>" class="btn btn-icon btn-warning"><i
