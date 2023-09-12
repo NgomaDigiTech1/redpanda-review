@@ -57,4 +57,20 @@ class SectorModel {
             show_error('Error while deleting a sector with ID: ' . $id . $ex->getMessage(), 500);
         }
     }
+    function updateImage($id, $img){
+        try {
+                $result = $this->collection->updateOne(
+                    ['_id' => new \MongoDB\BSON\ObjectId($id)],
+                    ['$set' => [
+                        'sector_image' => $img,
+                    ]]
+                );    
+                if($result->getModifiedCount()) {
+                    return true;
+                }    
+                return false;
+        } catch(\MongoDB\Exception\RuntimeException $ex) {
+            show_error('Error while updating a sector with ID: ' . $id . $ex->getMessage(), 500);
+        }
+    }
 }

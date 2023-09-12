@@ -310,8 +310,8 @@ class Products extends BaseController
 
                 if ($file->isValid() && !$file->hasMoved()) {
                     $imageName = $file->getRandomName();
-                    $this->prodModel->updateImage($where, $imageName);
                     $file->move('./assets/rp_admin/images/product', $imageName);        
+                    $this->prodModel->updateImage($where, $imageName);
                     return redirect()->to('/products');
                 }
             } else {

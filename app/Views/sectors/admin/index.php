@@ -106,7 +106,7 @@
                                                                         <i class="feather icon-edit"></i>
                                                                     </button>
 
-                                                                    <a type="button" href="<?= base_url()?>/sectors/addImage/<?= $row->sector_id?>" data-toggle="tooltip" data-placement="top" title="Change Image"
+                                                                    <a type="button" href="<?= base_url()?>/sectors/addImage/<?= $row->_id?>" data-toggle="tooltip" data-placement="top" title="Change Image"
                                                                             class="btn btn-icon btn-outline-info">
                                                                         <i class="feather icon-image"></i>
                                                                     </a>

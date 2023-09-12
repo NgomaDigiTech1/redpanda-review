@@ -65,7 +65,7 @@ class Users extends BaseController
                     'u_phone' => $this->request->getVar('user_phone'),
                     'u_role' => $this->request->getVar('user_role'),
                     'u_photo' => 'user-default-avatar.png',
-                    'u_loggedin' => true,
+                    'u_status' => 1,
                     'u_created_at' => date("Y-m-d"),
                     'u_password' => password_hash(123456789, PASSWORD_BCRYPT),
                     'u_token' => $token
@@ -135,28 +135,45 @@ class Users extends BaseController
 
         $data[] = null;
         $session_data = session()->get('user_data');
+
         if ($this->request->getMethod() == 'post') {
             $rules = [
                 'u_photo' =>
                     [
                         'label' => 'Image',
-                        'rules' => 'uploaded[u_photo]|max_size[u_photo, 4096]|is_image[u_photo]'
+                        'rules' => 'uploaded[u_photo]|max_size[u_photo, 500]|is_image[u_photo]'
                     ]
             ];
+            // echo '<pre>';
+            // var_dump($session_data);
+            // echo '<pre>';
+            // die();
             if ($this->validate($rules)) {
 
-                $path = './assets/rp_admin/images/mrd';
                 $path_user = './assets/rp_admin/images/user';
                 $file = $this->request->getFile('u_photo');
                 $imageName = $file->getRandomName();
 
+                $tempfile = $file->getTempName();
+                $oldfile = $session_data['u_photo'];
+
+
                 if ($file->isValid() && !$file->hasMoved()) {
-                    $file->move($path, $imageName);
+
+                    // Check if another user image file exists and then delete it
+                    if(file_exists($path_user .'/'. $oldfile) && $oldfile !== null){
+                        unlink($path_user .'/'. $oldfile);
+                    }
+                    
+                    // resizing image
+                    \Config\Services::image()->withFile($tempfile)
+                        ->fit(80, 80, 'center')                        
+                        ->save($path_user . '/' . $imageName);
 
                     // resizing image
-                    \Config\Services::image()->withFile($path . '/' . $imageName)
-                        ->fit(80, 80, 'center')
-                        ->save($path_user . '/' . $imageName);
+                    // \Config\Services::image()->withFile($path . '/' . $imageName)
+                    //     ->fit(80, 80, 'center')
+                    //     ->save($path_user . '/' . $imageName);
 
                     $data = ['u_photo' => $imageName];
 

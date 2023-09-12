@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\CommonModel;
 use \CodeIgniter\Exceptions\PageNotFoundException;
 use App\Models\ProductModel;
+use App\Models\SectorModel;
 
 /**
  * Sector class
@@ -211,9 +212,10 @@ class Sectors extends BaseController
     function addImage($key)
     {
         if (!is_logged()) return redirect()->to('/login');
-        $data[] = null;
+       
         $where = ['sector_id' => $key];
-        $data['sector'] = $this->mdb->getOne($this->collection, $where);
+        $data['sector'] = $this->sectModel->getSector($key);
+        // $data['sector'] = $this->mdb->getOne($this->collection, $where);
 
         if (!empty($data['sector'])) {
             echo view('sectors/admin/add_img', $data);
@@ -227,7 +229,12 @@ class Sectors extends BaseController
     {
         if (!is_logged()) return redirect()->to('/login');
 
-        $data[] = null;
+        $sector = $this->sectModel->getSector($this->request->getVar('sector_id'));
+
+        $where =($sector['_id']);
+        $oldImage = $sector->sector_image;
+        $path = '/assets/rp_admin/images/sector';
+        
         if ($this->request->getMethod() == 'post') {
             $rules = [
                 'sector_id' => [
@@ -235,7 +242,7 @@ class Sectors extends BaseController
                     'rules' => 'required'],
                 'sector_image' => [
                     'label'=>'Image',
-                    'rules'=>'uploaded[sector_image]|max_size[sector_image, 3072]|is_image[sector_image]']
+                    'rules'=>'uploaded[sector_image]|max_size[sector_image, 1024]|is_image[sector_image]']
             ];
             if ($this->validate($rules)) {
 
@@ -243,10 +250,17 @@ class Sectors extends BaseController
 
                 if ($file->isValid() && !$file->hasMoved()) {
                     $imageName = $file->getRandomName();
-                    $file->move('./assets/rp_admin/images/sector', $imageName);
+
+                     //Delete the old image if it does exists
+                     if(file_exists($path .'/'. $oldImage) && $oldImage !== null){
+                        unlink($path .'/'. $oldImage);
+                    }
+
                     $data = ['sector_image' => $imageName];
-                    $where = ['sector_id' => $this->request->getVar('sector_id')];
-                    $this->mdb->updateOne($this->collection, $where, $data);
+                    // $where = ['sector_id' => $this->request->getVar('sector_id')];
+                    $file->move('./assets/rp_admin/images/sector', $imageName);
+
+                    $this->sectModel->updateImage($where, $imageName);
                     return redirect()->to('/sectors');
                 }
             } else {

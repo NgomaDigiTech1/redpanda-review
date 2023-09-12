@@ -40,11 +40,11 @@
                     <div class="card-body">
                         <?= form_open_multipart('sectors/saveImage') ?>
                             <input type="hidden" name="sector_name" value="<?= $sector["sector_name"] ?? set_value('sector_name') ?>">
-                            <input type="hidden" name="sector_id" value="<?= $sector["sector_id"] ?? set_value('sector_id') ?>">
+                            <input type="hidden" name="sector_id" value="<?= $sector["_id"] ?? set_value('sector_id') ?>">
                             <div class="row text-c">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <input type="file" class="form-control" name="sector_image">
+                                        <input type="file" class="form-control" name="sector_image" accept="image/*">
                                     </div>
                                     <small id="input-help" class="form-text text-danger"><?= $validation['sector_image'] ?? null; ?></small>
                                 </div>

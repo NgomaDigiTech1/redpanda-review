@@ -175,6 +175,7 @@ class Auth extends BaseController
                         'u_last_name'=>'',
                         'u_email' => $this->request->getVar('user_email'),
                         'u_created_at' => date("Y-m-d"),
+                        'u_status' =>1,
                         'u_password' => password_hash($this->request->getVar('user_password'),PASSWORD_BCRYPT),
                         'u_role' => 'customer',
                         'u_token'=>$token
