@@ -13,3 +13,14 @@ if(!function_exists('is_logged')){
     }
 }
 
+if(!function_exists('checkProducts')){
+    function checkProduct($slug = null){
+        $product = (model(ProductModel::class))->getProductBySlug($slug);
+        if ($product) {
+            return true;                
+        } else {
+            return false;
+        }
+    }
+}
+

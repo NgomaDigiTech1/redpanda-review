@@ -70,17 +70,23 @@
                 <li class="nav-item pcoded-hasmenu">
                     <a href="<?= base_url()?>/dashboard" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
                 </li>
+                <?php if ($user_data->u_role === 'admin'):?>
+                    <li class="nav-item pcoded-hasmenu">
+                        <a href="<?= base_url()?>/sectors" class="nav-link "><span class="pcoded-micon"><i class="feather icon-package"></i></span><span class="pcoded-mtext">Sectors</span></a>
+                    </li>
+                <?php endif;?>
                 <?php if (($user_data->u_role === 'admin') || ($user_data->u_role === 'org manager')):?>
                     <li class="nav-item pcoded-hasmenu">
                         <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-layers"></i></span><span class="pcoded-mtext">Products</span></a>
                         <ul class="pcoded-submenu">
                             <?php if ($user_data->u_role === 'admin'):?>
                                 <li><a href="<?= base_url()?>/products/create">Add new</a></li>
+                                <li><a href="<?= base_url()?>/products">List</a></li>
                             <?php endif;?>
                             <?php if ($user_data->u_role === 'org manager'):?>
                                 <li><a href="<?= base_url()?>/products/getOrganisationProducts">My Products</a></li>
+                                <li><a href="<?= base_url()?>/products">Add Product</a></li>
                             <?php endif;?>
-                            <li><a href="<?= base_url()?>/products">List</a></li>
                         </ul>
                     </li>
                 <?php endif;?>
@@ -93,11 +99,7 @@
                         </ul>
                     </li>
                 <?php endif;?>
-                <?php if ($user_data->u_role === 'admin'):?>
-                    <li class="nav-item pcoded-hasmenu">
-                        <a href="<?= base_url()?>/sectors" class="nav-link "><span class="pcoded-micon"><i class="feather icon-package"></i></span><span class="pcoded-mtext">Sectors</span></a>
-                    </li>
-                <?php endif;?>
+                
             </ul>
             <div class="card text-center">
                 <div class="card-block">

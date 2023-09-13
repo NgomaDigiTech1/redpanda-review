@@ -39,7 +39,7 @@
                                 <div class="alert alert-danger"><?=session()->getFlashdata('error');?></div>
                             <?php endif;?>
                             <?php if(session()->getFlashdata('success')):?>
-                                <div class="alert alert-danger"><?=session()->getFlashdata('success');?></div>
+                                <div class="alert alert-success"><?=session()->getFlashdata('success');?></div>
                             <?php endif;?>
                             <div class="form-group mb-3">
                                 <label class="floating-label" for="Email">Email address</label>

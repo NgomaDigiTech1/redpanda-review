@@ -38,7 +38,11 @@ $routes->add('products-by-sector/(:any)', 'Sectors::productSector/$1');
 $routes->add('product-details/(:any)/?(:any)', 'Products::details/$1/?$1');
 $routes->add('details-product/(:any)/?(:any)', 'Products::productDetails/$1/?$1');
 
-
+/** Quotations */
+$routes->add('quotation-insurance/(:any)', 'Quotations::quoteInsurance/$1');
+$routes->add('load-car/(:any)','Quotations::loadCar/$1');
+$routes->add('load-home/(:any)','Quotations::loadHome/$1');
+$routes->add('load-request/(:any)','Quotations::loadRequest/$1');
 
 $myroutes = [];
 
@@ -59,9 +63,9 @@ $myroutes['contact'] = 'Auth::contact';
 $myroutes['test'] = 'Dashboard::test';
 $myroutes['sectors'] = 'Sectors::index';$myroutes['sector'] = 'Sectors::index';
 
-$routes->set404Override(function(){
-    echo view('errors/404');
-});
+// $routes->set404Override(function(){
+//     echo view('errors/404');
+// });
 $routes->map($myroutes);
 if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
 {

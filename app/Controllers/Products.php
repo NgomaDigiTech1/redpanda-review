@@ -140,7 +140,7 @@ class Products extends BaseController
                     }
                     $data['product_sectors'] = $sectors;
                 }
-                if ($this->checkProduct($data['product_slug']) == false) {
+                if (checkProduct($data['product_slug']) == false) {
                     $this->mdb->create($this->collection, array($data));                    
                     return redirect()->to('/products')->with("success", "Product successfully created.");
                 } else {
@@ -152,16 +152,6 @@ class Products extends BaseController
             }
         }
         echo view('products/admin/create', $data);
-    }
-    function checkProduct($slug = null){
-        $products = (model(ProductModel::class))->getProducts();
-        foreach ($products as $product) {
-            if ($product->product_slug === $slug) {
-                return true;                
-            } else {
-                return false;
-            }
-        }
     }
 
     function allProducts()
@@ -225,12 +215,9 @@ class Products extends BaseController
                 $datum = [
                     "product_id" => $product_id,  // The ObjectId of the product
                     "price" => $this->request->getVar('price'),
-                    'mfg_year'=> explode(',',$this->request->getVar('mfg_year')),
-                    'model'=> $this->request->getVar('model'),
-                    'colors'=> explode(',',$this->request->getVar('colors')),
                     "caracteristics" => $characteristics,
                     "org_id" => $provider_data->_id, // The ObjectId of the
-                    'created_at' => date("Y-m-d"),
+                    'created_at' => date("Y-m-d H:i:s"),                
                 ];
                 $this->mdb->create("rp_productCharacteristics", array($datum));
                 $session = session();
@@ -267,11 +254,11 @@ class Products extends BaseController
             } elseif ($status == 'disable') {
                 $status = 'enable';
             } else {
-                return PageNotFoundException::forPageNotFound();
+                exit('An error occurs ...');
             }
             $this->prodModel->updateStatus($key, $status);
         } else {
-            return PageNotFoundException::forPageNotFound();
+            die("Something went wrongs ...");
         }
         return redirect()->to('/products');
     }
@@ -294,7 +281,11 @@ class Products extends BaseController
         if (!is_logged()) return redirect()->to('/login');
         $product = $this->prodModel->getProduct($this->request->getVar('product_id'));
         $where =($product['_id']);
-        $data[] = null;
+
+    
+        $oldImage = $product->product_image;
+        $path = '/assets/rp_admin/images/product';
+
         if ($this->request->getMethod() == 'post') {
             $rules = [
                 'product_id' => [
@@ -302,7 +293,7 @@ class Products extends BaseController
                     'rules' => 'required'],
                 'product_image' => [
                     'label'=>'Image',
-                    'rules'=>'uploaded[product_image]|max_size[product_image, 3072]|is_image[product_image]']
+                    'rules'=>'uploaded[product_image]|max_size[product_image, 1024]|is_image[product_image]']
             ];
             if ($this->validate($rules)) {
 
@@ -310,7 +301,12 @@ class Products extends BaseController
 
                 if ($file->isValid() && !$file->hasMoved()) {
                     $imageName = $file->getRandomName();
-                    $file->move('./assets/rp_admin/images/product', $imageName);        
+
+                     //Delete the old image if it does exists
+                     if(file_exists($path .'/'. $oldImage) && $oldImage !== null){
+                        unlink($path .'/'. $oldImage);
+                    }
+                    $file->move($path, $imageName);        
                     $this->prodModel->updateImage($where, $imageName);
                     return redirect()->to('/products');
                 }

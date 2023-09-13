@@ -212,14 +212,13 @@ class Sectors extends BaseController
     function addImage($key)
     {
         if (!is_logged()) return redirect()->to('/login');
-       
-        $where = ['sector_id' => $key];
+
         $data['sector'] = $this->sectModel->getSector($key);
-        // $data['sector'] = $this->mdb->getOne($this->collection, $where);
 
         if (!empty($data['sector'])) {
-            echo view('sectors/admin/add_img', $data);
 
+            echo view('sectors/admin/add_img', $data);
+            
         } else {
             return PageNotFoundException::forPageNotFound();
         }
@@ -257,8 +256,7 @@ class Sectors extends BaseController
                     }
 
                     $data = ['sector_image' => $imageName];
-                    // $where = ['sector_id' => $this->request->getVar('sector_id')];
-                    $file->move('./assets/rp_admin/images/sector', $imageName);
+                    $file->move($path, $imageName);
 
                     $this->sectModel->updateImage($where, $imageName);
                     return redirect()->to('/sectors');
@@ -277,7 +275,7 @@ class Sectors extends BaseController
 
         $data['sector'] = $model->getSector($segment);
         if (empty($data['sector'])) {
-            throw new \CodeIgniter\Exceptions\PageNotFoundException('Cannot find sector with ID: ' . $segment);
+            die('Cannot find sector with ID: ' . $segment);
         }
         return $data['sector'];
     }

@@ -159,37 +159,7 @@ class Quotations extends BaseController
             return true;
         }
     }
-    function testing(){
-        $data = $_POST;
-        foreach($data as $key => $val){
-            echo "<pre>";
-            print_r($val);
-        }
-    }
-    function mailing(){
-
-        $this->email->setFrom('infos@thusa.education', 'Request on The Price Bee');
-
-        $this->email->setTo("agentlibremrd@gmail.com");
-
-        $this->email->setCC("infos@redpanda-prices.com");
-
-        $this->email->setSubject("A request of quote has been sent to you");
-
-        //$this->email->setMessage($this->mailOrganisationContent($to, $data));
-
-        $this->email->setMessage("Dis-moi juste dix mots doux et ne me condamne pas");
-
-        if ($this->email->send()) {
-
-            //session()->setTempdata('success', 'Your request has been submitted successfully');
-            echo  "success";
-
-        } else {
-            print_r($this->email->printDebugger($this->email->send()));
-            // return true;
-        }
-    }
+    
     function applyNow()
     {
         $data = [];
@@ -232,7 +202,6 @@ class Quotations extends BaseController
 
     }
     
-
     function applyHome($product_name = null)
     {
         $data = [];
@@ -309,15 +278,17 @@ class Quotations extends BaseController
             return redirect()->to('/');
         }
     }
-    function quoteInsurance($product_name = null)
+
+    function quoteInsurance($slug = null)
     {
         $client_data = session()->get('client_data');
+        $product = (model(ProductModel::class))->getProductBySlug($slug);
         $data = [
-            'title' => $product_name,
-            'products' => $this->mdb->getList($this->collection, ['product_name' => $product_name]),
+            'title' => $product->product_name,
+            // 'products' => $this->mdb->getList($this->collection, ['product_name' => $product_name]),
+            'products' => $this->prodCharModel->getSectorProducts($product->_id),
             'client_data' => $client_data,
         ];
-
         echo view('quotations/quote_insurance', $data);
     }
 
@@ -520,12 +491,13 @@ class Quotations extends BaseController
 
         echo view('quotations/home_insurance', $data);
     }
-    function loadCar($product_slug = null)
+    function loadCar($slug)
     {
+        $product = $this->prodModel->getProductBySlug($slug);
         $data = [
-            'title' => $product_slug,
+            'title' => $product->product_slug,
+            'product' => $product
         ];
-
         if($this->request->getMethod() == 'post'){
 
             $this->validation->setRules([
@@ -599,12 +571,8 @@ class Quotations extends BaseController
 
                 );
 
-                $session = session();
-                //$session->setTempdata("success", "Quotation submitted successfully !",5);
-
-                $session->set('client_data', $data);
-
-                return redirect()->to(site_url().'quotations/quoteInsurance/'.$this->request->getVar('prod_name'));
+                session()->set('client_data', $data);
+                return redirect()->to('quotation-insurance/'. $slug);
 
             }else{
                 $data['validation'] = $this->validation->getErrors();
