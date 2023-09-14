@@ -44,6 +44,9 @@ $routes->add('load-car/(:any)','Quotations::loadCar/$1');
 $routes->add('load-home/(:any)','Quotations::loadHome/$1');
 $routes->add('load-request/(:any)','Quotations::loadRequest/$1');
 
+$routes->add('apply-car','Quotations::applyCar');
+
+
 $myroutes = [];
 
 $myroutes['products'] = 'Products::index';

@@ -53,18 +53,22 @@
                     <div class="wrapper-content bg-white p-lg-4 p-3">
                         <div class="row">
                             <?php foreach ($products as $product):?>
+                                <?php
+                                    $org = (new App\Models\UserModel)->getUserById($product->org_id);
+                                    $produit = (new App\Models\ProductModel)->getProduct($product->product_id);
+                                ?>
                                 <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
                                     <div class="lender-listing">
                                         <!-- lender listing -->
                                         <div class="lender-head">
                                             <div class="lender-logo">
                                                 <img
-                                                        src="<?= base_url(). "./assets/rp_admin/images/user/" . $product['org_picture'] ?? "org.jpg" ;?>"
-                                                        alt="<?= $product->org_name; ?>"
+                                                        src="<?= base_url(). "./assets/rp_admin/images/user/" . $org['u_photo'] ?? "org.jpg" ;?>"
+                                                        alt="<?= $org->u_first_name; ?>"
                                                 />
                                             </div>
                                             <div class="lender-reviews">
-                                                <h4><?= $product->org_name; ?></h4>
+                                                <h4><?= $org->u_first_name; ?></h4>
                                             </div>
                                         </div>
                                         <div class="lender-rate-box">
@@ -79,8 +83,8 @@
                                             </div>
                                              -->
                                             <img
-                                                    src="<?= base_url(). "./assets/rp_admin/images/product/" . $product['product_image'] ?? "org.jpg" ;?>"
-                                                    alt="<?= $product->org_name; ?>"
+                                                    src="<?= base_url(). "./assets/rp_admin/images/product/" . $produit['product_image'] ?? "org.jpg" ;?>"
+                                                    alt="<?= $org->u_first_name; ?>"
                                             />
 
                                         </div>
@@ -89,34 +93,35 @@
 
                                             <div class="fee-charges-table">
                                                 <ul class="list-group">
-                                                        <?php foreach ($product->caracteristics['requires'] as $caracteristic => $caract): ?>
-                                                            <?php if(($caracteristic !== 'product_id') && ($caracteristic !== 'conditions_content') && ($caract !== '')) :?>
-                                                                <li class="list-group-item">
-                                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                                                        <h5><i><?= ucfirst(str_replace('_', ' ', $caracteristic)) ;?></i></h5>
-                                                                    </div>
-                                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="text-align: right">
-                                                                        <?= ucfirst($caract) ;?>
-                                                                    </div>
-                                                                </li>
-                                                            <?php endif; ?>
-                                                        <?php endforeach; ?>
+                                                    <!-- </?php foreach ($product->caracteristics['required'] as $caracteristic => $caract): ?> -->
+                                                    <?php foreach ($product->caracteristics as $caracteristic => $caract): ?>
+                                                        <?php if(($caracteristic !== 'product_id') && ($caracteristic !== 'conditions_content') && ($caract !== '')) :?>
+                                                            <li class="list-group-item">
+                                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                                                    <h5><i><?= ucfirst(str_replace('_', ' ', $caracteristic)) ;?></i></h5> 
+                                                                </div>
+                                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="text-align: right">
+                                                                    <?= ucfirst($caract) ;?>
+                                                                </div>
+                                                            </li>
+                                                        <?php endif; ?>
+                                                    <?php endforeach; ?>
                                                 </ul>
                                             </div>
                                    
-                                         -->
+                                         
                                         <!-- End Testing -->
                                         <div class="lender-actions">
                                             <!--  <button class="btn btn-secondary btn-block" data-toggle="modal" data-target="#modal_devis">Apply now</button>-->
-                                            <?=form_open('quotations/applyHome')?>
+                                            <?=form_open('apply-car')?>                                                                                       
                                                 <div class="btn-action">
                                                     <input type="hidden" name="prod_name" id="prod_name" value="<?= $title ;?>">
                                                     <input type="hidden" name="oc_email" id="oc_email" value="<?= $client_data['oc_email'] ;?>">
                                                     <input type="hidden" name="quotation_id" id="quotation_id" value="<?= $client_data['quotation_id'] ;?>">
-                                                    <input type="hidden" name="org_name" id="org_name" value="<?= $product->org_name; ?>">
-                                                    <input type="hidden" name="prod_sect" id="prod_sect" value="<?= $product->org_secteur; ?>">
-                                                    <input type="hidden" name="org_email" id="org_email" value="<?= $product->org_email ?? ""; ?>">
-                                                    <input type="hidden" name="product_image" id="product_image" value="<?= $product->product_image ?? ""; ?>">
+                                                    <input type="hidden" name="org_name" id="org_name" value="<?= $org->org_name ?? $u_first_name; ?>">
+                                                    <input type="hidden" name="prod_sect" id="prod_sect" value="<?= $client_data['oc_email']; ?>">
+                                                    <input type="hidden" name="org_email" id="org_email" value="<?= $org->u_email; ?>">
+                                                    <input type="hidden" name="product_image" id="product_image" value="<?= $produit->product_image; ?>">
                                                     <button type="submit" class="btn btn-secondary btn-block">Select</button>
                                                 </div>
                                             <?= form_close()?>

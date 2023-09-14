@@ -216,7 +216,7 @@ class Quotations extends BaseController
                 'created_at' => date('Y-m-d H:i:s'),
                 'oc_first_name' => $client_data['oc_first_name'],
                 'oc_email' => $client_data['oc_email'],
-                'product_image' => $this->request->getVar('product_image'),
+                // 'product_image' => $this->request->getVar('product_image'),
                 'prod_sect' => $this->request->getVar('prod_sect'),
                 'oc_phone' => $client_data['oc_phone'],
                 'oc_product' => $client_data['oc_product'],
@@ -227,7 +227,7 @@ class Quotations extends BaseController
                 'oc_mobile' => $client_data['oc_mobile'],
                 'oc_dob' => $client_data['oc_dob'],
                 'oc_age' => $client_data['oc_age'],
-                'oc_type_accom' => $client_data['oc_type_accom'],
+                'oc_type_house' => $client_data['oc_type_house'],
                 'oc_rooms' => $client_data['oc_rooms'],
                 'oc_usage'=> $client_data['oc_usage'],
                 'oc_category' => $client_data['oc_category'],
@@ -242,12 +242,12 @@ class Quotations extends BaseController
                 'oc_city' => $client_data['oc_city'],
                 'status' => 'pending',
             ];
+            
+            // $this->mdb->create("rp_quotation", array($data));
 
-            $this->mdb->create("rp_quotation", array($data));
-
-            $this->sendToClient($client_data['oc_email'], $data['oc_product'], $data['oc_first_name']);
-            $this->sendToAdmin('archangechef@gmail.com', $data['oc_product'], $data['org'], $data['oc_first_name'], $data['oc_phone']); // The support email to be changed when online
-            $this->sendToOrganisation($data['org_email'], $data['oc_product'],$data['org'],$data['oc_first_name'],$data['oc_phone'],$data['oc_email']); // The organisation mail
+            // $this->sendToClient($client_data['oc_email'], $data['oc_product'], $data['oc_first_name']);
+            // $this->sendToAdmin('archangechef@gmail.com', $data['oc_product'], $data['org'], $data['oc_first_name'], $data['oc_phone']); // The support email to be changed when online
+            // $this->sendToOrganisation($data['org_email'], $data['oc_product'],$data['org'],$data['oc_first_name'],$data['oc_phone'],$data['oc_email']); // The organisation mail
 
             session()->setTempdata('success', 'Your request has been submitted successfully');
             session()->set('client_data', null);
@@ -260,7 +260,7 @@ class Quotations extends BaseController
             session()->setTempdata("error", "Error, couldn't submit the request. Please try again !");
             redirect($_SERVER['HTTP_REFERER']);
         }
-    }
+    }   
 
     function quote($segment = null, $name = null)
     {
@@ -396,7 +396,7 @@ class Quotations extends BaseController
                     'oc_city' => $this->request->getVar('oc_city'),
                     'oc_product' => $this->request->getVar('prod_name'),
                     'created_at'=> date('Y-m-d H:i:s'),
- 
+                    'oc_sector' => 'insurance'
                 );
 
                 $session = session();
@@ -568,7 +568,7 @@ class Quotations extends BaseController
                     'oc_city' => $this->request->getVar('oc_city'),
                     'oc_product' => $this->request->getVar('prod_name'),
                     'created_at'=> date('Y-m-d H:i:s'),
-
+                    'oc_sector' => 'insurance'
                 );
 
                 session()->set('client_data', $data);
@@ -582,13 +582,12 @@ class Quotations extends BaseController
         echo view('quotations/car_insurance', $data);
     }
 
-    function applyCar($product_name = null)
+    function applyCar()
     {
-        $data = [];
-
         $client_data = session()->get('client_data');
 
         //To be filled with $data_client
+        
         if($this->request->getMethod() == 'post'){
 
             $data  = [
@@ -596,50 +595,51 @@ class Quotations extends BaseController
                 'org' => $this->request->getVar('org_name'),
                 'org_email' => $this->request->getVar('org_email'),
                 'created_at' => date('Y-m-d H:i:s'),
-                'oc_first_name' => $client_data['oc_first_name'],
-                'oc_email' => $client_data['oc_email'],
-                'product_image' => $this->request->getVar('product_image'),
-                'prod_sect' => $this->request->getVar('prod_sect'),
-                'oc_phone' => $client_data['oc_phone'],
-                'oc_product' => $client_data['oc_product'],
-                'quotation_id' =>$client_data['quotation_id'],
-                'oc_title' => $client_data['oc_title'],
-                'oc_middle_name' => $client_data['oc_middle_name'],
-                'oc_surname' => $client_data['oc_surname'],
-                'oc_mobile' => $client_data['oc_mobile'],
-                'oc_dob' => $client_data['oc_dob'],
-                'oc_age' => $client_data['oc_age'],
-                'oc_profession' => $client_data['oc_profession'],
-                'oc_industry' => $client_data['oc_industry'],
-                'veh_usage'=> $client_data['veh_usage'],
-                'oc_lic_type' => $client_data['oc_lic_type'],
-                'oc_lic_nat' => $client_data['oc_lic_nat'],
-                'oc_date_lic' => $client_data['oc_date_lic'],
-                'nb_veh' => $client_data['nb_veh'],
-                'type_veh' => $client_data['type_veh'],
-                'veh_mfct' => $client_data['veh_mfct'],
-                'veh_model' => $client_data['veh_model'],
-                'veh_color' => $client_data['veh_color'],
-                'chassis' => $client_data['chassis'],
-                'lic_plate' => $client_data['lic_plate'],
-                'veh_fin' => $client_data['veh_fin'],
-                'oc_phys_add_one' => $client_data['oc_phys_add_one'],
-                'oc_phys_add_two' => $client_data['oc_phys_add_two'],
-                'oc_suburb' => $client_data['oc_suburb'],
-                'oc_town' => $client_data['oc_town'],
-                'oc_country' => $client_data['oc_country'],
-                'oc_city' => $client_data['oc_city'],
+                // 'oc_first_name' => $client_data['oc_first_name'],
+                // 'oc_email' => $client_data['oc_email'],
+                // 'product_image' => $this->request->getVar('product_image'),
+                // 'prod_sect' => $this->request->getVar('prod_sect'),
+                // 'oc_phone' => $client_data['oc_phone'],
+                // 'oc_product' => $client_data['oc_product'],
+                // 'quotation_id' =>$client_data['quotation_id'],
+                // 'oc_title' => $client_data['oc_title'],
+                // 'oc_middle_name' => $client_data['oc_middle_name'],
+                // 'oc_surname' => $client_data['oc_surname'],
+                // 'oc_mobile' => $client_data['oc_mobile'],
+                // 'oc_dob' => $client_data['oc_dob'],
+                // 'oc_age' => $client_data['oc_age'],
+                // 'oc_profession' => $client_data['oc_profession'],
+                // 'oc_industry' => $client_data['oc_industry'],
+                // 'veh_usage'=> $client_data['veh_usage'],
+                // 'oc_lic_type' => $client_data['oc_lic_type'],
+                // 'oc_lic_nat' => $client_data['oc_lic_nat'],
+                // 'oc_date_lic' => $client_data['oc_date_lic'],
+                // 'nb_veh' => $client_data['nb_veh'],
+                // 'type_veh' => $client_data['type_veh'],
+                // 'veh_mfct' => $client_data['veh_mfct'],
+                // 'veh_model' => $client_data['veh_model'],
+                // 'veh_color' => $client_data['veh_color'],
+                // 'chassis' => $client_data['chassis'],
+                // 'lic_plate' => $client_data['lic_plate'],
+                // 'veh_fin' => $client_data['veh_fin'],
+                // 'oc_phys_add_one' => $client_data['oc_phys_add_one'],
+                // 'oc_phys_add_two' => $client_data['oc_phys_add_two'],
+                // 'oc_suburb' => $client_data['oc_suburb'],
+                // 'oc_town' => $client_data['oc_town'],
+                // 'oc_country' => $client_data['oc_country'],
+                // 'oc_city' => $client_data['oc_city'],
                 'status' => 'pending',
             ];
+            session()->push('client_data', $data);
+            $donnees = session()->get('client_data');
+            $this->mdb->create("rp_quotation", array($donnees));
 
-            $this->mdb->create("rp_quotation", array($data));
-
-            $this->sendToClient($client_data['oc_email'], $data['oc_product'], $data['oc_first_name']);
-            $this->sendToAdmin('archangechef@gmail.com', $data['oc_product'], $data['org'], $data['oc_first_name'], $data['oc_phone']); // The support email to be changed when online
-            $this->sendToOrganisation($data['org_email'], $data['oc_product'],$data['org'],$data['oc_first_name'],$data['oc_phone'],$data['oc_email']); // The organisation mail
+            // $this->sendToClient($client_data['oc_email'], $client_data['oc_product'], $client_data['oc_first_name']);
+            // $this->sendToAdmin('archangechef@gmail.com', $client_data['oc_product'], $data['org'], $client_data['oc_first_name'], $client_data['oc_phone']); // The support email to be changed when online
+            // $this->sendToOrganisation($data['org_email'], $client_data['oc_product'],$data['org'],$client_data['oc_first_name'],$client_data['oc_phone'],$client_data['oc_email']); // The organisation mail
 
             session()->set('client_data', null);
-
+            die('Fuck off');
             echo view('quotations/send_request',$data);
 
         }

@@ -198,7 +198,7 @@ $page_session = \Config\Services::session();
                                 <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
                                     <div class="form-group">
                                         <label class="sr-only control-label" for="oc_suburb">Suburb<span class=" "> </label>
-                                        <input type="text" id="oc_suburb" class="form-control input-md" placeholder="Subrurb" name="oc_suburb" value="<?= set_value('oc_suburb') ?>">
+                                        <input type="text" id="oc_suburb" class="form-control input-md" placeholder="Suburb" name="oc_suburb" value="<?= set_value('oc_suburb') ?>">
                                         <small id="input-help" class="form-text text-danger"><?= $validation['oc_suburb'] ?? null; ?></small>
                                     </div>
                                 </div>
