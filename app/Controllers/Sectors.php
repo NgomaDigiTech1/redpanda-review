@@ -21,7 +21,6 @@ class Sectors extends BaseController
     {
         $this->mdb = new CommonModel();
         $this->collection = "rp_product_sectors";
-        helper(['form','url','text','custom']);
         $this->validation = \Config\Services::validation();
     }
 
@@ -65,7 +64,7 @@ class Sectors extends BaseController
             'sector_name' => $this->request->getVar('sector_name'),
             'sector_slug' => strtolower(convert_accented_characters(url_title($this->request->getVar('sector_name')))),
             'moderator' => $this->request->getVar('moderator'),
-            'sector_id' => md5($this->request->getVar('sector_name') . date('d-Y-M : s:h')),
+            'sector_id' => md5($this->request->getVar('sector_name') . date('d-Y-M : H:i')),
             'sector_created_at' => date("Y-m-d"),
             'sector_status' => 'enabled',
             'sector_description' =>$this->request->getVar('description'),

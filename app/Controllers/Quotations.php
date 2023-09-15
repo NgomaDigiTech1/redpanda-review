@@ -8,7 +8,7 @@ use App\Models\CommonModel;
 
 use \Config\Services;
 
-
+use CodeIgniter\Exceptions\PageNotFoundException;
 
 /**
  * Quotations class
@@ -64,7 +64,7 @@ class Quotations extends BaseController
          <span>From The Price Bee !</span>     
         ";
 
-        $this->email->setFrom('infos@redpanda-prices.com', 'A request on The Price Bee System');
+        $this->email->setFrom('infos@thepricebee.com', 'A request on The Price Bee System');
 
         $this->email->setTo($to);
 
@@ -107,7 +107,7 @@ class Quotations extends BaseController
          <span>From The Price Bee !</span>     
         ";
 
-        $this->email->setFrom('infos@redpanda-prices.com', 'Request on The Price Bee');
+        $this->email->setFrom('infos@thepricebee.com', 'Request on The Price Bee');
 
         $this->email->setTo($to);
 
@@ -139,7 +139,7 @@ class Quotations extends BaseController
          <span>Thank you for choosing The Price Bee !</span>     
         ";
 
-        $this->email->setFrom('infos@redpanda-prices.com', 'Your request of quote on The Price Bee');
+        $this->email->setFrom('infos@thepricebee.com', 'Your request of quote on The Price Bee');
 
         $this->email->setTo($to);
 
@@ -184,7 +184,7 @@ class Quotations extends BaseController
                 $this->mdb->create("rp_quotation", array($data));
     
                 $this->sendToClient($client_data['cl_email'], $data['prod_name'], $data['cl_name']);
-                $this->sendToAdmin('infos@redpanda-prices.com', $data['prod_name'], $data['org'], $data['cl_name'], $data['cl_phone']); // The support email to be changed when online
+                $this->sendToAdmin('infos@thepricebee.com', $data['prod_name'], $data['org'], $data['cl_name'], $data['cl_phone']); // The support email to be changed when online
                 $this->sendToOrganisation($data['org_email'], $data['prod_name'],$data['org'],$data['cl_name'],$data['cl_phone'],$data['cl_email']); // The organisation mail
     
                 session()->setTempdata('success', 'Your request has been submitted successfully', 6);
@@ -214,51 +214,23 @@ class Quotations extends BaseController
                 'org' => $this->request->getVar('org_name'),
                 'org_email' => $this->request->getVar('org_email'),
                 'created_at' => date('Y-m-d H:i:s'),
-                'oc_first_name' => $client_data['oc_first_name'],
-                'oc_email' => $client_data['oc_email'],
-                // 'product_image' => $this->request->getVar('product_image'),
-                'prod_sect' => $this->request->getVar('prod_sect'),
-                'oc_phone' => $client_data['oc_phone'],
-                'oc_product' => $client_data['oc_product'],
-                'quotation_id' =>$client_data['quotation_id'],
-                'oc_title' => $client_data['oc_title'],
-                'oc_middle_name' => $client_data['oc_middle_name'],
-                'oc_surname' => $client_data['oc_surname'],
-                'oc_mobile' => $client_data['oc_mobile'],
-                'oc_dob' => $client_data['oc_dob'],
-                'oc_age' => $client_data['oc_age'],
-                'oc_type_house' => $client_data['oc_type_house'],
-                'oc_rooms' => $client_data['oc_rooms'],
-                'oc_usage'=> $client_data['oc_usage'],
-                'oc_category' => $client_data['oc_category'],
-                'oc_period' => $client_data['oc_period'],
-                'oc_adults' => $client_data['oc_adults'],
-                'oc_children' => $client_data['oc_children'],
-                'oc_phys_add_one' => $client_data['oc_phys_add_one'],
-                'oc_phys_add_two' => $client_data['oc_phys_add_two'],
-                'oc_suburb' => $client_data['oc_suburb'],
-                'oc_town' => $client_data['oc_town'],
-                'oc_country' => $client_data['oc_country'],
-                'oc_city' => $client_data['oc_city'],
                 'status' => 'pending',
             ];
+            session()->push('client_data', $data);
+            $donnees = session()->get('client_data');
             
-            // $this->mdb->create("rp_quotation", array($data));
+            $this->mdb->create("rp_quotation", array($donnees));
+             
+            $this->sendToClient($client_data['oc_email'], $client_data['oc_product'], $client_data['oc_first_name']);
+            $this->sendToAdmin('info@thepricebee.com', $client_data['oc_product'], $data['org'], $client_data['oc_first_name'], $client_data['oc_phone']); // The support email to be changed when online
+            $this->sendToOrganisation($data['org_email'], $client_data['oc_product'],$data['org'],$client_data['oc_first_name'],$client_data['oc_phone'],$client_data['oc_email']); // The organisation mail
 
-            // $this->sendToClient($client_data['oc_email'], $data['oc_product'], $data['oc_first_name']);
-            // $this->sendToAdmin('archangechef@gmail.com', $data['oc_product'], $data['org'], $data['oc_first_name'], $data['oc_phone']); // The support email to be changed when online
-            // $this->sendToOrganisation($data['org_email'], $data['oc_product'],$data['org'],$data['oc_first_name'],$data['oc_phone'],$data['oc_email']); // The organisation mail
-
-            session()->setTempdata('success', 'Your request has been submitted successfully');
             session()->set('client_data', null);
-
-            echo view('quotations/send_request',$data);
-
+            session()->setTempdata('success', 'Your request has been successfully submitted');
+            echo view('quotations/send_request',$data);        
         }
         else{
-
-            session()->setTempdata("error", "Error, couldn't submit the request. Please try again !");
-            redirect($_SERVER['HTTP_REFERER']);
+            return redirect()->to(current_url())->with("error", "Error, couldn't submit the request. Please try again !");
         }
     }   
 
@@ -509,12 +481,10 @@ class Quotations extends BaseController
         if($client_data == null) {
             return redirect()->to('/');
         } 
-        //To be filled with $data_client
-        
+      
         if($this->request->getMethod() == 'post'){
 
             $data  = [
-
                 'org' => $this->request->getVar('org_name'),
                 'org_email' => $this->request->getVar('org_email'),
                 'created_at' => date('Y-m-d H:i:s'),
@@ -522,13 +492,15 @@ class Quotations extends BaseController
             ];
             session()->push('client_data', $data);
             $donnees = session()->get('client_data');
+            
             $this->mdb->create("rp_quotation", array($donnees));
-
-            // $this->sendToClient($client_data['oc_email'], $client_data['oc_product'], $client_data['oc_first_name']);
-            // $this->sendToAdmin('archangechef@gmail.com', $client_data['oc_product'], $data['org'], $client_data['oc_first_name'], $client_data['oc_phone']); // The support email to be changed when online
-            // $this->sendToOrganisation($data['org_email'], $client_data['oc_product'],$data['org'],$client_data['oc_first_name'],$client_data['oc_phone'],$client_data['oc_email']); // The organisation mail
+            
+            $this->sendToClient($client_data['oc_email'], $client_data['oc_product'], $client_data['oc_first_name']);
+            $this->sendToAdmin('info@thepricebee.com', $client_data['oc_product'], $data['org'], $client_data['oc_first_name'], $client_data['oc_phone']); // The support email to be changed when online
+            $this->sendToOrganisation($data['org_email'], $client_data['oc_product'],$data['org'],$client_data['oc_first_name'],$client_data['oc_phone'],$client_data['oc_email']); // The organisation mail
 
             session()->set('client_data', null);
+            session()->setTempdata('success', 'Your request has been successfully submitted');
             echo view('quotations/send_request',$data);
 
         }
@@ -553,13 +525,13 @@ class Quotations extends BaseController
             }elseif ($typekey == 'cancel'){
                 $data = ['status' => 'cancelled'];
             } else {
-                return PageNotFoundException::forPageNotFound();
+                die('Something went wrong...');
             }
 
             $this->mdb->updateOne('rp_quotation', $where, $data);
 
         } else {
-            return PageNotFoundException::forPageNotFound();
+            exit('An error occurs ...');
         }
         return redirect()->to('/profile');
     }

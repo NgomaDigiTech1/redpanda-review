@@ -1,5 +1,6 @@
 <?= $this->extend("dashboard/base") ?>
 <?= $this->section("content") ?>
+
 <!-- [ Main Content ] start -->
 <div class="pcoded-main-container">
     <div class="pcoded-content">
@@ -60,10 +61,12 @@
                                         <td>
                                             <span class="badge badge-light-success">Active</span>
                                             <div class="overlay-edit">
-                                                <button type="button" class="btn btn-icon btn-success"><i
-                                                        class="feather icon-check-circle"></i></button>
-                                                <button type="button" class="btn btn-icon btn-danger"><i
-                                                        class="feather icon-trash-2"></i></button>
+                                                <?php if($user_data['u_id'] !== $row->u_id):?>
+                                                    <button type="button" class="btn btn-icon btn-success"><i
+                                                            class="feather icon-check-circle"></i></button>
+                                                    <button type="button" class="btn btn-icon btn-danger"><i
+                                                            class="feather icon-trash-2"></i></button>
+                                                <?php endif;?>
                                             </div>
                                         </td>
                                     </tr>

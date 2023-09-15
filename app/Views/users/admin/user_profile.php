@@ -5,6 +5,8 @@
 $user_data = session()->get('user_data');
 $session_data = session()->get('product_data');
 helper('text');
+
+use App\Models\ProductModel;
 use CodeIgniter\I18n\Time;
 ;?>
 <div class="pcoded-main-container ">
@@ -136,12 +138,12 @@ use CodeIgniter\I18n\Time;
                                                                 <td>
 
                                                                     <div class="d-inline-block align-middle">
-                                                                        <img
-                                                                                src="<?= base_url(). "./assets/rp_admin/images/product/" . $quote['product_image'];?>"
-                                                                                alt="<?= $quote->oc_product ?? ''; ?>" title="product-img"
+                                                                        <!-- <img
+                                                                                src="</?= base_url(). "./assets/rp_admin/images/product/" . $quote['product_image'];?>"
+                                                                                alt="</?= $quote->oc_product ?? ''; ?>" title="product-img"
                                                                                 class="img-fluid align-top m-r-15"
                                                                                 style="width:40px;height: 27px;"
-                                                                        >
+                                                                        > -->
                                                                         <div class="d-inline-block">
                                                                             <h6 class="m-b-0"><?= $quote->oc_product ?? ''; ?></h6>
                                                                             <p class="m-b-0"><?= $quote->org ?? ""?></p>
@@ -171,17 +173,17 @@ use CodeIgniter\I18n\Time;
                                                                             <span class="badge badge-light-danger">Cancelled</span>
                                                                         <?php endif ?>
                                                                     <?php endif ?>
-                                                                    <div class="overlay-edit">
-                                                                        <a type="button" href="<?= base_url()?>/quotations/dealing/<?= $quote->quotation_id?>/process"
+                                                                    <!-- <div class="overlay-edit"> -->
+                                                                        <!-- <a type="button" href="</?= base_url()?>/quotations/dealing/</?= $quote->_id?>/process"
                                                                            class="btn btn-icon btn-warning" data-toggle="tooltip" data-placement="top" title="Process">
                                                                             <i class="feather icon-check-circle"></i></a>
-                                                                        <a type="button" href="<?= base_url()?>/quotations/dealing/<?= $quote->quotation_id?>/done"
+                                                                        <a type="button" href="</?= base_url()?>/quotations/dealing/</?= $quote->_id?>/done"
                                                                            class="btn btn-icon btn-success" data-toggle="tooltip" data-placement="top" title="Done">
                                                                             <i class="feather icon-thumbs-up"></i></a>
-                                                                        <a type="button" href="<?= base_url()?>/quotations/dealing/<?= $quote->quotation_id?>/cancel"
+                                                                        <a type="button" href="</?= base_url()?>/quotations/dealing/</?= $quote->_id?>/cancel"
                                                                            class="btn btn-icon btn-danger" data-toggle="tooltip" data-placement="top" title="Cancel">
-                                                                            <i class="feather icon-slash"></i></a>
-                                                                    </div>
+                                                                            <i class="feather icon-slash"></i></a> -->
+                                                                    <!-- </div> -->
                                                                 </td>
                                                             </tr>
                                                         <?php endforeach;?>
@@ -200,6 +202,9 @@ use CodeIgniter\I18n\Time;
                                                         
                                                         <?php foreach ($quotes as $quote):?>
                                                             <?php if($quote->org === $user_data->org_name):?>
+                                                                <?php 
+                                                                    // $produit = (model(ProductModel::class))->getProduct($quote->product_id);
+                                                                ?>
                                                                 <tr>
                                                                     <td>
                                                                         <?= $quote->created_at?><br>
@@ -208,12 +213,12 @@ use CodeIgniter\I18n\Time;
                                                                     <td>
 
                                                                         <div class="d-inline-block align-middle">
-                                                                            <img
-                                                                                    src="<?= base_url(). "./assets/rp_admin/images/product/" . $quote['product_image'];?>"
-                                                                                    alt="<?= $quote->oc_product ?? ''; ?>" title="product-img"
+                                                                            <!-- <img
+                                                                                    src="</?= base_url(). "./assets/rp_admin/images/product/" . $produit['product_image'];?>"
+                                                                                    alt="</?= $quote->oc_product ?? ''; ?>" title="product-img"
                                                                                     class="img-fluid align-top m-r-15"
                                                                                     style="width:40px;height: 27px;"
-                                                                            >
+                                                                            > -->
                                                                             <div class="d-inline-block">
                                                                                 <h6 class="m-b-0"><?= $quote->oc_product ?? ''; ?></h6>
                                                                                 <p class="m-b-0"><?= $quote->org ?? ""?></p>
@@ -244,13 +249,13 @@ use CodeIgniter\I18n\Time;
                                                                             <?php endif ?>
                                                                         <?php endif ?>
                                                                         <div class="overlay-edit">
-                                                                            <a type="button" href="<?= base_url()?>/quotations/dealing/</?= $quote->quotation_id?>/process"
+                                                                            <a type="button" href="<?= base_url()?>/quotations/dealing/<?= $quote->quotation_id?>/process"
                                                                                class="btn btn-icon btn-warning" data-toggle="tooltip" data-placement="top" title="Process">
                                                                                 <i class="feather icon-check-circle"></i></a>
-                                                                            <a type="button" href="<?= base_url()?>/quotations/dealing/</?= $quote->quotation_id?>/done"
+                                                                            <a type="button" href="<?= base_url()?>/quotations/dealing/<?= $quote->quotation_id?>/done"
                                                                                class="btn btn-icon btn-success" data-toggle="tooltip" data-placement="top" title="Done">
                                                                                 <i class="feather icon-thumbs-up"></i></a>
-                                                                            <a type="button" href="<?= base_url()?>/quotations/dealing/</?= $quote->quotation_id?>/cancel"
+                                                                            <a type="button" href="<?= base_url()?>/quotations/dealing/<?= $quote->quotation_id?>/cancel"
                                                                                class="btn btn-icon btn-danger" data-toggle="tooltip" data-placement="top" title="Cancel">
                                                                                 <i class="feather icon-slash"></i></a>
                                                                         </div>

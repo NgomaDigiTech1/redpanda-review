@@ -1,5 +1,9 @@
 <?= $this->extend("dashboard/base") ?>
 <?= $this->section("content") ?>
+<?php $user_data = session()->get('user_data');
+    // dd($user_data['_id']);
+    // die();
+?>
 <!-- [ Main Content ] start -->
 <div class="pcoded-main-container">
     <div class="pcoded-content">
@@ -60,11 +64,13 @@
                                         <td>
                                             <span class="badge badge-light-success">Active</span>
                                             <div class="overlay-edit">
-                                                <button type="button" class="btn btn-icon btn-success"><i
-                                                        class="feather icon-check-circle"></i></button>
-                                                <a type="button" href="<?= base_url()?>/users/deleteUser/<?= $row->_id?>" class="btn btn-icon btn-danger" onclick="return confirm('Sure to delete this user ?')">
-                                                    <i class="feather icon-trash-2"></i>
-                                                </a>
+                                                <?php if($user_data['u_email'] !== $row->u_email):?>
+                                                    <button type="button" class="btn btn-icon btn-success"><i
+                                                            class="feather icon-check-circle"></i></button>
+                                                    <a type="button" href="<?= base_url()?>/users/deleteUser/<?= $row->_id?>" class="btn btn-icon btn-danger" onclick="return confirm('Sure to delete this user ?')">
+                                                        <i class="feather icon-trash-2"></i>
+                                                    </a>
+                                                <?php endif;?>
                                             </div>
                                         </td>
                                     </tr>
