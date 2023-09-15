@@ -9,9 +9,6 @@ use App\Models\SectorModel;
 
 /**
  * Sector class
- *
- * GHT : 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
- *
  */
 class Sectors extends BaseController
 {
@@ -187,11 +184,14 @@ class Sectors extends BaseController
     /*
      *  Loading product details
      */
-    function productDetails($product_id = null){
-        $prodChar = 'rp_productCharacteristics';
-
+    function productDetails($prod){
+        $product = $this->prodCharModel->getProduct($prod);
+        $produit = $this->prodModel->getProduct($product->product_id);
+        $org = $this->userModel->getUserById($product->org_id);
         $data = [
-            'product_det' => $this->mdb->getOne($prodChar, ['product_id' => $product_id]),
+            'product_det' => $product,
+            'produit' => $produit,
+            'org' => $org,
             'title' => 'Details Product',
             ];
         echo view('sectors/product_details',$data);

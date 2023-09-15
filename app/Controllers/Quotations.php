@@ -285,7 +285,6 @@ class Quotations extends BaseController
         $product = (model(ProductModel::class))->getProductBySlug($slug);
         $data = [
             'title' => $product->product_name,
-            // 'products' => $this->mdb->getList($this->collection, ['product_name' => $product_name]),
             'products' => $this->prodCharModel->getSectorProducts($product->_id),
             'client_data' => $client_data,
         ];
@@ -333,12 +332,13 @@ class Quotations extends BaseController
         echo view('quotations/request', $data);
     }
 
-    function loadHome($slug = null)
+    function loadHome($slug)
     {
         $product = (model(ProductModel::class))->getProductBySlug($slug);
-
+        
         $data = [
             'title' => $product->product_name,
+            'product' => $product
         ];
 
         if($this->request->getMethod() == 'post'){
@@ -394,16 +394,13 @@ class Quotations extends BaseController
                     'oc_town' => $this->request->getVar('oc_town'),
                     'oc_country' => $this->request->getVar('oc_country'),
                     'oc_city' => $this->request->getVar('oc_city'),
-                    'oc_product' => $this->request->getVar('prod_name'),
+                    'oc_product' => $product->product_name,
                     'created_at'=> date('Y-m-d H:i:s'),
                     'oc_sector' => 'insurance'
                 );
 
-                $session = session();
-
-                $session->set('client_data', $data);
-
-                return redirect()->to(site_url().'quotations/quoteInsurance/'.$this->request->getVar('prod_name'));
+                session()->set('client_data', $data);
+                return redirect()->to('quotation-insurance/'.$slug);
 
             }else{
                 $data['validation'] = $this->validation->getErrors();
@@ -413,91 +410,15 @@ class Quotations extends BaseController
 
         echo view('quotations/home_insurance', $data);
     }
-    function loadHomeOld($product_name = null)
-    {
-        $data = [
-            'title' => $product_name,
-        ];
-
-        if($this->request->getMethod() == 'post'){
-
-            $this->validation->setRules([
  
-                'oc_title' => ['label' => 'Title', 'rules' => 'required'],
-                'oc_first_name' => ['label' => 'First Name', 'rules' => 'required'],
-                'oc_middle_name' => ['label' => 'Middle Name', 'rules' => 'required'],
-                'oc_surname' => ['label' => 'Surname', 'rules' => 'required'],
-                'oc_email' => ['label' => 'Email', 'rules' => 'required|valid_email'],
-                'oc_phone' => ['label' => 'Telephone Office', 'rules'=>'required'],
-                'oc_mobile' => ['label' => 'Mobile Number', 'rules'=>'required'],
-                'oc_dob' => ['label' => 'DoB', 'rules' => 'required'],
-                'oc_age' => ['label' => 'Age', 'rules' => 'required|is_numeric'],
-                'oc_type_accom' => ['label' => 'Type of accommodation', 'rules' => 'required'],
-                'oc_rooms' => ['label' => 'Number of rooms', 'rules' => 'required|is_numeric'],
-                'oc_usage'=> ['label' => 'Usage', 'rules' => 'required'],
-                'oc_category' => ['label' => 'Category of Occupant', 'rules' => 'required'],
-                'oc_period' => ['label' => 'Period of Occupation', 'rules' => 'required'],
-                'oc_adults' => ['label' => 'Number of adults', 'rules' => 'required|is_numeric'],
-                'oc_children' => ['label' => 'Number of Children', 'rules' => 'required|is_numeric'],
-                'oc_phys_add_one' => ['label' => 'Physical Address 1', 'rules' => 'required'],
-                'oc_suburb' => ['label' => 'Suburb', 'rules' => 'required'],
-                'oc_town' => ['label' => 'Town', 'rules' => 'required'],
-                'oc_country' => ['label' => 'Country', 'rules' => 'required'],
-                'oc_city' => ['label' => 'City', 'rules' => 'required'],
-            ]);
- 
-            if ($this->validation->withRequest($this->request)->run()){
- 
-                $data = array(
-                    'oc_title' => $this->request->getVar('oc_title'),
-                    'oc_first_name' => $this->request->getVar('oc_first_name'),
-                    'quotation_id' => md5($this->request->getVar('oc_first_name').date('d-Y-M : h:i')),
-                    'oc_middle_name' => $this->request->getVar('oc_middle_name'),
-                    'oc_surname' => $this->request->getVar('oc_surname'),
-                    'oc_email' => $this->request->getVar('oc_email'),
-                    'oc_phone' => $this->request->getVar('oc_phone'),
-                    'oc_mobile' => $this->request->getVar('oc_mobile'),
-                    'oc_dob' => $this->request->getVar('oc_dob'),
-                    'oc_age' => $this->request->getVar('oc_age'),
-                    'oc_type_accom' => $this->request->getVar('oc_type_accom'),
-                    'oc_rooms' => $this->request->getVar('oc_rooms'),
-                    'oc_usage'=> $this->request->getVar('oc_usage'),
-                    'oc_category' => $this->request->getVar('oc_category'),
-                    'oc_period' => $this->request->getVar('oc_period'),
-                    'oc_adults' => $this->request->getVar('oc_adults'),
-                    'oc_children' => $this->request->getVar('oc_children'),
-                    'oc_phys_add_one' => $this->request->getVar('oc_phys_add_one'),
-                    'oc_phys_add_two' => $this->request->getVar('oc_phys_add_two'),
-                    'oc_suburb' => $this->request->getVar('oc_suburb'),
-                    'oc_town' => $this->request->getVar('oc_town'),
-                    'oc_country' => $this->request->getVar('oc_country'),
-                    'oc_city' => $this->request->getVar('oc_city'),
-                    'oc_product' => $this->request->getVar('prod_name'),
-                    'created_at'=> date('Y-m-d H:i:s'),
- 
-                );
-
-                $session = session();
-
-                $session->set('client_data', $data);
-
-                return redirect()->to(site_url().'quotations/quoteInsurance/'.$this->request->getVar('prod_name'));
-
-            }else{
-                $data['validation'] = $this->validation->getErrors();
-                return view('quotations/home_insurance', $data);
-            }
-        }
-
-        echo view('quotations/home_insurance', $data);
-    }
     function loadCar($slug)
     {
         $product = $this->prodModel->getProductBySlug($slug);
         $data = [
-            'title' => $product->product_slug,
+            'title' => $product->product_name,
             'product' => $product
         ];
+        
         if($this->request->getMethod() == 'post'){
 
             $this->validation->setRules([
@@ -566,7 +487,7 @@ class Quotations extends BaseController
                     'oc_town' => $this->request->getVar('oc_town'),
                     'oc_country' => $this->request->getVar('oc_country'),
                     'oc_city' => $this->request->getVar('oc_city'),
-                    'oc_product' => $this->request->getVar('prod_name'),
+                    'oc_product' => $product->product_name,
                     'created_at'=> date('Y-m-d H:i:s'),
                     'oc_sector' => 'insurance'
                 );
@@ -585,7 +506,9 @@ class Quotations extends BaseController
     function applyCar()
     {
         $client_data = session()->get('client_data');
-
+        if($client_data == null) {
+            return redirect()->to('/');
+        } 
         //To be filled with $data_client
         
         if($this->request->getMethod() == 'post'){
@@ -595,39 +518,6 @@ class Quotations extends BaseController
                 'org' => $this->request->getVar('org_name'),
                 'org_email' => $this->request->getVar('org_email'),
                 'created_at' => date('Y-m-d H:i:s'),
-                // 'oc_first_name' => $client_data['oc_first_name'],
-                // 'oc_email' => $client_data['oc_email'],
-                // 'product_image' => $this->request->getVar('product_image'),
-                // 'prod_sect' => $this->request->getVar('prod_sect'),
-                // 'oc_phone' => $client_data['oc_phone'],
-                // 'oc_product' => $client_data['oc_product'],
-                // 'quotation_id' =>$client_data['quotation_id'],
-                // 'oc_title' => $client_data['oc_title'],
-                // 'oc_middle_name' => $client_data['oc_middle_name'],
-                // 'oc_surname' => $client_data['oc_surname'],
-                // 'oc_mobile' => $client_data['oc_mobile'],
-                // 'oc_dob' => $client_data['oc_dob'],
-                // 'oc_age' => $client_data['oc_age'],
-                // 'oc_profession' => $client_data['oc_profession'],
-                // 'oc_industry' => $client_data['oc_industry'],
-                // 'veh_usage'=> $client_data['veh_usage'],
-                // 'oc_lic_type' => $client_data['oc_lic_type'],
-                // 'oc_lic_nat' => $client_data['oc_lic_nat'],
-                // 'oc_date_lic' => $client_data['oc_date_lic'],
-                // 'nb_veh' => $client_data['nb_veh'],
-                // 'type_veh' => $client_data['type_veh'],
-                // 'veh_mfct' => $client_data['veh_mfct'],
-                // 'veh_model' => $client_data['veh_model'],
-                // 'veh_color' => $client_data['veh_color'],
-                // 'chassis' => $client_data['chassis'],
-                // 'lic_plate' => $client_data['lic_plate'],
-                // 'veh_fin' => $client_data['veh_fin'],
-                // 'oc_phys_add_one' => $client_data['oc_phys_add_one'],
-                // 'oc_phys_add_two' => $client_data['oc_phys_add_two'],
-                // 'oc_suburb' => $client_data['oc_suburb'],
-                // 'oc_town' => $client_data['oc_town'],
-                // 'oc_country' => $client_data['oc_country'],
-                // 'oc_city' => $client_data['oc_city'],
                 'status' => 'pending',
             ];
             session()->push('client_data', $data);
@@ -639,12 +529,10 @@ class Quotations extends BaseController
             // $this->sendToOrganisation($data['org_email'], $client_data['oc_product'],$data['org'],$client_data['oc_first_name'],$client_data['oc_phone'],$client_data['oc_email']); // The organisation mail
 
             session()->set('client_data', null);
-            die('Fuck off');
             echo view('quotations/send_request',$data);
 
         }
         else{
-
             session()->setTempdata("error", "Error, couldn't submit the request. Please try again !");
             redirect($_SERVER['HTTP_REFERER']);
         }
@@ -670,12 +558,10 @@ class Quotations extends BaseController
 
             $this->mdb->updateOne('rp_quotation', $where, $data);
 
-
         } else {
             return PageNotFoundException::forPageNotFound();
         }
         return redirect()->to('/profile');
-
     }
 
 }

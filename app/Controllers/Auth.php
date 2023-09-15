@@ -73,6 +73,7 @@ class Auth extends BaseController
             'user' => "",
             'quotes'=> $this->mdb->getList('rp_quotation'),
         ];
+        
         echo view('users/admin/user_profile', $data);
     }
     function logout(){
@@ -178,6 +179,7 @@ class Auth extends BaseController
                         'u_status' =>1,
                         'u_password' => password_hash($this->request->getVar('user_password'),PASSWORD_BCRYPT),
                         'u_role' => 'customer',
+                        'u_photo' => 'user-default-avatar.png',
                         'u_token'=>$token
                     );
 

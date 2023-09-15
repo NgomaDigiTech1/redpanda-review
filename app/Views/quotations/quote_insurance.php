@@ -126,7 +126,7 @@
                                                 </div>
                                             <?= form_close()?>
                                             <!--<a href="#" class="btn btn-secondary btn-block">Apply now</a> -->
-                                            <a href="<?= base_url()?>/sectors/productDetails/<?=$product->product_id;?>" class="btn-link">More Informations</a>
+                                            <a href="<?= base_url()?>/sectors/productDetails/<?=$product->_id;?>" class="btn-link">More Informations</a>
                                             <!-- <a href="<?= base_url()?>/quotations/openDevis/<?=$product->product_id;?>" class="btn-link">Open Devis</a> -->
                                         </div>
                                     </div>

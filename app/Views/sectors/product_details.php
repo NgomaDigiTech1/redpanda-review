@@ -1,7 +1,4 @@
 <?= $this->extend("layouts/base")?>
-<?= $this->section("title")?>
-<?= $title ; ?>
-<?= $this->endSection("title")?>
 <?= $this->section("content")?>
 
     <!-- content start -->
@@ -13,7 +10,7 @@
                     <div class="page-breadcrumb">
                         <ol class="breadcrumb">
                             <li><a href="<?= base_url();?>">Home</a></li>
-                            <li class="active"><?= $product_det['product_name'];?></li>
+                            <li class="active"><?= $produit['product_name'];?></li>
                         </ol>
                     </div>
                 </div>
@@ -21,7 +18,7 @@
                     <div class="bg-white pinside30">
                         <div class="row align-items-center">
                             <div class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12">
-                                <h1 class="page-title"><?= $product_det['product_name'];?>&nbsp;Details</h1>
+                                <h1 class="page-title"><?= $produit['product_name'];?>&nbsp;Details</h1>
                             </div>
                             <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
                                 <div class="btn-action">
@@ -46,20 +43,21 @@
                                         <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
                                             <!-- card listing -->
                                             <div class="card-img">
-                                                <a href="#!"
-                                                ><img
-                                                            src="<?= base_url(). "./assets/rp_admin/images/product/" . $product_det['product_image'] ?? "prod-anim.jpg";?>"
+                                                <a href="#!">
+                                                    <img
+                                                        src="<?= base_url(). "./assets/rp_admin/images/product/" . $produit['product_image'] ?? "prod-anim.jpg";?>"
 
-                                                            alt="Borrow - A Loan Company Website Templates"
-                                                    /></a>
+                                                        alt="img"
+                                                    />
+                                                </a>
                                             </div>
                                         </div>
                                         <div class="col-xl-7 col-lg-7 col-md-7 col-sm-12 col-12">
                                             <h2 class="card-name">
-                                                <a href="#!" class="title"><h3><strong><?= $product_det['product_name'];?></strong></h3></a>
+                                                <a href="#!" class="title"><h3><strong><?= $produit['product_name'];?></strong></h3></a>
                                             </h2>
                                             <p>
-                                                <?= $product_det['product_description'];?>
+                                                <?= $produit['product_description'];?>
                                             </p>
                                         </div>
                                         <div class="col-xl-2 col-lg-2 col-md-2 col-sm-12 col-12">
@@ -122,10 +120,10 @@
                                                         aria-labelledby="tab-1"
                                                 >
                                                     <h3>
-                                                        Here are some categories of <?=$product_det['product_name'];?>
+                                                        Here are some categories of <?=$produit['product_name'];?>
                                                     </h3>
                                                     <ul class="listnone bullet bullet-check-circle-default">
-                                                        <?php foreach ($product_det->product_categories as $category): ?>
+                                                        <?php foreach ($produit->product_categories as $category): ?>
                                                             <li>
                                                                 <?= $category;?>
                                                             </li>
@@ -143,7 +141,7 @@
                                                     <h3>Characteristics & Features</h3>
                                                     <div class="fee-charges-table">
                                                         <ul class="list-group">
-                                                            <?php foreach ($product_det->caracteristics['requires'] as $characteristic => $charact): ?>
+                                                            <?php foreach ($product_det->caracteristics as $characteristic => $charact): ?>
                                                                 <?php if(($characteristic !== 'product_id') && ($characteristic !== 'conditions_content') && ($charact != null)) :?>
                                                                 <li class="list-group-item">
                                                                     <div class="row">
@@ -183,7 +181,7 @@
                                                                 <div
                                                                         class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12"
                                                                 >
-                                                                    <?= $product_det['org_name'];?>
+                                                                    <?= $org->org_name ?? $org->u_first_name;?>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -197,7 +195,7 @@
                                                                 <div
                                                                         class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12"
                                                                 >
-                                                                    <?= $product_det['org_adress'];?>
+                                                                    <?= $org['org_adress'] ?? 'Address';?>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -212,21 +210,21 @@
                                                                 <div
                                                                         class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-12"
                                                                 >
-                                                                    <?= $product_det['org_website'];?>
+                                                                    <?= $org['org_website'] ?? 'Website';?>
                                                                 </div>
                                                             </div>
                                                         </li>
 
                                                     </ul>
 
-                                                    <h3>Our Sectors</h3>
+                                                    <!-- <h3>Our Sectors</h3>
                                                     <ul
                                                             class="listnone bullet bullet-check-circle-default"
                                                     >
                                                         <li>
-                                                            <?= $product_det->org_secteur; ?>
+                                                            </?= $product_det->org_secteur; ?>
                                                         </li>
-                                                    </ul>
+                                                    </ul> -->
 
                                                 </div>
                                             </div>

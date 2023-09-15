@@ -1,7 +1,6 @@
 <?= $this->extend("layouts/base")?>
 <?= $this->section("content")?>
 
-
 <div class="hero">
     <!-- content start -->
     <div class="container">
@@ -23,8 +22,8 @@
                             </div>
                         </div>
 
-                        <?= form_open_multipart('load-car/'. $product->product_slug, 'class="contact-us"' );?>
-                            <input  name="prod_name" type="hidden" value="<?= $title ?? set_value('prod_name') ?>" class="form-control input-md">
+                        <?= form_open('load-car/'. $product->product_slug, 'class="contact-us"' );?>                            
+                            <!-- <input  name="prod_name" type="hidden" value="</?= $product->product_name ?>" class="form-control input-md"> -->
                             <div class=" ">
                                 <!-- Text input-->
                                 <div class="row">

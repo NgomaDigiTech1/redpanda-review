@@ -197,7 +197,7 @@ use CodeIgniter\I18n\Time;
                                                         </div>
 
                                                     <?php else:?>
-
+                                                        
                                                         <?php foreach ($quotes as $quote):?>
                                                             <?php if($quote->org === $user_data->org_name):?>
                                                                 <tr>
@@ -244,13 +244,13 @@ use CodeIgniter\I18n\Time;
                                                                             <?php endif ?>
                                                                         <?php endif ?>
                                                                         <div class="overlay-edit">
-                                                                            <a type="button" href="<?= base_url()?>/quotations/dealing/<?= $quote->quotation_id?>/process"
+                                                                            <a type="button" href="<?= base_url()?>/quotations/dealing/</?= $quote->quotation_id?>/process"
                                                                                class="btn btn-icon btn-warning" data-toggle="tooltip" data-placement="top" title="Process">
                                                                                 <i class="feather icon-check-circle"></i></a>
-                                                                            <a type="button" href="<?= base_url()?>/quotations/dealing/<?= $quote->quotation_id?>/done"
+                                                                            <a type="button" href="<?= base_url()?>/quotations/dealing/</?= $quote->quotation_id?>/done"
                                                                                class="btn btn-icon btn-success" data-toggle="tooltip" data-placement="top" title="Done">
                                                                                 <i class="feather icon-thumbs-up"></i></a>
-                                                                            <a type="button" href="<?= base_url()?>/quotations/dealing/<?= $quote->quotation_id?>/cancel"
+                                                                            <a type="button" href="<?= base_url()?>/quotations/dealing/</?= $quote->quotation_id?>/cancel"
                                                                                class="btn btn-icon btn-danger" data-toggle="tooltip" data-placement="top" title="Cancel">
                                                                                 <i class="feather icon-slash"></i></a>
                                                                         </div>
