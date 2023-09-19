@@ -294,6 +294,10 @@ class Quotations extends BaseController
             }
         }
     }
+    function registerRequest(){
+        $product = (model(ProductModel::class))->getProductBySlug($this->request->getPost('oc_prod_name'));
+        dd($product); 
+    }
 
     function loadRequest($key= null,$name = null)
     {

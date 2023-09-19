@@ -1,8 +1,6 @@
 <?php $user_data = session()->get('user_data');?>
-<?php helper('url,form,text');?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,47 +27,6 @@
 
 <body class="bg-white">
     <div class="sticky-top">
-        <!-- Search bar on top -->
-        <!--
-         <div class="collapse searchbar" id="searchbar">
-             <div class="search-area bg-white">
-                 <div class="container">
-                     <div class="row">
-                         <div class="offset-lg-3 col-lg-6 col-md-12 col-sm-12 col-12">
-
-                             <form action="products/allProducts">
-                                 <div class="input-group">
-                                     <input
-                                         type="text"
-                                         name="search"
-                                         class="form-control"
-                                         placeholder="Search for..."
-                                     />
-                                     <span class="input-group-btn">
-                                        <button class="btn btn-secondary btn-sm" type="button">Go!</button>
-                                   </span>
-                                     <div class="btn-close">
-                                         <a
-                                             class="close"
-                                             aria-label="Close"
-                                             data-toggle="collapse"
-                                             href="#searchbar"
-                                             aria-expanded="false"
-                                         >
-                                        <span aria-hidden="true" class="fas fa-times"></span>
-                                        </a>
-                                     </div>
-                                 </div>
-                                 !-- input-group --
-                             </form>
-                        </div>
-                         !-- /.col-lg-6 --
-                    </div>
-                </div>
-            </div>
-            --
-        </div>
-        -->
         <div class="bg-white">
             <nav
                 class="navbar navbar-expand-lg navbar-light bg-white py-3 border-top border-bottom"
@@ -107,7 +64,7 @@
                             <li class="nav-item">
                                 <a
                                     class="nav-link"
-                                    href="<?=base_url()?>/products/allProducts"
+                                    href="<?=base_url()?>/all-products"
                                 >
                                     Product
                                 </a>
@@ -142,19 +99,7 @@
                                     </a>
                                 </li>
                             <?php endif;?>
-                        </ul>
-                        <span class="search-nav">
-                            <a
-                                class="search-btn collapsed"
-                                role="button"
-                                data-toggle="collapse"
-                                href="#searchbar"
-                                aria-expanded="false"
-                            >
-                                <i class="fa fa-search"></i
-                                >
-                            </a>
-                      </span>
+                        </ul>                        
                     </div>
                 </div>
             </nav>
@@ -197,10 +142,7 @@
                     <!-- widget footer -->
                     <h3 class="text-dark mb-3">About</h3>
                     <ul class="listnone">
-                        <!--<li><a href="#!" class="text-base">Overview </a></li>
-                       <li><a href="#!" class="text-base">Media Center</a></li> -->
                        <li><a href="#!" class="text-base">Career</a></li>
-                       <li><a href="#!" class="text-base">Blog</a></li>
                        <li><a href="#!" class="text-base">Team</a></li>
                    </ul>
                </div>
@@ -245,8 +187,8 @@
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="mt-5 text-center">
                 <p>
-                    Copyright © Red Panda Prices 2021 - <script>document.write(new Date().getFullYear());</script>  All Rights Reserved |
-                    <span class="powered">Powered by <a href="">Ngoma DigiTech</a></span> 
+                    Copyright © The Price Bee <script>document.write(new Date().getFullYear());</script>  All Rights Reserved |
+                    <span class="powered">Powered by <a href="void:javascript(0)">Ngoma DigiTech</a></span> 
                 </p>
             </div>
         </div>

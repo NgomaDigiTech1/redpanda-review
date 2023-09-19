@@ -67,21 +67,21 @@
                             <div class="row mb-3 border no-gutters"">
                                 <div class=" col-12 col-lg-3 col-md-3 produit d-flex align-items-center p-0 justify-content-center">
 
-                                    <?php if ($product->product_name === 'Home Insurance') : ?>
+                                    <?php if ($product->product_slug === 'home-insurance') : ?>
 
-                                        <a href="<?= base_url() ?>/quotations/loadHome/<?= $product->_id; ?>/<?= url_title($product->product_name); ?>">
+                                        <a href="<?= base_url() ?>/load-home/<?= $product->product_slug; ?>">
                                             <img src="<?= base_url() . "./assets/rp_admin/images/product/" . $product['product_image']; ?>" alt="<?= $product->product_name; ?>">
                                         </a>
 
-                                    <?php elseif ($product->product_name === 'Car Insurance') : ?>
+                                    <?php elseif ($product->product_slug === 'car-insurance') : ?>
 
-                                        <a href="<?= base_url() ?>/quotations/loadCar/<?= $product->_id; ?>/<?= url_title($product->product_name); ?>">
+                                        <a href="<?= base_url() ?>/load-car/<?= $product->product_slug; ?>">
                                             <img src="<?= base_url() . "./assets/rp_admin/images/product/" . $product['product_image']; ?>" alt="<?= $product->product_name; ?>">
                                         </a>
 
                                     <?php else : ?>
 
-                                        <a href="<?= base_url() ?>/quotations/loadRequest/<?= $product->_id; ?>/<?= url_title($product->product_name); ?>">
+                                        <a href="<?= base_url() ?>/load-request/<?= $product->product_slug; ?>">
                                             <img src="<?= base_url() . "./assets/rp_admin/images/product/" . $product['product_image']; ?>" alt="<?= $product->product_name; ?>" style="height:120px !important; object-fit:cover">
                                         </a>
 
@@ -89,21 +89,21 @@
 
                                 </div>
                                 <div class="p-4 col-12 col-lg-9 col-md-9 border-left ml-n1">
-                                    <?php if ($product->product_name === 'Home Insurance') : ?>
+                                    <?php if ($product->product_slug === 'home-insurance') : ?>
 
-                                        <a href="<?= base_url() ?>/quotations/loadHome/<?= $product->_id; ?>/<?= url_title($product->product_name); ?>">
+                                        <a href="<?= base_url() ?>/load-home/<?= $product->product_slug; ?>">
                                             <h4 class="mb-3"><?= ucfirst($product['product_name']); ?></h4>
                                         </a>
 
-                                    <?php elseif ($product->product_name === 'Car Insurance') : ?>
+                                    <?php elseif ($product->product_slug === 'car-insurance') : ?>
 
-                                        <a href="<?= base_url() ?>/quotations/loadCar/<?= $product->_id; ?>/<?= url_title($product->product_name); ?>">
+                                        <a href="<?= base_url() ?>/load-car/<?= $product->product_slug; ?>">
                                             <h4 class="mb-3"><?= ucfirst($product['product_name']); ?></h4>
                                         </a>
 
                                     <?php else : ?>
 
-                                        <a href="<?= base_url() ?>/quotations/loadRequest/<?= $product->_id; ?>/<?= url_title($product->product_name); ?>">
+                                        <a href="<?= base_url() ?>/load-request/<?= $product->product_slug; ?>">
                                             <h4 class="mb-3"><?= ucfirst($product['product_name']); ?></h4>
                                         </a>
 

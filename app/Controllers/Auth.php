@@ -47,12 +47,10 @@ class Auth extends BaseController
                             $session->set('user_data', $data["sess_data"]);
                             return redirect()->to('/profile');
                         } else {
-                            $session->setFlashData('error', "Invalid credentials, Please try again !");
-                            echo view('pages/signin');
+                            return redirect()->back()->with('error', "Invalid credentials, Please try again !");                    
                         }
                     }else{
-                        $session->setFlashData('error', "Invalid credentials, Please try again !");
-                        echo view('pages/signin');
+                        return redirect()->back()->with('error', "Invalid credentials, Please try again !");
                     }
 
                 } else {

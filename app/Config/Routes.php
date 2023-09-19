@@ -46,6 +46,11 @@ $routes->add('load-request/(:any)','Quotations::loadRequest/$1');
 
 $routes->add('apply-car','Quotations::applyCar');
 
+/** Products */
+$routes->get('all-products', 'Products::allProducts');
+
+/** Users */
+$routes->get('delete-users/(:any)', 'Users::deleteUser/$1');
 
 $myroutes = [];
 

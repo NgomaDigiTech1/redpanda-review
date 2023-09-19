@@ -67,7 +67,7 @@
                                                 <?php if($user_data['u_email'] !== $row->u_email):?>
                                                     <button type="button" class="btn btn-icon btn-success"><i
                                                             class="feather icon-check-circle"></i></button>
-                                                    <a type="button" href="<?= base_url()?>/users/deleteUser/<?= $row->_id?>" class="btn btn-icon btn-danger" onclick="return confirm('Sure to delete this user ?')">
+                                                    <a type="button" href="<?= base_url()?>/delete-users/<?= $row->_id?>" class="btn btn-icon btn-danger" onclick="return confirm('Sure to delete this user ?')">
                                                         <i class="feather icon-trash-2"></i>
                                                     </a>
                                                 <?php endif;?>

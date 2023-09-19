@@ -142,14 +142,14 @@
                                                 </div>
                                                 <br>
                                                 <span><blink>Select to see all the offers</blink></span><br><br>
-                                                <!-- <button class="btn btn-secondary btn-sm mb5" data-toggle="modal" data-target="#modal_devis">View quotes</button>  -->
-
+                                                
                                                 <?php if($item->product_slug === 'home-insurance') : ?>
                                                     <a href="<?= base_url() ?>/load-home/<?=$item->product_slug;?>" class="btn btn-secondary btn-sm mb5">Select</a>
                                                 <?php elseif($item->product_slug === 'car-insurance') : ?>
                                                     <a href="<?= base_url() ?>/load-car/<?=$item->product_slug;?>" class="btn btn-secondary btn-sm mb5">Select</a>
                                                 <?php else: ?>
-                                                    <a href="<?= base_url() ?>/loadRequest/<?=$item->_id;?>/<?=url_title(strtolower($item->product_slug));?>" class="btn btn-secondary btn-sm mb5">Select</a>
+                                                    <button class="btn btn-secondary btn-sm mb5" data-toggle="modal" data-target="#modal<?=$item->product_slug;?>">View quotes</button> 
+                                                    <a href="<?= base_url() ?>/load-request/<?=$item->product_slug;?>" class="btn btn-secondary btn-sm mb5">Select</a>
                                                 <?php endif;?>
 
                                             </td>
@@ -196,7 +196,7 @@
                                     </tr>
                                 </tbody>
                                     <!-- Here is the Popup modal for requesting a quote -->
-                                    <div class="modal fade" id="modal<?=$item->_id;?>" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+                                    <div class="modal fade" id="modal<?=$item->product_slug;?>" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -206,10 +206,10 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">                                                    
-                                                    <?= form_open_multipart('quotations/registerRequest') ?>
-                                                        <input type="text" class="form-control" value="<?= $item->product_name ;?>" name = "oc_prod_name">
+                                                    <?= form_open('quotations/registerRequest') ?>
+                                                        <input type="text" class="form-control" value="<?= $item->product_slug ;?>" name = "oc_prod_name">
                                                         <input type="text" class="form-control" value="<?= $item->_id ;?>" name = "prod_id">
-                                                        <div class="form-group">
+                                                        <!-- <div class="form-group">
                                                             <label for="title">Title</label>
                                                             <Select id="title" class="form-control" style="height: 38px !important;" name="oc_title"  >
                                                                 <option value="">Select your title</option>
@@ -218,7 +218,7 @@
                                                                 <option value="Ms <?= set_select('oc_title', 'Mrs') ?>">Mrs</option>
                                                             </Select>
                                                             <small id="input-help" class="form-text text-danger"><?= $validation['oc_title'] ?? null; ?></small>
-                                                        </div>
+                                                        </div> -->
 
                                                         <div class="form-group">
                                                             <label for="oc_first_name">First Name</label>
@@ -244,7 +244,7 @@
                                                             <small id="input-help" class="form-text text-danger"><?= $validation['oc_phone'] ?? null; ?></small>
                                                         </div>
 
-                                                        <div class="form-group">
+                                                        <!-- <div class="form-group">
                                                             <label for="oc_phys_add_one">Physical Address 1</label>
                                                             <input type="text" id="physical" class="form-control" style="height: 38px !important;" name="oc_phys_add_one" value="<?= set_value('oc_phys_add_one') ?>"  >
                                                             <small id="input-help" class="form-text text-danger"><?= $validation['oc_phys_add_one'] ?? null; ?></small>
@@ -260,7 +260,7 @@
                                                             <label for="oc_country">Country</label>
                                                             <input type="text" id="country" class="form-control" style="height: 38px !important;" name="oc_country" value="<?= set_value('oc_country') ?>"  >
                                                             <small id="input-help" class="form-text text-danger"><?= $validation['oc_country'] ?? null; ?></small>
-                                                        </div>
+                                                        </div> -->
 
                                                         <div class="btn-action">
                                                             <button type="submit" class="btn btn-secondary">Submit</button>

@@ -266,9 +266,8 @@ class Products extends BaseController
     function addImage($key)
     {
         if (!is_logged()) return redirect()->to('/login');
-        $data[] = null;
         $data['product'] = $this->prodModel->getProduct($key);       
-
+       
         if (!empty($data['product'])) {
             echo view('products/admin/add_img', $data);
         } else {
@@ -281,11 +280,9 @@ class Products extends BaseController
         if (!is_logged()) return redirect()->to('/login');
         $product = $this->prodModel->getProduct($this->request->getVar('product_id'));
         $where =($product['_id']);
-
-    
         $oldImage = $product->product_image;
-        $path = '/assets/rp_admin/images/product';
-
+        $path = './assets/rp_admin/images/product';
+       
         if ($this->request->getMethod() == 'post') {
             $rules = [
                 'product_id' => [

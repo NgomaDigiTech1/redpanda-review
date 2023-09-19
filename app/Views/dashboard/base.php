@@ -70,6 +70,9 @@
                 <li class="nav-item pcoded-hasmenu">
                     <a href="<?= base_url()?>/dashboard" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">Dashboard</span></a>
                 </li>
+                <li class="nav-item pcoded-hasmenu">
+                    <a href="<?= base_url()?>/profile" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user"></i></span><span class="pcoded-mtext">Profile</span></a>
+                </li>
                 <?php if ($user_data->u_role === 'admin'):?>
                     <li class="nav-item pcoded-hasmenu">
                         <a href="<?= base_url()?>/sectors" class="nav-link "><span class="pcoded-micon"><i class="feather icon-package"></i></span><span class="pcoded-mtext">Sectors</span></a>

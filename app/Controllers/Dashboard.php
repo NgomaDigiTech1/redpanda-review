@@ -78,9 +78,9 @@
             $quot_mod = $this->mdb->getList($this->quotations);
             $l = 0;
             foreach ($quot_mod as $qtm) {
-                if (in_array($qtm->prod_sect, $tab)) {
-                    $l++;
-                }
+                // if (in_array($qtm->prod_sect, $tab)) {
+                //     $l++;
+                // }
             }
 
             $data = [

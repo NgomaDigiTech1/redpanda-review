@@ -4,14 +4,14 @@
 <div class="page-header">
     <div class="container">
         <div class="row">
-            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="page-breadcrumb">
                     <ol class="breadcrumb">
                         <li><a href="index.html">Home</a></li>
                         <li class="active">Contact us</li>
                     </ol>
                 </div>
-            </div>
+            </div> -->
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="bg-white pinside30">
                     <div class="row align-items-center">
@@ -26,10 +26,7 @@
                 <div class="sub-nav" id="sub-nav">
                     <ul class="nav nav-justified">
                         <li class="nav-item">
-                            <a href="contact-us.html" class="nav-link">Give me call back</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#!" class="nav-link">Emi Caculator</a>
+                            <a href="" class="nav-link">Give me call back</a>
                         </li>
                     </ul>
                 </div>
@@ -52,7 +49,7 @@
                                     <p>Reach out to us &amp; we will respond as soon as we can.</p>
                                 </div>
                             </div>
-                            <form class="contact-us" method="post" action="http://jituchauhan.com/borrow/borrow/contact-us.php">
+                            <form class="contact-us" method="post" action="">
                                 <div class=" ">
                                     <!-- Text input-->
                                     <div class="row">
@@ -109,22 +106,22 @@
                                 <div class="bg-boxshadow pinside60 outline text-center mb30">
                                     <div class="mb40"><i class="icon-briefcase icon-2x icon-default"></i></div>
                                     <h2 class="capital-title">Branch Office</h2>
-                                    <p>2843 Lakewood Drive
-                                        <br> Jersey City, CA 07304</p>
+                                    <p>69 KASONGO WA NYEMBO, Q. BAUDOUIN
+                                        <br> Lubumbashi, RDC</p>
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
                                 <div class="bg-boxshadow pinside60 outline text-center mb30">
                                     <div class="mb40"><i class="icon-phone-call icon-2x icon-default"></i></div>
                                     <h2 class="capital-title">Call us at </h2>
-                                    <h1 class="text-big">800-123-456 / 789 </h1>
+                                    <h1 class="text-big">+243 5845 698 </h1>
                                 </div>
                             </div>
                             <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
                                 <div class="bg-boxshadow pinside60 outline text-center mb30">
                                     <div class="mb40"> <i class="icon-letter icon-2x icon-default"></i></div>
                                     <h2 class="capital-title">Email Address</h2>
-                                    <p>lnfo@loanadvisor.com</p>
+                                    <p>lnfos@thepricebee.com</p>
                                 </div>
                             </div>
                         </div>

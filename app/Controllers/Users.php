@@ -7,6 +7,7 @@ use App\Models\CommonModel;
 use \CodeIgniter\Exceptions\PageNotFoundException;
 
 use App\Helpers\Customer_Helper;
+use App\Models\ProductCharactModel;
 
 /**
  * User class
@@ -67,7 +68,7 @@ class Users extends BaseController
                     'u_photo' => 'user-default-avatar.png',
                     'u_status' => 1,
                     'u_created_at' => date("Y-m-d"),
-                    'u_password' => password_hash(123456789, PASSWORD_BCRYPT),
+                    'u_password' => password_hash(123456, PASSWORD_BCRYPT),
                     'u_token' => $token
                 );
 
@@ -193,13 +194,15 @@ class Users extends BaseController
     }
 
     function deleteUser($segment) {
-        $user_data = session()->get('user_data');
         if (!empty($segment)) {
             $model = model(UserModel::class);
-            $prod_char_model = model(ProductCharactModel::class);
-            $prod_char = $this->mdb->getList('rp_productCharacteristics', ['org_name'=>$user_data->org_name]);
-            dd($prod_char);
-            // $model->deleteUser($segment);
+            $user = $model->getUserByID($segment);
+            $prod_char = $this->mdb->getList('rp_productCharacteristics', ['org_id'=>$user->_id]);
+
+            foreach($prod_char as $prodchar) {
+                model(ProductCharactModel::class)->deleteOne(['_id' => new \MongoDB\BSON\ObjectId($segment)]);
+            }
+            $model->deleteUser($segment);
             session()->setFlashData("success", "User Successfully Deleted");
         }
         return redirect()->to('/users');
