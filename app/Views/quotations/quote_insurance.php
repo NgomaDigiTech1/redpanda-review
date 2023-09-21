@@ -97,12 +97,14 @@
                                                     <?php foreach ($product->caracteristics as $caracteristic => $caract): ?>
                                                         <?php if(($caracteristic !== 'product_id') && ($caracteristic !== 'conditions_content') && ($caract !== '')) :?>
                                                             <li class="list-group-item">
-                                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                                                    <h5><i><?= ucfirst(str_replace('_', ' ', $caracteristic)) ;?></i></h5> 
-                                                                </div>
-                                                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="text-align: right">
-                                                                    <?= ucfirst($caract) ;?>
-                                                                </div>
+                                                                <div class="row">                                                                   
+                                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                                                        <h5><?= ucfirst(str_replace('_', ' ', $caracteristic)) ;?></h5>
+                                                                    </div>
+                                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="text-align: right">
+                                                                        <?= ucfirst($caract) ;?>
+                                                                    </div>
+                                                                </div>                                                            
                                                             </li>
                                                         <?php endif; ?>
                                                     <?php endforeach; ?>
@@ -113,7 +115,7 @@
                                         <!-- End Testing -->
                                         <div class="lender-actions">
                                             <!--  <button class="btn btn-secondary btn-block" data-toggle="modal" data-target="#modal_devis">Apply now</button>-->
-                                            <?=form_open('apply-car')?>                                                                                       
+                                            <?=form_open('apply-insurance')?>                                                                                       
                                                 <div class="btn-action">
                                                     <input type="hidden" name="prod_name" id="prod_name" value="<?= $title ;?>">
                                                     <input type="hidden" name="oc_email" id="oc_email" value="<?= $client_data['oc_email'] ;?>">

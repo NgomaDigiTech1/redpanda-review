@@ -55,9 +55,9 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th style="width:20%;t ext-align: center" class="card-tag">Product</th>
+                                        <th style="width:20%;text-align: center" class="card-tag">Product</th>
                                         <th style="width:20%;" class="card-name">Product Name</th>
-                                        <th style="width:20%; text-align: center;" class="anuual-fees">Organisations</th>
+                                        <th style="width:20%; text-align: center;" class="anuual-fees">Organisation</th>
                                         <th class="reward-rate">Rewards Rate </th>
                                         <th class="action"></th>
                                     </tr>
@@ -141,15 +141,14 @@
                                                     </a>
                                                 </div>
                                                 <br>
-                                                <span><blink>Select to see all the offers</blink></span><br><br>
-                                                
+                                                                                             
                                                 <?php if($item->product_slug === 'home-insurance') : ?>
                                                     <a href="<?= base_url() ?>/load-home/<?=$item->product_slug;?>" class="btn btn-secondary btn-sm mb5">Select</a>
                                                 <?php elseif($item->product_slug === 'car-insurance') : ?>
                                                     <a href="<?= base_url() ?>/load-car/<?=$item->product_slug;?>" class="btn btn-secondary btn-sm mb5">Select</a>
                                                 <?php else: ?>
-                                                    <button class="btn btn-secondary btn-sm mb5" data-toggle="modal" data-target="#modal<?=$item->product_slug;?>">View quotes</button> 
-                                                    <a href="<?= base_url() ?>/load-request/<?=$item->product_slug;?>" class="btn btn-secondary btn-sm mb5">Select</a>
+                                                    <button class="btn btn-secondary btn-sm mb5" data-toggle="modal" data-target="#modal<?=$item->product_slug;?>">Select</button> 
+                                                    <!-- <a href="<?= base_url() ?>/load-request/<?=$item->product_slug;?>" class="btn btn-secondary btn-sm mb5">Select</a> -->
                                                 <?php endif;?>
 
                                             </td>
@@ -206,9 +205,9 @@
                                                     </button>
                                                 </div>
                                                 <div class="modal-body">                                                    
-                                                    <?= form_open('quotations/registerRequest') ?>
-                                                        <input type="text" class="form-control" value="<?= $item->product_slug ;?>" name = "oc_prod_name">
-                                                        <input type="text" class="form-control" value="<?= $item->_id ;?>" name = "prod_id">
+                                                    <?= form_open('requesting/'. $item->product_slug) ?>
+                                                        <input type="text" class="form-control" value="<?= $item->product_slug ;?>" name = "oc_prod_name" readonly>
+                                                        <input type="text" class="form-control" value="<?= $item->_id ;?>" name = "prod_id" readonly>
                                                         <!-- <div class="form-group">
                                                             <label for="title">Title</label>
                                                             <Select id="title" class="form-control" style="height: 38px !important;" name="oc_title"  >
@@ -221,27 +220,27 @@
                                                         </div> -->
 
                                                         <div class="form-group">
-                                                            <label for="oc_first_name">First Name</label>
-                                                            <input type="text" id="firstname" class="form-control" style="height: 38px !important;" value="<?= set_value('oc_first_name') ?>" name="oc_first_name"  >
-                                                            <small id="input-help" class="form-text text-danger"><?= $validation['oc_first_name'] ?? null; ?></small>
+                                                            <label for="cl_name">First Name</label>
+                                                            <input type="text" id="firstname" class="form-control" style="height: 38px !important;" value="<?= set_value('cl_name') ?>" name="cl_name" required >
+                                                            <small id="input-help" class="form-text text-danger"><?= $validation['cl_name'] ?? null; ?></small>
                                                         </div>
 
-                                                        <div class="form-group">
+                                                        <!-- <div class="form-group">
                                                             <label for="oc_last_name">Last Name</label>
-                                                            <input type="text" id="lastname" class="form-control" style="height: 38px !important;" name="oc_last_name" value="<?= set_value('oc_last_name') ?>"  >
+                                                            <input type="text" id="lastname" class="form-control" style="height: 38px !important;" name="oc_last_name" value="<?= set_value('oc_last_name') ?>" required >
                                                             <small id="input-help" class="form-text text-danger"><?= $validation['oc_last_name'] ?? null; ?></small>
+                                                        </div> -->
+
+                                                        <div class="form-group">
+                                                            <label for="cl_email">Email</label>
+                                                            <input type="email" id="email" class="form-control" style="height: 38px !important;" name="cl_email" value="<?= set_value('cl_email') ?>" required >
+                                                            <small id="input-help" class="form-text text-danger"><?= $validation['cl_email'] ?? null; ?></small>
                                                         </div>
 
                                                         <div class="form-group">
-                                                            <label for="oc_email">Email</label>
-                                                            <input type="email" id="email" class="form-control" style="height: 38px !important;" name="oc_email" value="<?= set_value('oc_email') ?>"  >
-                                                            <small id="input-help" class="form-text text-danger"><?= $validation['oc_email'] ?? null; ?></small>
-                                                        </div>
-
-                                                        <div class="form-group">
-                                                            <label for="oc_phone">Telephone</label>
-                                                            <input type="tel" id="phone" class="form-control" style="height: 38px !important;" name="oc_phone" value="<?= set_value('oc_phone') ?>"  >
-                                                            <small id="input-help" class="form-text text-danger"><?= $validation['oc_phone'] ?? null; ?></small>
+                                                            <label for="cl_phone">Telephone</label>
+                                                            <input type="tel" id="phone" class="form-control" style="height: 38px !important;" name="cl_phone" value="<?= set_value('cl_phone') ?>" required >
+                                                            <small id="input-help" class="form-text text-danger"><?= $validation['cl_phone'] ?? null; ?></small>
                                                         </div>
 
                                                         <!-- <div class="form-group">
@@ -263,8 +262,7 @@
                                                         </div> -->
 
                                                         <div class="btn-action">
-                                                            <button type="submit" class="btn btn-secondary">Submit</button>
-                                                            <!--    <a href=" <?= base_url() ?>/quotations/quote/<?= $item->product_name;?>" class="btn btn-secondary btn-sm mb5">Submit</a> -->
+                                                            <button type="submit" class="btn btn-secondary btn-sm mb5">Submit</button>
                                                         </div>
                                                     </form>
                                                 </div>

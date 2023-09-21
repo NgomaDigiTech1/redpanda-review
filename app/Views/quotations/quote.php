@@ -58,7 +58,7 @@
                                         </div>
                                         <div class="lender-rate-box">                                            
                                             <img
-                                                src="<?= base_url(). "./assets/rp_admin/images/user/" . $org['u_photo'] ?? "org.jpg" ;?>"
+                                                src="<?= base_url(). "./assets/rp_admin/images/product/" . $produit['product_image'] ?? "org.jpg" ;?>"
                                                 alt="<?= $org->org_name; ?>"
                                                 class="img-fluid"
                                                 style="height: 160px !important;width: 100% !important;"
@@ -100,7 +100,7 @@
                                                         </div>                                                            
                                                     </li>
                                                 <?php endif;?>
-                                                <?php if(isset($product->colors)):?>
+                                                <?php if(isset($product->year)):?>
                                                     <li class="list-group-item">
                                                         <div class="row">                                                                   
                                                             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
@@ -131,17 +131,16 @@
 
                                         <!-- End Testing -->
                                         <div class="lender-actions">
-                                            <?=form_open('quotations/applyNow','id="myForm"')?>
+                                            <?=form_open('apply','id="myForm"')?>
                                                 <div class="btn-action">
-                                                    <input type="hidden" name="prod_name" id="prod_name" value="<?= $produit->product_name;?>">
+                                                    <input type="hidden" name="prod_name" id="prod_name" value="<?= $produit->product_name;?>" readonly>
                                                     <input type="hidden" name="org_name" id="org_name" value="<?= $org->org_name; ?>">
-                                                    <input type="hidden" name="product_image" id="product_image" value="<?= $produit->product_image;?> ">
                                                     <input type="hidden" name="org_email" id="org_email" value="<?= $org->u_email ;?>">
                                                     <input type="hidden" name="years" id="years">
                                                     <input type="hidden" name="colors" id="colors">
                                                     <input type="hidden" name="price" id="price" value="<?= $product->price ;?>">
                                                     <input type="hidden" name="prod_id" id="prod_id" value="<?= $product->_id ;?>">
-                                                    <input type="hidden" name="prod_sect" id="prod_sect" value="<?= $title ;?>"> 
+                                                    <!-- <input type="hidden" name="prod_sect" id="prod_sect" value="<?= $title ;?>">  -->
                                                     <button type="submit" class="btn btn-secondary btn-block" id="btn_submit">Select</button>
                                                 </div>
                                             <?= form_close()?>

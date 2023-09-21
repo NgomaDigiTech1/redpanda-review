@@ -21,7 +21,10 @@
             $data = [
                 'title' => ucfirst($page),
 				'sectors'=> $this->sectModel->getEnabledSectors(),
-            ];			
+            ];		
+			if(session()->has('client_data')){
+				session()->remove('client_data');
+			}
             echo view('pages/'.$page, $data);
 		}
 

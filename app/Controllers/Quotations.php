@@ -160,38 +160,39 @@ class Quotations extends BaseController
         }
     }
     
-    function applyNow()
-    {
-        $data = [];
+    function apply()
+    {   
         $client_data = session()->get('client_data');
+        if($client_data == null) {
+            return redirect()->to('/');
+        } 
+      
         if($this->request->getMethod() === 'post'){
-            if(!$_POST['colors'] && !$_POST['years']) {
-                return redirect()->back()->with('error', "Choose the color and the year");
-            }else{                
+            // if(!$_POST['colors'] && !$_POST['years']) {
+            //     return redirect()->back()->with('error', "Choose the color and the year");
+            // }else{                
                 $data  = [
                     'org' => $this->request->getVar('org_name'),
                     'org_email' => $this->request->getVar('org_email'),
-                    'cl_name' => $client_data['cl_name'],
-                    'cl_email' => $client_data['cl_email'],
-                    'product_image' => $this->request->getVar('product_image'),
-                    'prod_sect' => $this->request->getVar('prod_sect'),
-                    'cl_phone' => $client_data['cl_phone'],
-                    'prod_name' => $this->request->getPost('prod_name'),
-                    'status' => 'pending',
+                    'cl_product' => $this->request->getVar('prod_name'),
+                    'colors' => $this->request->getVar('colors'),
+                    'price' => $this->request->getVar('price'),
                     'created_at' => date('Y-m-d H:i:s'),
+                    'status' => 'pending',
                 ];
+                session()->push('client_data', $data);
+                $donnees = session()->get('client_data');
+                $this->mdb->create("rp_quotation", array($donnees));
                 
-                $this->mdb->create("rp_quotation", array($data));
-    
-                $this->sendToClient($client_data['cl_email'], $data['prod_name'], $data['cl_name']);
-                $this->sendToAdmin('infos@thepricebee.com', $data['prod_name'], $data['org'], $data['cl_name'], $data['cl_phone']); // The support email to be changed when online
-                $this->sendToOrganisation($data['org_email'], $data['prod_name'],$data['org'],$data['cl_name'],$data['cl_phone'],$data['cl_email']); // The organisation mail
-    
+                $this->sendToClient($client_data['cl_email'], $client_data['cl_product'], $client_data['cl_name']);
+                $this->sendToAdmin('info@thepricebee.com', $client_data['cl_product'], $data['org'], $client_data['cl_name'], $client_data['cl_phone']); // The support email to be changed when online
+                $this->sendToOrganisation($data['org_email'], $client_data['cl_product'],$data['org'],$client_data['cl_name'],$client_data['cl_phone'],$client_data['cl_email']); // The organisation mail
+                   
                 session()->setTempdata('success', 'Your request has been submitted successfully', 6);
-                session()->set('client_data', null);
+                session()->remove('client_data');
     
                 echo view('quotations/send_request',$data);
-            }
+            // }
 
         }
         else{
@@ -200,52 +201,26 @@ class Quotations extends BaseController
             redirect($_SERVER['HTTP_REFERER']);
         }
 
-    }
-    
-    function applyHome($product_name = null)
-    {
-        $data = [];
+    }    
 
-        $client_data = session()->get('client_data');
-
-        if($this->request->getMethod() == 'post'){
-
-            $data  = [
-                'org' => $this->request->getVar('org_name'),
-                'org_email' => $this->request->getVar('org_email'),
-                'created_at' => date('Y-m-d H:i:s'),
-                'status' => 'pending',
-            ];
-            session()->push('client_data', $data);
-            $donnees = session()->get('client_data');
-            
-            $this->mdb->create("rp_quotation", array($donnees));
-             
-            $this->sendToClient($client_data['oc_email'], $client_data['oc_product'], $client_data['oc_first_name']);
-            $this->sendToAdmin('info@thepricebee.com', $client_data['oc_product'], $data['org'], $client_data['oc_first_name'], $client_data['oc_phone']); // The support email to be changed when online
-            $this->sendToOrganisation($data['org_email'], $client_data['oc_product'],$data['org'],$client_data['oc_first_name'],$client_data['oc_phone'],$client_data['oc_email']); // The organisation mail
-
-            session()->set('client_data', null);
-            session()->setTempdata('success', 'Your request has been successfully submitted');
-            echo view('quotations/send_request',$data);        
-        }
-        else{
-            return redirect()->to(current_url())->with("error", "Error, couldn't submit the request. Please try again !");
-        }
-    }   
-
-    function quote($segment = null, $name = null)
+    function quote($slug)
     {
         $client_data = session()->get('client_data');
-        $charact = model(ProductCharactModel::class);
-        $produit = (model(ProductModel::class))->getProduct($segment);       
+        $charact = model(ProductCharactModel::class);      
+        $produit = (model(ProductModel::class))->getProductBySlug($slug);
+
         $data = [
             'title' => $produit->product_name,
-            'products' => $charact->getSectorProducts($segment),
+            'products' => $charact->getSectorProducts($produit->_id),
             'client_data' => $client_data,
         ];
         if(!empty($client_data)){
-            echo view('quotations/quote', $data);
+            if($slug === 'home-insurance' || $slug === 'car-insurance'){
+                echo view('quotations/quote_insurance', $data);
+            }
+             else {
+                    echo view('quotations/quote', $data);
+             }
         }else {
             return redirect()->to('/');
         }
@@ -263,50 +238,19 @@ class Quotations extends BaseController
         echo view('quotations/quote_insurance', $data);
     }
 
-    function requesting(){
+    function requesting($slug){
 
-        $key = $this->request->getVar('prod_id');
-        $produit = (model(ProductModel::class))->getProduct($key);
+        $produit = (model(ProductModel::class))->getProductBySlug($slug);
 
-        if ($this->request->getMethod() === 'post'){
-            $this->validation->setRules([
+        $data = array(
+            'cl_name' => $this->request->getVar('cl_name'),
+            'cl_email' => $this->request->getVar('cl_email'),
+            'cl_phone' => $this->request->getVar('cl_phone'),
+        );
+        session()->set('client_data', $data);
+        return redirect()->to('quote/'.$produit->product_slug);
 
-                'cl_name'  => ['label' => 'Client Name', 'rules' => 'required|min_length[3]'],
-                'cl_email' => ['label' => 'Email','rules' => 'required|valid_email'],
-                'cl_phone' => ['label' => 'Phone', 'rules' => 'required'],
-            ]);
-
-            if($this->validation->withRequest($this->request)->run()){
-                $data = array(
-                    'cl_name' => $this->request->getVar('cl_name'),
-                    'cl_email' => $this->request->getVar('cl_email'),
-                    'cl_phone' => $this->request->getVar('cl_phone'),
-                );
-                session()->set('client_data', $data);
-                return redirect()->to(base_url().'/quotations/quote/'.$key. '/'.$produit->product_name);
-
-            }else{
-                $data = [
-                    'validation'=> $this->validation->getErrors(),
-                    'title'=>$this->request->getVar('title'),
-                ] ;
-                echo view('quotations/request', $data);
-            }
-        }
-    }
-    function registerRequest(){
-        $product = (model(ProductModel::class))->getProductBySlug($this->request->getPost('oc_prod_name'));
-        dd($product); 
-    }
-
-    function loadRequest($key= null,$name = null)
-    {
-        $data = [
-            'title' => $name,
-            'key' => $key,
-        ];        
-        echo view('quotations/request', $data);
-    }
+    }      
 
     function loadHome($slug)
     {
@@ -376,7 +320,7 @@ class Quotations extends BaseController
                 );
 
                 session()->set('client_data', $data);
-                return redirect()->to('quotation-insurance/'.$slug);
+                return redirect()->to('quote/'.$slug);
 
             }else{
                 $data['validation'] = $this->validation->getErrors();
@@ -469,7 +413,7 @@ class Quotations extends BaseController
                 );
 
                 session()->set('client_data', $data);
-                return redirect()->to('quotation-insurance/'. $slug);
+                return redirect()->to('quote/'. $slug);
 
             }else{
                 $data['validation'] = $this->validation->getErrors();
@@ -479,7 +423,7 @@ class Quotations extends BaseController
         echo view('quotations/car_insurance', $data);
     }
 
-    function applyCar()
+    function applyInsurance()
     {
         $client_data = session()->get('client_data');
         if($client_data == null) {
@@ -503,14 +447,12 @@ class Quotations extends BaseController
             $this->sendToAdmin('info@thepricebee.com', $client_data['oc_product'], $data['org'], $client_data['oc_first_name'], $client_data['oc_phone']); // The support email to be changed when online
             $this->sendToOrganisation($data['org_email'], $client_data['oc_product'],$data['org'],$client_data['oc_first_name'],$client_data['oc_phone'],$client_data['oc_email']); // The organisation mail
 
-            session()->set('client_data', null);
+            session()->remove('client_data');
             session()->setTempdata('success', 'Your request has been successfully submitted');
             echo view('quotations/send_request',$data);
-
         }
         else{
-            session()->setTempdata("error", "Error, couldn't submit the request. Please try again !");
-            redirect($_SERVER['HTTP_REFERER']);
+            return redirect()->to(current_url())->with("error", "Error, couldn't submit the request. Please try again !");
         }
     }
 

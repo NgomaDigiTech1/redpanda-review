@@ -43,8 +43,12 @@ $routes->add('quotation-insurance/(:any)', 'Quotations::quoteInsurance/$1');
 $routes->add('load-car/(:any)','Quotations::loadCar/$1');
 $routes->add('load-home/(:any)','Quotations::loadHome/$1');
 $routes->add('load-request/(:any)','Quotations::loadRequest/$1');
+$routes->add('requesting/(:any)','Quotations::requesting/$1');
+$routes->add('quote/(:any)','Quotations::quote/$1');
 
-$routes->add('apply-car','Quotations::applyCar');
+$routes->add('apply-insurance','Quotations::applyInsurance');
+$routes->add('apply-home','Quotations::applyHome');
+$routes->add('apply','Quotations::apply');
 
 /** Products */
 $routes->get('all-products', 'Products::allProducts');
