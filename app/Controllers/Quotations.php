@@ -208,7 +208,6 @@ class Quotations extends BaseController
         $client_data = session()->get('client_data');
         $charact = model(ProductCharactModel::class);      
         $produit = (model(ProductModel::class))->getProductBySlug($slug);
-
         $data = [
             'title' => $produit->product_name,
             'products' => $charact->getSectorProducts($produit->_id),
@@ -234,7 +233,7 @@ class Quotations extends BaseController
             'title' => $product->product_name,
             'products' => $this->prodCharModel->getSectorProducts($product->_id),
             'client_data' => $client_data,
-        ];
+        ];     
         echo view('quotations/quote_insurance', $data);
     }
 
@@ -429,7 +428,7 @@ class Quotations extends BaseController
         if($client_data == null) {
             return redirect()->to('/');
         } 
-      
+        
         if($this->request->getMethod() == 'post'){
 
             $data  = [

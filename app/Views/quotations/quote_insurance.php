@@ -1,147 +1,160 @@
-<?= $this->extend("layouts/base")?>
-<?= $this->section("title")?>
-<?= $title;?>
-<?= $this->endSection("title")?>
-<?= $this->section("content")?>
-<?php $client_data = session()->get('client_data');?>
-
-    <div class="page-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="page-breadcrumb">
-                        <ol class="breadcrumb">
-                            <li><a href="<?=base_url();?>">Home</a></li>
-                            <li class="active"><?= ucfirst($title)  ?> Listing</li>
-                        </ol>
-                    </div>
-                </div>
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 text-center">
-                    <div class="bg-white pinside30">
-                        <div class="row align-items-center">
-                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <h1 class="page-title"><?= ucfirst($title) ?> Listing</h1>
-                            </div>
-<!--                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">-->
-<!--                                <div class="btn-action"> <a href="#!" class="btn btn-secondary">How To Apply</a> </div>-->
-<!--                            </div>-->
-                        </div>
-                    </div>
-<!--                    <div class="sub-nav" id="sub-nav">-->
-<!--                        <ul class="nav nav-justified">-->
-<!--                            <li class="nav-item">-->
-<!--                                <a href="#" class="nav-link">Give me call back</a>-->
-<!--                            </li>-->
-<!--                            <li class="nav-item">-->
-<!--                                <a href="#!" class="nav-link">Emi Caculator</a>-->
-<!--                            </li>-->
-<!--                        </ul>-->
-<!--                    </div>-->
+<?= $this->extend("layouts/base") ?>
+<?= $this->section("content") ?>
+<?php $client_data = session()->get('client_data'); ?>
+<div class="container">
+    <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mt40">
+            <div class="page-breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="<?= site_url() ?>">Home</a></li>
+                    <li class="active text-light">Compare <?= ucfirst($title) ?></li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section-space20">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div class="bg-white pinside30">
+                    <h1 class="text-bold">
+                        Compare the <?= ucfirst($title) ?>
+                    </h1>
+                    <p>
+                        Want to check <?= ucfirst($title) ?> ?
+                    </p>
                 </div>
             </div>
         </div>
     </div>
-    <!-- content start -->
+</div>
+<div class="pdb40 compare-student-loan-table">
     <div class="container">
-        <div class="container">
-            <?php if(!$products):?>
-                <div class="alert alert-warning text-center my-5">
-                    <p>There ain't yet specific products for this sector</p>
-                </div>
-            <?php else : ?>
-                <div class="col-md-12">
-                    <div class="wrapper-content bg-white p-lg-4 p-3">
-                        <div class="row">
-                            <?php foreach ($products as $product):?>
+        <?php if (!$products) : ?>
+            <div class="alert alert-warning text-center my-5">
+                <p>There ain't yet specific products for this sector</p>
+            </div>
+        <?php else : ?>
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                    <div class="bg-white table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 18%;" class="lender-tag">Enterprise</th>
+                                    <th style="width: 19%;" class="fixed-text">Price</th>
+                                    <th style="width: 19%;" class="variable-apr">
+                                        Variable APR
+                                    </th>
+                                    <th style="width: 17%;" class="terms">Terms(years)</th>
+                                    <th class="action"></th>
+                                </tr>
+                            </thead>
+                            <?php foreach ($products as $product) : ?>
                                 <?php
-                                    $org = (new App\Models\UserModel)->getUserById($product->org_id);
-                                    $produit = (new App\Models\ProductModel)->getProduct($product->product_id);
+                                $org = (new App\Models\UserModel)->getUserById($product->org_id);
+                                $produit = (new App\Models\ProductModel)->getProduct($product->product_id);
                                 ?>
-                                <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12">
-                                    <div class="lender-listing">
-                                        <!-- lender listing -->
-                                        <div class="lender-head">
-                                            <div class="lender-logo">
-                                                <img
-                                                        src="<?= base_url(). "./assets/rp_admin/images/user/" . $org['u_photo'] ?? "org.jpg" ;?>"
-                                                        alt="<?= $org->u_first_name; ?>"
-                                                />
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <img src="<?= base_url() . "./assets/rp_admin/images/product/" . $produit['product_image'] ?? "org.jpg"; ?>" class="img-fluid" />
+                                        </td>
+                                        <td>
+                                            <h3 class="compare-student-loan-title">
+                                                <?= $product->price; ?> $
+                                            </h3>
+                                            <small>Fixed APR</small>
+                                        </td>
+                                        <td>
+                                            <h3 class="compare-student-loan-title">2.63% - 7.70%</h3>
+                                            <small>Variable APR</small>
+                                        </td>
+                                        <td>
+                                            <h3 class="compare-student-loan-title">5,7,10,15,20</h3>
+                                            <small>Terms(Years)</small>
+                                        </td>
+                                        <td class="text-center">
+                                            <?= form_open('apply-insurance') ?>
+                                            <div class="btn-action" style="text-align: unset;">
+                                                <input type="hidden" name="prod_name" id="prod_name" value="<?= $client_data['oc_product']; ?>" readonly>
+                                                <input type="hidden" name="oc_email" id="oc_email" value="<?= $client_data['oc_email']; ?>" readonly>
+                                                <input type="hidden" name="quotation_id" id="quotation_id" value="<?= $client_data['quotation_id']; ?>" readonly>
+                                                <input type="hidden" name="org_name" id="org_name" value="<?= $org->org_name ?? $u_first_name; ?>" readonly>
+                                                <input type="hidden" name="prod_sect" id="prod_sect" value="<?= $client_data['oc_sector']; ?>" readonly>
+                                                <input type="hidden" name="org_email" id="org_email" value="<?= $org->u_email; ?>" readonly>
+                                                <input type="hidden" name="price" id="price" value="<?= $product->price; ?>">
+                                                <button type="submit" class="btn btn-secondary btn-sm mb5">Select</button>
                                             </div>
-                                            <div class="lender-reviews">
-                                                <h4><?= $org->u_first_name; ?></h4>
+                                            <?= form_close() ?>
+                                            <div class="mt10">
+                                                <a class="btn-link" id="example-one" data-text-swap="Hide Details" data-text-original="Expand Details" data-toggle="collapse" href="#collapseExample<?= $produit->_id; ?>" aria-expanded="false" aria-controls="collapseExample">
+                                                    Expand Details
+                                                </a>
                                             </div>
-                                        </div>
-                                        <div class="lender-rate-box">
-                                            <!--
-                                            <div class="lender-ads-rate">
-                                                <small>Advertised Rate</small>
-                                                <h3 class="lender-rate-value">3.74%</h3>
-                                            </div>
-                                            <div class="lender-compare-rate">
-                                                <small>Comparison Rate* </small>
-                                                <h3 class="lender-rate-value">5.74%</h3>
-                                            </div>
-                                             -->
-                                            <img
-                                                    src="<?= base_url(). "./assets/rp_admin/images/product/" . $produit['product_image'] ?? "org.jpg" ;?>"
-                                                    alt="<?= $org->u_first_name; ?>"
-                                            />
-
-                                        </div>
-
-                                        <!-- Testing Characteristics here -->
-
-                                            <div class="fee-charges-table">
-                                                <ul class="list-group">
-                                                    <!-- </?php foreach ($product->caracteristics['required'] as $caracteristic => $caract): ?> -->
-                                                    <?php foreach ($product->caracteristics as $caracteristic => $caract): ?>
-                                                        <?php if(($caracteristic !== 'product_id') && ($caracteristic !== 'conditions_content') && ($caract !== '')) :?>
-                                                            <li class="list-group-item">
-                                                                <div class="row">                                                                   
-                                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                                                                        <h5><?= ucfirst(str_replace('_', ' ', $caracteristic)) ;?></h5>
-                                                                    </div>
-                                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" style="text-align: right">
-                                                                        <?= ucfirst($caract) ;?>
-                                                                    </div>
-                                                                </div>                                                            
-                                                            </li>
-                                                        <?php endif; ?>
-                                                    <?php endforeach; ?>
-                                                </ul>
-                                            </div>
-                                   
-                                         
-                                        <!-- End Testing -->
-                                        <div class="lender-actions">
-                                            <!--  <button class="btn btn-secondary btn-block" data-toggle="modal" data-target="#modal_devis">Apply now</button>-->
-                                            <?=form_open('apply-insurance')?>                                                                                       
-                                                <div class="btn-action">
-                                                    <input type="hidden" name="prod_name" id="prod_name" value="<?= $title ;?>">
-                                                    <input type="hidden" name="oc_email" id="oc_email" value="<?= $client_data['oc_email'] ;?>">
-                                                    <input type="hidden" name="quotation_id" id="quotation_id" value="<?= $client_data['quotation_id'] ;?>">
-                                                    <input type="hidden" name="org_name" id="org_name" value="<?= $org->org_name ?? $u_first_name; ?>">
-                                                    <input type="hidden" name="prod_sect" id="prod_sect" value="<?= $client_data['oc_email']; ?>">
-                                                    <input type="hidden" name="org_email" id="org_email" value="<?= $org->u_email; ?>">
-                                                    <input type="hidden" name="product_image" id="product_image" value="<?= $produit->product_image; ?>">
-                                                    <button type="submit" class="btn btn-secondary btn-block">Select</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="12" class="expandable-info">
+                                            <div class="collapse expandable-collapse" id="collapseExample<?= $produit->_id; ?>">
+                                                <div class="row">
+                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                                        <!-- <div class="">
+                                                            <h3 class="mb20">What we like</h3>
+                                                            <ul class="bullet bullet-check-circle list-unstyled">
+                                                                <li>
+                                                                    Refinancing and consolidation of private and
+                                                                    federal student loans
+                                                                </li>
+                                                                <li>
+                                                                    Unemployment protection – loan payments are
+                                                                    paused and they help find new job
+                                                                </li>
+                                                                <li>
+                                                                    Access to member perks including exclusive
+                                                                    events, SoFi wealth advisors, and career
+                                                                    planning
+                                                                </li>
+                                                                <li>
+                                                                    Zero application, origination, or prepayment
+                                                                    fees
+                                                                </li>
+                                                            </ul>
+                                                        </div> -->
+                                                        <div class="mt30">
+                                                            <h4 class="mb5">Conditions</h4>
+                                                            <p>
+                                                                <?= $produit->product_description ?? ''; ?>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                                        <ul class="list-group">
+                                                            <?php foreach ($product->caracteristics as $caracteristic => $caract) : ?>
+                                                                
+                                                                <?php if (($caracteristic !== 'product_id') && ($caracteristic !== 'conditions_content') && ($caract !== '')) : ?>
+                                                                    <li class="list-group-item">
+                                                                        <?= ucfirst(str_replace('_', ' ', $caracteristic)) ;?>
+                                                                        <span class="float-right"><?= ucfirst($caract) ;?></span>
+                                                                    </li>
+                                                                <?php endif; ?>
+                                                            <?php endforeach; ?>
+                                                            
+                                                        </ul>
+                                                    </div>
                                                 </div>
-                                            <?= form_close()?>
-                                            <!--<a href="#" class="btn btn-secondary btn-block">Apply now</a> -->
-                                            <a href="<?= base_url()?>/sectors/productDetails/<?=$product->_id;?>" class="btn-link">More Informations</a>
-                                            <!-- <a href="<?= base_url()?>/quotations/openDevis/<?=$product->product_id;?>" class="btn-link">Open Devis</a> -->
-                                        </div>
-                                    </div>
-                                    <!-- /.lender listing -->
-                                </div>
-                            <?php endforeach;?>
-                        </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            <?php endforeach; ?>
+                        </table>
                     </div>
                 </div>
-            <?php endif;?>
-        </div>
-
+            </div>
+        <?php endif; ?>
     </div>
-    <!-- /.content end -->
+</div>
 
-<?= $this->endSection()?>
+<?= $this->endSection() ?>

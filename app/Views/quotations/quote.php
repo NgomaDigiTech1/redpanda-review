@@ -144,7 +144,7 @@
                                                     <button type="submit" class="btn btn-secondary btn-block" id="btn_submit">Select</button>
                                                 </div>
                                             <?= form_close()?>
-                                            <a href="<?= base_url()?>/details-product/<?=$produit->_id;?>/<?=$product->org_id;?>/<?= ucfirst($title)  ?> " class="btn-link">More Informations</a>
+                                            <a href="<?= base_url()?>/details-product/<?=$produit->_id;?>/<?=$product->org_id;?>/<?= ucfirst($title) ?> " class="btn-link">More Informations</a>
                                         </div>
                                     </div>
                                     <!-- /.lender listing -->
