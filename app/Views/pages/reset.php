@@ -21,7 +21,7 @@
 	<meta name="keywords" content="">
 	<meta name="author" content="Phoenixcoded" />
 	<!-- Favicon icon -->
-    <link rel="shortcut icon" type="image/png" href="<?= base_url()?>/assets/rp_website/images/favicon.jpg" />
+    <link rel="shortcut icon" type="image/png" href="<?= base_url()?>/assets/rp_website/images/favicon.ico" />
     <!-- vendor css -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/rp_admin/css/style.css">
 
@@ -35,7 +35,7 @@
 				<div class="row align-items-center text-center">
 					<div class="col-md-12">
 						<div class="card-body">
-                            <img src="<?= base_url()?>/assets/rp_website/images/logo_rp.png" alt=""
+                            <img src="<?= base_url()?>/assets/rp_website/images/tpb_logo_jpg.jpg" alt=""
                                  class="img-fluid mb-4"
                                  style="height: 60px; width: 120px;"
                             >

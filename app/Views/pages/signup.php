@@ -30,7 +30,7 @@
 				<div class="row align-items-center text-center">
 					<div class="col-md-12">
 						<div class="card-body">
-							<img src="<?= base_url()?>/assets/rp_website/images/logo_rp.png" alt=""
+							<img src="<?= base_url()?>/assets/rp_website/images/tpb_logo_jpg.jpg" alt=""
                                  class="img-fluid mb-4"
                                  style="height: 60px; width: 120px;"
                             >
