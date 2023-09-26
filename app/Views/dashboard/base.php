@@ -125,7 +125,7 @@
         <a href="#!" class="b-brand">
             <!-- ========   change your logo hear   ============ -->
             <img
-                    src="<?= base_url()?>/assets/rp_website/images/logo_rp.png"
+                    src="<?= base_url()?>/assets/rp_website/images/tpb_logo_png.png"
                     alt="Red Panda Logo"
                     class="logo"
                     style="height: 45px; width: 70px;"

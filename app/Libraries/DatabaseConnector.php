@@ -2,21 +2,23 @@
  
 namespace App\Libraries;
 use \Config\MongoDBConfig;
-use MongoDB\Client as Klient;
+use MongoDB\Client as Client;
 
 class DatabaseConnector {
     private $client;
     private $database;
 
     function __construct() {
-        $this->mongoConnectionInfos = new MongoDBConfig();      
+
+        $this->mongoConnectionInfos = new MongoDBConfig();
+              
         if(getenv('CI_ENVIRONMENT') == 'production') {
             /** This is for local manage */
             $uri = getenv('ATL_URI');
-            $database = getenv('DATABASE');
+            $database = getenv('ATL_DB');
         } else {
 
-            $uri = new Klient("mongodb://{$this->mongoConnectionInfos->hostname}:{$this->mongoConnectionInfos->port}/{$this->mongoConnectionInfos->db}",
+            $uri = new Client("mongodb://{$this->mongoConnectionInfos->hostname}:{$this->mongoConnectionInfos->port}/{$this->mongoConnectionInfos->db}",
                                 ["authMechanism" => "SCRAM-SHA-256",
                                     'username' => $this->mongoConnectionInfos->username,
                                     'password' => $this->mongoConnectionInfos->password
@@ -30,7 +32,7 @@ class DatabaseConnector {
         }
 
         try {
-            $this->client = new Klient($uri);
+            $this->client = new Client($uri);
         } catch(MongoDB\Driver\Exception\MongoConnectionException $ex) {
             show_error('Couldn\'t connect to database: ' . $ex->getMessage(), 500);
         }

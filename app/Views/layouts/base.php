@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="Red Panda prices is a Cprice Comparaisony SystemF.">
-    <meta name="keywords" content="Comparaison Prices System, Redpanda prices, RedPanda">
+    <meta name="keywords" content="Comparaison Prices System, The Price Bee, Thepricebee">
     <title>The Price Bee | <?= $title ?? " Home" ?></title>
     <!-- Bootstrap -->
     <link href="<?= base_url()?>/assets/rp_website/css/bootstrap/bootstrap.min.css" rel="stylesheet">
@@ -22,7 +22,7 @@
     <link href="<?= base_url()?>/assets/rp_website/css/navbar.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url()?>/assets/rp_website/css/formulaire.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <link rel="shortcut icon" type="image/png" href="<?= base_url()?>/assets/rp_website/images/favicon.jpg" />
+    <link rel="shortcut icon" type="image/png" href="<?= base_url()?>/assets/rp_website/images/favicon.ico" />
 </head>
 
 <body class="bg-white">
@@ -34,7 +34,7 @@
                 <div class="container">
                     <a href="<?= base_url()?>"
                     ><img
-                            src="<?= base_url()?>/assets/rp_website/images/logo_rp.png"
+                            src="<?= base_url()?>/assets/rp_website/images/tpb_logo_jpg.jpg"
                             alt="Red Panda Prices"
                             style="width: 120px; height: 60px;"
                         /></a>
@@ -213,5 +213,3 @@
 
 </body>
 </html>
-
-
