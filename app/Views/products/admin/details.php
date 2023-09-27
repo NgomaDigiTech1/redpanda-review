@@ -42,7 +42,7 @@
                                 <h3 class="mt-0"><?= $product->product_name ;?> <a href="javascript: void(0);" class="text-muted"><i class="mdi mdi-square-edit-outline ml-2"></i></a> </h3>
                                 
                                 <div class="mt-3">
-                                    <h5><span class="badge badge-success"></?= $product->product_status ;?></span></h5>
+                                    <h5><span class="badge badge-success"><?= $product->product_status ;?></span></h5>
                                 </div>
                                 <div class="mt-4">
                                     <h5><span class="badge badge-success">3.8 <i class="feather icon-star-on"></i></span></h5>

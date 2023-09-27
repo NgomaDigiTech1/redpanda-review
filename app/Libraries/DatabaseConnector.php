@@ -1,34 +1,31 @@
 <?php
  
 namespace App\Libraries;
-use \Config\MongoDBConfig;
+
 use MongoDB\Client as Client;
+use MongoDB\Driver\ServerApi;
 
 class DatabaseConnector {
     private $client;
     private $database;
 
     function __construct() {
-
-        $this->mongoConnectionInfos = new MongoDBConfig();
               
-        if(getenv('CI_ENVIRONMENT') == 'production') {
-            /** This is for local manage */
-            $uri = getenv('ATL_URI');
-            $database = getenv('ATL_DB');
-        } else {
+        $user = getenv('ATL_USER');
+        $pwd = getenv('ATL_PWD');
 
-            $uri = new Client("mongodb://{$this->mongoConnectionInfos->hostname}:{$this->mongoConnectionInfos->port}/{$this->mongoConnectionInfos->db}",
-                                ["authMechanism" => "SCRAM-SHA-256",
-                                    'username' => $this->mongoConnectionInfos->username,
-                                    'password' => $this->mongoConnectionInfos->password
-                                ]
-                            );
-            $database = $this->mongoConnectionInfos->db;
-        }     
+        $uri = "mongodb+srv://{$user}:{$pwd}@redpandaprices.zfn8e.mongodb.net/?retryWrites=true&w=majority";
+        
+        // Specify Stable API version 1
+        $apiVersion = new ServerApi(ServerApi::V1);
 
+        // Create a new client and connect to the server
+        $this->client = new Client($uri, [], ['serverApi' => $apiVersion]);
+
+        $database = getenv('ATL_DB');
+       
         if (empty($uri) || empty($database)) {
-            show_error('You need to declare ATLAS_URI and DATABASE in your .env file!');
+            die('You need to declare ATLAS_URI and DATABASE in your .env file!');
         }
 
         try {

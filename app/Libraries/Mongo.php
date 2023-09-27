@@ -5,6 +5,8 @@ namespace App\Libraries;
 use \Config\MongoDBConfig;
 use MongoDB\BSON\Regex;
 use MongoDB\Client as client;
+use MongoDB\Driver\ServerApi;
+
 
 class Mongo
 {
@@ -27,12 +29,15 @@ class Mongo
 
     function __construct()
     {
+        $user = getenv('ATL_USER');
+        $pwd = getenv('ATL_PWD');
+        $apiVersion = new ServerApi(ServerApi::V1);
+        $uri = "mongodb+srv://{$user}:{$pwd}@redpandaprices.zfn8e.mongodb.net/?retryWrites=true&w=majority";
+        $this->m = new Client($uri, [], ['serverApi' => $apiVersion]);
+        
+        $database = getenv('ATL_DB');
         $this->mongoConnectionInfos = new MongoDBConfig();
-        // $this->m = new client(getenv('ATLAS_URI'));
-        $this->m = new client("mongodb://{$this->mongoConnectionInfos->hostname}:{$this->mongoConnectionInfos->port}/{$this->mongoConnectionInfos->db}",
-            ["authMechanism" => "SCRAM-SHA-256",
-                'username' => $this->mongoConnectionInfos->username,
-                'password' => $this->mongoConnectionInfos->password]);
+        $this->mongoConnectionInfos->db = $database;
     }
 
     /**

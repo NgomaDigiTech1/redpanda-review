@@ -24,7 +24,7 @@ class SectorModel {
     }
     function getEnabledSectors() {
         $cursor = $this->collection->find([ "sector_status" => "enabled"]);
-        return$cursor->toArray();
+        return $cursor->toArray();
     }
 
     function getSector($id) {

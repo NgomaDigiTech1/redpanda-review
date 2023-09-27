@@ -128,7 +128,7 @@ class Products extends BaseController
                         "optionals" => explode(",", $this->request->getVar('optional_chars')),
                     ],
                     'created_at' => date("Y-m-d"),
-                    'product_image' => '1636451558_385a20f1a11c5a547a53.jpeg', //The default image
+                    'product_image' => 'not-available.jpeg', //The default image
                     "conditions" => $this->request->getVar('conditions')
                 );
                 if(isset($_POST["product_sectors"])) 

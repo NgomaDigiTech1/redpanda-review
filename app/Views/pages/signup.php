@@ -2,7 +2,7 @@
 <html lang="en">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8"/>
 <head>
-    <title><?= $title ?? "Red panda prices" ?></title>
+    <title><?= $title ?? "The Price Bee" ?></title>
     <!-- HTML5 Shim and Respond.js IE11 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 11]>
@@ -17,7 +17,7 @@
     <meta name="keywords" content="">
     <meta name="author" content="Ngoma Digitech"/>
     <!-- Favicon icon -->
-    <link rel="shortcut icon" type="image/png" href="<?= base_url()?>/assets/rp_website/images/favicon.jpg" />
+    <link rel="shortcut icon" type="image/png" href="<?= base_url()?>/assets/rp_website/images/favicon.ico" />
     <!-- vendor css -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/rp_admin/css/style.css">
 </head>

@@ -5,7 +5,7 @@
 <html lang="en">
 
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-    <title> <?= $title ?? "Red Panda Prices"?> </title>
+    <title> <?= $title ?? "The Price Bee"?> </title>
   
     <!-- Meta -->
     <meta charset="utf-8">

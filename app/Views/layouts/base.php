@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="Red Panda prices is a Cprice Comparaisony SystemF.">
+    <meta name="description" content="the Price Bee is a Cprice Comparaisony SystemF.">
     <meta name="keywords" content="Comparaison Prices System, The Price Bee, Thepricebee">
     <title>The Price Bee | <?= $title ?? " Home" ?></title>
     <!-- Bootstrap -->
@@ -35,7 +35,7 @@
                     <a href="<?= base_url()?>"
                     ><img
                             src="<?= base_url()?>/assets/rp_website/images/tpb_logo_jpg.jpg"
-                            alt="Red Panda Prices"
+                            alt="logo"
                             style="width: 120px; height: 60px;"
                         /></a>
                     <button
@@ -116,8 +116,8 @@
                 <div class="footer-logo">
                     <!-- Footer Logo -->
                     <img
-                        src="<?= base_url()?>/assets/rp_website/images/logo_rp.png"
-                        alt="Red Panda Prices"
+                        src="<?= base_url()?>/assets/rp_website/images/tpb_logo_png.png"
+                        alt="The Price Bee"
                         class="rounded-circle"
                         style="width: 120px; height: 80px;"
                     />
