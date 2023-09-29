@@ -37,7 +37,7 @@ class Sectors extends BaseController
             $data['product_det'] = $this->mdb->getList($prodChar,$where);
         }
         $data = [
-            'title' => "Red Panda Prices | Sectors List",
+            'title' => "The Price Bee | Sectors List",
             'sectors' => $this->mdb->getList($this->collection),
             'moderators' => $this->mdb->getList("rp_users", ['u_role'=>'moderator'])
         ];
@@ -58,9 +58,9 @@ class Sectors extends BaseController
     {
         if (!is_logged()) return redirect()->to('/login');
 
-        $data['sectors'] = $this->mdb->getList($this->collection);
+        $data['sectors'] = $this->mdb->getList($this->collection);        
 
-        $data = array(
+        $datum = array(
             'sector_name' => $this->request->getVar('sector_name'),
             'sector_slug' => strtolower(convert_accented_characters(url_title($this->request->getVar('sector_name')))),
             'moderator' => $this->request->getVar('moderator'),
@@ -71,10 +71,14 @@ class Sectors extends BaseController
             'sector_image' => 'sect.jpg',
         );
 
-        $this->mdb->create($this->collection, array($data));
-        $session = session();
-        $session->setFlashData("success", "Sector created Successfully");
-        return redirect()->to('/sectors');
+        // Emiminate redundance
+        $sector = $this->sectModel->getSectorBySlug($datum['sector_slug']);
+        if($sector) {
+            return redirect()->to('/sectors')->with('redondance','This sector already exists',10);
+        }
+        $this->mdb->create($this->collection, array($datum));
+
+        return redirect()->to('/sectors')->with("success", "Sector created Successfully");;
     }
 
     /*
@@ -109,11 +113,9 @@ class Sectors extends BaseController
         if(!empty($data)){
             $where = ['sector_id' => $id];
             $this->mdb->updateOne($this->collection, $where, $data);
-            $session = session();
-            $session->setFlashData("success", "Sector updated Successfully");
-            return redirect()->to('/sectors');
+            return redirect()->to('/sectors')->with("success", "Sector updated successfully");
         }else{
-            echo view('sectors');
+            return redirect()->back();
         }
         return redirect()->to('/sectors');
     }
@@ -231,7 +233,7 @@ class Sectors extends BaseController
 
         $where =($sector['_id']);
         $oldImage = $sector->sector_image;
-        $path = '/assets/rp_admin/images/sector';
+        $path = './assets/rp_admin/images/sector';
         
         if ($this->request->getMethod() == 'post') {
             $rules = [
@@ -240,7 +242,7 @@ class Sectors extends BaseController
                     'rules' => 'required'],
                 'sector_image' => [
                     'label'=>'Image',
-                    'rules'=>'uploaded[sector_image]|max_size[sector_image, 1024]|is_image[sector_image]']
+                    'rules'=>'uploaded[sector_image]|max_size[sector_image, 500]|is_image[sector_image]']
             ];
             if ($this->validate($rules)) {
 
@@ -255,9 +257,9 @@ class Sectors extends BaseController
                     }
 
                     $data = ['sector_image' => $imageName];
+                    $this->sectModel->updateImage($where, $imageName);
                     $file->move($path, $imageName);
 
-                    $this->sectModel->updateImage($where, $imageName);
                     return redirect()->to('/sectors');
                 }
             } else {

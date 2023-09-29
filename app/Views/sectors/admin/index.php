@@ -14,7 +14,6 @@
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?= base_url() ?>/dashboard"><i class="feather icon-home"></i></a></li>
-                            <li class="breadcrumb-item"><a href="#!">Sectors</a></li>
                             <li class="breadcrumb-item"><a href="#!">Sectors List</a></li>
                         </ul>
                     </div>
@@ -51,6 +50,12 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                    <?php if(session()->getFlashdata('redondance')):?>
+                                        <div class="alert alert-danger"><?=session()->getFlashdata('redondance');?></div>
+                                    <?php endif;?>
+                                    <?php if(session()->getFlashdata('success')):?>
+                                        <div class="alert alert-primary"><?=session()->getFlashdata('success');?></div>
+                                    <?php endif;?>
                                     <?php if ($sectors ) : ?>
                                         <?php foreach ($sectors as $row) : ?>
                                             <?php if ($user_data->u_role === 'admin' || $user_data->u_role === 'org manager'):?>

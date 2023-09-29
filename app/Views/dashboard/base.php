@@ -13,9 +13,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="description" content="" />
     <meta name="keywords" content="">
-    <meta name="author" content="Phoenixcoded" />
+    <meta name="author" content="Ngoma Digitech" />
     <!-- Favicon icon -->
-    <link rel="shortcut icon" type="image/png" href="<?= base_url()?>/assets/rp_website/images/favicon.jpg" />
+    <link rel="shortcut icon" type="image/png" href="<?= base_url()?>/assets/rp_website/images/favicon.ico" />
 
     <!-- tag input css -->
     <link rel="stylesheet" href="<?= base_url()?>/assets/rp_admin/css/plugins/bootstrap-tagsinput.css">
