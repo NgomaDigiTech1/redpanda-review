@@ -17,7 +17,7 @@
     <meta name="keywords" content="">
     <meta name="author" content="Ngoma Digitech"/>
     <!-- Favicon icon -->
-    <link rel="shortcut icon" type="image/png" href="<?= base_url()?>/assets/rp_website/images/favicon.jpg" />
+    <link rel="shortcut icon" type="image/png" href="<?= base_url()?>/assets/rp_website/images/favicon.ico" />
     <!-- vendor css -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/rp_admin/css/style.css">
 </head>
