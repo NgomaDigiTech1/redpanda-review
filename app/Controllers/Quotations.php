@@ -458,8 +458,10 @@ class Quotations extends BaseController
     function dealing($key, $typekey)
     {
         if (!is_logged()) return redirect()->to('/login');
+        $model = model(QuotationModel::class);
+        $quote = $model->getQuote($key);
 
-        $where = ['quotation_id' => $key];
+        $where = ['_id' => $quote->_id];
         $data = $this->mdb->getOne('rp_quotation', $where);
         if (!empty($data)) {
 
@@ -472,7 +474,6 @@ class Quotations extends BaseController
             } else {
                 die('Something went wrong...');
             }
-
             $this->mdb->updateOne('rp_quotation', $where, $data);
 
         } else {

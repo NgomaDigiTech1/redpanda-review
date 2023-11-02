@@ -173,17 +173,17 @@ use CodeIgniter\I18n\Time;
                                                                             <span class="badge badge-light-danger">Cancelled</span>
                                                                         <?php endif ?>
                                                                     <?php endif ?>
-                                                                    <div class="overlay-edit">
-                                                                        <a type="button" href="<?= base_url()?>/quotations/dealing/<?= $quote->_id?>/process"
+                                                                    <!-- <div class="overlay-edit"> -->
+                                                                        <!-- <a type="button" href="</?= base_url()?>/quotations/dealing/</?= $quote->_id?>/process"
                                                                            class="btn btn-icon btn-warning" data-toggle="tooltip" data-placement="top" title="Process">
                                                                             <i class="feather icon-check-circle"></i></a>
-                                                                        <a type="button" href="<?= base_url()?>/quotations/dealing/<?= $quote->_id?>/done"
+                                                                        <a type="button" href="</?= base_url()?>/quotations/dealing/</?= $quote->_id?>/done"
                                                                            class="btn btn-icon btn-success" data-toggle="tooltip" data-placement="top" title="Done">
                                                                             <i class="feather icon-thumbs-up"></i></a>
-                                                                        <a type="button" href="<?= base_url()?>/quotations/dealing/<?= $quote->_id?>/cancel"
+                                                                        <a type="button" href="</?= base_url()?>/quotations/dealing/</?= $quote->_id?>/cancel"
                                                                            class="btn btn-icon btn-danger" data-toggle="tooltip" data-placement="top" title="Cancel">
-                                                                            <i class="feather icon-slash"></i></a>
-                                                                    </div>
+                                                                            <i class="feather icon-slash"></i></a> -->
+                                                                    <!-- </div> -->
                                                                 </td>
                                                             </tr>
                                                         <?php endforeach;?>
