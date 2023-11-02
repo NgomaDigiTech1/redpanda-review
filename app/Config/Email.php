@@ -47,21 +47,21 @@ class Email extends BaseConfig
      *
      * @var string
      */
-   public $SMTPHost='redpanda-prices.com';
+   public $SMTPHost='thepricebee.com';
 
     /**
      * SMTP Username
 
      * @var string
      */
-    public $SMTPUser='support@redpanda-prices.com';
+    public $SMTPUser='info@thepricebee.com';
 
     /**
      * SMTP Password
      *
      * @var string
      */
-    public $SMTPPass='lU}MB22EDmi$';
+    public $SMTPPass='NzgN[jkmQlhk';
 
     /**
      * SMTP Port

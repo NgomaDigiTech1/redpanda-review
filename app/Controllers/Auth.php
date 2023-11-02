@@ -208,8 +208,8 @@ class Auth extends BaseController
                     }
                     $this->mdb->create($this->collection, array($data));
                     /*Mail data*/
-                    //$to = $this->request->getVar('user_email');
-                    //$this->sendMailforSignup($to, $token);//Call to function for send email
+                    $to = $this->request->getVar('user_email');
+                    $this->sendMailforSignup($to, $token);//Call to function for send email
 
                     $session = session();
                     $session->setFlashData("success", "We've sent you an email, please checkout your mailbox to confirm the account");
@@ -227,8 +227,8 @@ class Auth extends BaseController
 
 
     function sendMailforSignup($to, $token){
-        $subject= "Registration for Thepricebee prices";
-        $this->email->setFrom('support@soril.org', 'Support Thepricebee');
+        $subject= "Registration for The Price Bee";
+        $this->email->setFrom('info@thepricebee.com', 'Support The Price Bee');
         $this->email->setTo($to);
         $this->email->setSubject($subject);
         $this->email->setMessage($this->mailContentSignup($to,$token));
@@ -244,8 +244,6 @@ class Auth extends BaseController
         'token' => $token,
       ];
       return view('mails/signupmail', $data);
-    }
-
-    
+    }    
 }
  

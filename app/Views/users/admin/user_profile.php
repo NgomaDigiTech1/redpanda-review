@@ -173,17 +173,17 @@ use CodeIgniter\I18n\Time;
                                                                             <span class="badge badge-light-danger">Cancelled</span>
                                                                         <?php endif ?>
                                                                     <?php endif ?>
-                                                                    <!-- <div class="overlay-edit"> -->
-                                                                        <!-- <a type="button" href="</?= base_url()?>/quotations/dealing/</?= $quote->_id?>/process"
+                                                                    <div class="overlay-edit">
+                                                                        <a type="button" href="<?= base_url()?>/quotations/dealing/<?= $quote->_id?>/process"
                                                                            class="btn btn-icon btn-warning" data-toggle="tooltip" data-placement="top" title="Process">
                                                                             <i class="feather icon-check-circle"></i></a>
-                                                                        <a type="button" href="</?= base_url()?>/quotations/dealing/</?= $quote->_id?>/done"
+                                                                        <a type="button" href="<?= base_url()?>/quotations/dealing/<?= $quote->_id?>/done"
                                                                            class="btn btn-icon btn-success" data-toggle="tooltip" data-placement="top" title="Done">
                                                                             <i class="feather icon-thumbs-up"></i></a>
-                                                                        <a type="button" href="</?= base_url()?>/quotations/dealing/</?= $quote->_id?>/cancel"
+                                                                        <a type="button" href="<?= base_url()?>/quotations/dealing/<?= $quote->_id?>/cancel"
                                                                            class="btn btn-icon btn-danger" data-toggle="tooltip" data-placement="top" title="Cancel">
-                                                                            <i class="feather icon-slash"></i></a> -->
-                                                                    <!-- </div> -->
+                                                                            <i class="feather icon-slash"></i></a>
+                                                                    </div>
                                                                 </td>
                                                             </tr>
                                                         <?php endforeach;?>
@@ -470,32 +470,32 @@ use CodeIgniter\I18n\Time;
                             </div>
                             <div class="card-body border-top pro-dont-edit collapse " id="pro-dont-edit-2">
                                 <?= form_open("users/update")?>
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label font-weight-bolder">Mobile Number</label>
-                                    <div class="col-sm-9">
-                                        <input type="text" name="u_phone" class="form-control" placeholder="Mobile Number" value="<?= $user_data->u_phone ?? ""?>">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label font-weight-bolder">Email Address</label>
-                                    <div class="col-sm-9">
-                                        <input type="text"  name="u_email" disabled class="form-control" placeholder="Email" value="<?= $user_data->u_email ?? ""?>">
-                                    </div>
-                                </div>
-                                <?php if(($user_data->u_role === 'admin') || ($user_data->u_role === 'org manager')) :?>
                                     <div class="form-group row">
-                                        <label class="col-sm-3 col-form-label font-weight-bolder">Website</label>
+                                        <label class="col-sm-3 col-form-label font-weight-bolder">Mobile Number</label>
                                         <div class="col-sm-9">
-                                            <input type="text" name="org_website" class="form-control" placeholder="Web Site" value="<?= $user_data->org_website ?? ""?>">
+                                            <input type="text" name="u_phone" class="form-control" placeholder="Mobile Number" value="<?= $user_data->u_phone ?? ""?>">
                                         </div>
                                     </div>
-                                <?php endif;?>
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label"></label>
-                                    <div class="col-sm-9">
-                                        <button type="submit" class="btn btn-primary">Save</button>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label font-weight-bolder">Email Address</label>
+                                        <div class="col-sm-9">
+                                            <input type="text"  name="u_email" disabled class="form-control" placeholder="Email" value="<?= $user_data->u_email ?? ""?>">
+                                        </div>
                                     </div>
-                                </div>
+                                    <?php if(($user_data->u_role === 'admin') || ($user_data->u_role === 'org manager')) :?>
+                                        <div class="form-group row">
+                                            <label class="col-sm-3 col-form-label font-weight-bolder">Website</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="org_website" class="form-control" placeholder="Web Site" value="<?= $user_data->org_website ?? ""?>">
+                                            </div>
+                                        </div>
+                                    <?php endif;?>
+                                    <div class="form-group row">
+                                        <label class="col-sm-3 col-form-label"></label>
+                                        <div class="col-sm-9">
+                                            <button type="submit" class="btn btn-primary">Save</button>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
