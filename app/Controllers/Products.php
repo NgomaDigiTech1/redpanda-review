@@ -323,6 +323,7 @@ class Products extends BaseController
         }
         return view('products/admin/details', $data);
     }
+    
     public function productDetails($prod = null, $org = null){
         if($prod && $org){            
             $data = [

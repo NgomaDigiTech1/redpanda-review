@@ -482,4 +482,11 @@ class Quotations extends BaseController
         return redirect()->to('/profile');
     }
 
+    function auto ()  {
+        $data = [
+            'title' => 'Car Insurance | The Price Bee',
+        ];
+        return view('quotations/auto', $data);
+    } 
+
 }
