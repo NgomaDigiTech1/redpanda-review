@@ -50,7 +50,12 @@ $routes->add('apply-insurance','Quotations::applyInsurance');
 $routes->add('apply-home','Quotations::applyHome');
 $routes->add('apply','Quotations::apply');
 
+/** Assurance */
 $routes->get('assurance-auto','Quotations::auto');
+$routes->get('assurance-habitation','Quotations::habitation');
+$routes->get('assurance-accident','Quotations::accident');
+$routes->get('assurance-vie','Quotations::vie');
+$routes->get('assurance-voyage','Quotations::voyage');
 
 /** Products */
 $routes->get('all-products', 'Products::allProducts');

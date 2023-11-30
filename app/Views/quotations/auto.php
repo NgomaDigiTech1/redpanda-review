@@ -44,7 +44,7 @@
                             <tr>
                                 <td><img src="<?= site_url() ?>assets/rp_website/images/companies/rawsur.png" alt="rawsure" class="img-fluid"></td>
                                 <td>
-                                    <span class="text-dark compare-card-title">RAWSURE</span>
+                                    <span class="text-dark compare-card-title">RAWSUR</span>
                                     <br>
                                     <div class="icon rate-done mb10"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star "></i></div>
                                 </td>
@@ -104,7 +104,7 @@
                                             <div class="col-xl-12">
                                                 <div class="mt30">
                                                     <h4 class="mb5">Information Connexe</h4>
-                                                    <p>Visitez <a href="https://rawsur.com/">Rawsure</a> notre site !</p>
+                                                    <p>Visitez <a href="https://rawsur.com/">Rawsur</a> notre site !</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -269,7 +269,7 @@
                                             <div class="col-xl-12">
                                                 <div class="mt30">
                                                     <h4 class="mb5">Information Connexe</h4>
-                                                    <p>Visitez <a href="https://sfa-congo.com/">SFA</a> notre site !</p>
+                                                    <p>Visitez <a href="https://drc.mayfairinsurance.africa/">MyFairInsurance</a> notre site !</p>
                                                 </div>
                                             </div>
                                         </div>

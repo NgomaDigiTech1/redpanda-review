@@ -488,5 +488,29 @@ class Quotations extends BaseController
         ];
         return view('quotations/auto', $data);
     } 
+    function habitation ()  {
+        $data = [
+            'title' => 'Home Insurance | The Price Bee',
+        ];
+        return view('quotations/habitation', $data);
+    } 
+    function accident ()  {
+        $data = [
+            'title' => 'Accident Insurance | The Price Bee',
+        ];
+        return view('quotations/accident', $data);
+    } 
+    function vie ()  {
+        $data = [
+            'title' => 'Life Insurance | The Price Bee',
+        ];
+        return view('quotations/vie', $data);
+    } 
+    function voyage ()  {
+        $data = [
+            'title' => 'Travel Insurance | The Price Bee',
+        ];
+        return view('quotations/voyage', $data);
+    } 
 
 }
