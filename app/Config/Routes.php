@@ -56,6 +56,10 @@ $routes->get('assurance-habitation','Quotations::habitation');
 $routes->get('assurance-accident','Quotations::accident');
 $routes->get('assurance-vie','Quotations::vie');
 $routes->get('assurance-voyage','Quotations::voyage');
+$routes->get('assurance-multirisque','Quotations::multirisque');
+$routes->get('assurance-chantier','Quotations::chantier');
+$routes->get('assurance-responsabilite','Quotations::responsabilite');
+$routes->get('assurance-transport','Quotations::transport');
 
 /** Products */
 $routes->get('all-products', 'Products::allProducts');

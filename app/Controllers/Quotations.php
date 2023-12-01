@@ -512,5 +512,29 @@ class Quotations extends BaseController
         ];
         return view('quotations/voyage', $data);
     } 
+    function multirisque ()  {
+        $data = [
+            'title' => 'Multirisk Insurance | The Price Bee',
+        ];
+        return view('quotations/multirisque', $data);
+    } 
+    function chantier ()  {
+        $data = [
+            'title' => 'Assurance Chantier | The Price Bee',
+        ];
+        return view('quotations/chantier', $data);
+    } 
+    function responsabilite ()  {
+        $data = [
+            'title' => 'Assurance Responsabilité | The Price Bee',
+        ];
+        return view('quotations/responsabilite', $data);
+    } 
+    function transport ()  {
+        $data = [
+            'title' => 'Transport Insurance | The Price Bee',
+        ];
+        return view('quotations/transport', $data);
+    } 
 
 }

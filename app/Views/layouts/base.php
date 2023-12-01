@@ -8,7 +8,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="the Price Bee is a Cprice Comparaisony SystemF.">
     <meta name="keywords" content="Comparaison Prices System, The Price Bee, Thepricebee, Assurance, Voiture, Car, Automobile, Vie, Life, Voyage, Individu">
-    <title>The Price Bee | <?= $title ?? " Home" ?></title>
+    <title> <?= $title ?? " The Price Bee" ?></title>
     <!-- Bootstrap -->
     <link href="<?= base_url()?>/assets/rp_website/css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="<?= base_url()?>/assets/rp_website/css/style.css" rel="stylesheet">
